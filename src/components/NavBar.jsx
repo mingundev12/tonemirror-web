@@ -29,8 +29,8 @@ export default function NavBar() {
 
     return (
     <>      
-            <div className="fixed w-[80%] left-1/2 -translate-x-1/2 z-[200]">
-                <div className="flex flex-row py-8 justify-between font-light font-gmarket">
+            <div className="fixed md:w-[80%] px-[10%] md:px-0 w-full left-1/2 -translate-x-1/2 z-[200]">
+                <div className="flex flex-row py-6 md:py-8 justify-between font-light font-gmarket">
                     <MotionNavLink
                         style={{marginLeft}}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -58,7 +58,7 @@ export default function NavBar() {
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                             to="/makeup" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>가상 메이크업</MotionNavLink>
                         
-                        <div className="relative z-50 font-gmarket">
+                        <div className="relative z-50 font-gmarket md:block hidden ">
                             <button
                                 type="button"
                                 onClick={() => setLangOpen((v) => !v)}
@@ -100,7 +100,7 @@ export default function NavBar() {
                     <motion.div 
                         style={{ opacity }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="glass absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 md:w-full w-[200%] md:h-14 h-full rounded-full border border-[#FDFAF7]/10"></motion.div>
+                        className="glass absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-full md:h-14 h-full md:rounded-full border border-[#FDFAF7]/10"></motion.div>
                 </div>
             </div>
         </>

@@ -1,22 +1,19 @@
 import chartRadarFilled from "../assets/img/chart-radar-filled.svg"
-import downloadSimpleLight from "../assets/img/download-simple-light.svg";
-import arrowUDownLeftLight from "../assets/img/arrow-u-down-left-light.svg";
 import lightbulbFilamentLight from "../assets/img/lightbulb-filament-light.svg";
 import warningLight from "../assets/img/warning-light.svg";
-import scanSmiley from "../assets/img/scan-smiley-white.svg";
+import ResultLeftBtn from "./ResultLeftBtn";
 
-import { motion } from "motion/react";
 export default function ResultLeft({personalColorData}) {
    return (
        <>
-           <div className="flex flex-col gap-10 w-full p-10">
-                <div className="flex flex-row items-center gap-2">
+           <div className="flex flex-col gap-10 w-full md:p-10 p-0">
+                <div className="flex-row items-center gap-2 flex">
                     <img src={chartRadarFilled} className="w-6 h-6 opacity-50" />
                     <p className="text-[#3D2E35]/50 pt-1 font-light font-gmarket">퍼스널 컬러 진단 결과</p>
                 </div>
                 
                 
-                <div className="grid grid-cols-2 gap-10 relative items-center">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-10 relative items-center">
                     
                     <div>
                         <div className="flex flex-col gap-6">                    
@@ -28,7 +25,8 @@ export default function ResultLeft({personalColorData}) {
                         </div>
                     </div>
 
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[0.1px] h-full bg-[#3D2E35]/25" />
+                    <div className="md:block hidden absolute top-0 left-1/2 -translate-x-1/2 w-[0.1px] h-full bg-[#3D2E35]/25" />
+                    <hr className="border-[#3D2E35]/25 md:hidden block" />
 
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-2">
@@ -48,30 +46,10 @@ export default function ResultLeft({personalColorData}) {
                         </div>
                     </div>
                 </div>
-
-                <div className="grid grid-cols-3 place-items-center w-full">
-                    <motion.button
-                        whileHover={{ scale: 1.05, backgroundColor: "#5C4650" }}
-                        transition={{ duration: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 100}}
-                        className="font-medium text-sm text-[#FDFAF7] bg-[#3D2E35] flex flex-row gap-2 rounded-full px-10 py-4 cursor-pointer" type="button" onClick={() => {}}>
-                        <img src={scanSmiley} className="w-6 h-6" />
-                        <p className="font-light pt-1 font-gmarket">가상 메이크업</p>
-                    </motion.button>
-                    <motion.button
-                        whileHover={{ scale: 1.05, backgroundColor: "#5C4650" }}
-                        transition={{ duration: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 100}}
-                        className="font-medium text-sm text-[#FDFAF7] bg-[#3D2E35] flex flex-row gap-2 rounded-full px-10 py-4 cursor-pointer" type="button" onClick={() => {}}>
-                        <img src={downloadSimpleLight} className="w-5 h-5" />
-                        <p className="font-light pt-1 font-gmarket">결과 저장하기</p>
-                    </motion.button>
-                    <motion.button
-                        whileHover={{ scale: 1.05, opacity: 1 }}
-                        transition={{ duration: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 100}}
-                        className="font-medium text-sm flex flex-row gap-2 items-center opacity-50 text-[#3D2E35] border border-[#3D2E35] rounded-full px-10 py-4 cursor-pointer" type="button" onClick={() => {}}>
-                        <img src={arrowUDownLeftLight} className="w-5 h-5" />
-                        <p className="pt-1 font-gmarket">다시 진단하기</p>
-                    </motion.button>
+                <div className="md:block hidden">
+                    <ResultLeftBtn />
                 </div>
+                
             </div>
        </>
    )
