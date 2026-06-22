@@ -7,7 +7,7 @@ export default function ResultRight({personalColorData, userSkinTone}) {
                 <HologramOverlay />
                 <div className="grid grid-cols-2 md:gap-20 gap-10 w-full h-full relative">
                     <div className="h-full flex flex-col gap-2  justify-center">
-                        <p className="text-[#3D2E35]/75 tracking-widest md:text-left text-center pt-1 text-xs font-light font-gmarket">나의 피부톤</p>
+                        <p className="text-[#3D2E35]/75 tracking-widest text-left pt-1 text-xs font-light font-gmarket">나의 피부톤</p>
                         <div className="flex justify-center items-center">
                             <div className="md:w-36 w-24 h-24 md:h-36 aspect-square rounded-full border border-[#FDFAF7]/10 glass flex items-center justify-center">
                                 <div className="md:w-30 w-20 h-20 md:h-30 rounded-full" style={{ backgroundColor: userSkinTone}} />
@@ -16,7 +16,7 @@ export default function ResultRight({personalColorData, userSkinTone}) {
                     </div>
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[0.1px] h-2/3 -translate-y-1/2 bg-[#3D2E35]/20" />
                     <div className="h-full">
-                        <p className="text-[#3D2E35]/75 tracking-widest md:text-left text-center pt-1 text-xs font-light font-gmarket">진단 정확도</p>
+                        <p className="text-[#3D2E35]/75 tracking-widest text-left pt-1 text-xs font-light font-gmarket">진단 정확도</p>
                         <div className="h-full justify-center flex items-center flex-col gap-2">
                             <p className="md:text-7xl text-4xl font-bold text-[#3D2E35] font-rebecca">94%</p>
                             <p className="text-[#3D2E35] font-light md:text-base text-sm text-center font-gmarket">AI 피부톤 <br className="md:hidden block" /> 분석 신뢰도 </p>

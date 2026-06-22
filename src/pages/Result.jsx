@@ -94,6 +94,7 @@ export default function Result({userToneStatus, userSkinTone}) {
                             <motion.div
                                 initial={{ y: 200 }}
                                 whileInView={{ y: 0}}
+                                viewport={{ once: true }}
                                 transition={{ duration: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 100}}
                                 className="md:hidden block"
                             >
