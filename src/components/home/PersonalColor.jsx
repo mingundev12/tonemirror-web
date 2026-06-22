@@ -1,5 +1,5 @@
 import { useState } from "react"
-import ColorWheel from "./ColorWheel"
+import ColorWheel from "../ColorWheel"
 
 export default function PersonalColor() {
 

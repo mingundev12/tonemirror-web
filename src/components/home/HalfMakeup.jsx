@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useMotionTemplate, useTransform } from "motion/react";
-import beforeSrc from "../assets/modelHead1.png";
-import afterSrc from "../assets/modelHead2.png";
+import beforeSrc from "../../assets/modelHead1.png";
+import afterSrc from "../../assets/modelHead2.png";
 
 const HANDLE = 40;
 const HALF = HANDLE / 2;

@@ -2,7 +2,7 @@ import HalfMakeupCard from "../components/HalfMakeupCard";
 import ProductCard from "../components/ProductCard";
 import downloadSimpleLight from "../assets/img/download-simple-light.svg";
 import { motion } from "motion/react";
-import BlobGradient from "../components/BlobGradient";
+import BlobGradient from "../components/common/BlobGradient";
 
 export default function MakeUp({userToneStatus}) {
     

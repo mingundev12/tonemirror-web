@@ -1,24 +1,10 @@
 import { useEffect, useState } from "react";
-import BlobGradient from "../components/BlobGradient";
+import BlobGradient from "../components/common/BlobGradient";
 import ResultRight from "../components/ResultRight";
 import ResultLeft from "../components/ResultLeft";
 import { motion } from "motion/react";
 import Lenis from "lenis";
-
-
-// const lipProducts = [
-//     { brand: "BRAND E", name: "벨벳 립틴트", shade: "Coral Rose", swatch: "#E8927C" },
-//     { brand: "BRAND F", name: "글로시 립", shade: "Peach Nude", swatch: "#D4A08A" },
-//     { brand: "BRAND G", name: "매트 립스틱", shade: "Warm Terracotta", swatch: "#C4785E" },
-//     { brand: "BRAND H", name: "워터 틴트", shade: "Spring Pink", swatch: "#E8A0A8" },
-// ];
-
-// const blushProducts = [
-//     { brand: "BRAND I", name: "피치 블러셔", shade: "Peach Glow", swatch: "#F4B8A8" },
-//     { brand: "BRAND J", name: "크림 블러쉬", shade: "Soft Apricot", swatch: "#E8A898" },
-//     { brand: "BRAND K", name: "파우더 블러셔", shade: "Warm Coral", swatch: "#E09080" },
-//     { brand: "BRAND L", name: "리퀴드 블러쉬", shade: "Rose Beige", swatch: "#D89888" },
-// ];
+import ResultLeftBtn from "../components/ResultLeftBtn";
 
 export default function Result({userToneStatus, userSkinTone}) {
 
@@ -81,7 +67,6 @@ export default function Result({userToneStatus, userSkinTone}) {
         : userToneStatus === "Cool Winter" ? personalColor[3]
         : null;
 
-
    return (
        <>   
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full h-full">
@@ -91,9 +76,9 @@ export default function Result({userToneStatus, userSkinTone}) {
                     <BlobGradient />
                 </div>
 
-                <div className="w-full h-screen relative overflow-hidden z-50">
-                    <div className="absolute mx-[10%] h-full flex flex-col mt-40 md:mt-0 md:justify-center gap-10 z-[100]">
-                        <div className="grid grid-cols-2 items-center gap-10">
+                <div className="w-full md:h-screen h-full relative z-50">
+                    <div className="absolute mx-[10%] h-full flex flex-col mt-30 md:mt-0 md:justify-center gap-10 z-[100]">
+                        <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-10">
 
                             <ResultLeft personalColorData={personalColorData} />
 
@@ -101,9 +86,24 @@ export default function Result({userToneStatus, userSkinTone}) {
                                 initial={{ y: 200 }}
                                 animate={{ y: 0}}
                                 transition={{ duration: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 100}}
+                                className="md:block hidden"
                             >
                                 <ResultRight personalColorData={personalColorData} userSkinTone={userSkinTone} />
                             </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 300 }}
+                                whileInView={{ opacity: 1, y: 0}}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ duration: 0.5, ease: "easeInOut", type: "spring", damping: 20, stiffness: 100}}
+                                className="md:hidden block"
+                            >
+                                <ResultRight personalColorData={personalColorData} userSkinTone={userSkinTone} />
+                            </motion.div>
+
+                            <div className="md:hidden block">
+                                <ResultLeftBtn />
+                            </div>
                         </div>
                     </div>
                 </div>
