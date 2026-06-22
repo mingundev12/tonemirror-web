@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+    --font-gmarket: 'GmarketSans', sans-serif;
+    --font-rebecca: 'EF_Rebecca', sans-serif;
+    --font-roboto: 'RobotoMono', sans-serif;
+}
+
+@utility glass {
+    background: linear-gradient(135deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0.16) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.85), inset 0 -1px 1px rgba(255,255,255,0.12), inset 1px 0 1px rgba(255,255,255,0.35), inset 0 0 24px rgba(255,255,255,0.10), 0 12px 40px rgba(180,140,150,0.22), 0 2px 10px rgba(180,140,150,0.10);
+}
+
+@utility hologram {
+    background: repeating-linear-gradient(135deg, transparent 0px, transparent 40px, rgba(255,200,220,0.12) 40px, rgba(200,220,255,0.10) 44px, rgba(220,255,220,0.08) 48px, transparent 52px, transparent 160px, rgba(255,220,180,0.10) 160px, rgba(200,200,255,0.08) 164px, transparent 168px, transparent 280px);
+    mask-image: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.4) 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.4) 70%, transparent 100%);
+}
+
+@utility mask-circle {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+@font-face {
+    font-family: 'EF_Rebecca';
+    src: url('/src/assets/font/EF_Rebecca.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RobotoMono';
+    src: url('/src/assets/font/RobotoMono.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #FDFAF7;
+}
+
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('/src/assets/font/GmarketSansTTFMedium.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('/src/assets/font/GmarketSansTTFLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: light;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('/src/assets/font/GmarketSansTTFBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: bold;
+    font-display: swap;
+}
