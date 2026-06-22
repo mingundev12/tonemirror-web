@@ -5,7 +5,7 @@ import angleLight from "../assets/img/angle-light.svg";
 import lightbulbFilamentLight from "../assets/img/lightbulb-filament-light.svg";
 import scanSmileyLight from "../assets/img/scan-smiley-light.svg";
 import imageSquare from "../assets/img/image-square.svg";
-import HologramOverlay from "./HologramOverlay";
+import HologramOverlay from "./common/HologramOverlay";
 
 const GUIDE_SECTIONS = [
   {

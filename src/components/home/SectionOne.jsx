@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
+
 import Foundation from "./Foundation";
 import HalfMakeup from "./HalfMakeup";
 import PersonalColor from "./PersonalColor";
-import BlobGradient from "./BlobGradient";
-import HologramOverlay from "./HologramOverlay";
+import BlobGradient from "../common/BlobGradient";
+import HologramOverlay from "../common/HologramOverlay";
 
 const defaultRotations = [-8, 0, 8]
 

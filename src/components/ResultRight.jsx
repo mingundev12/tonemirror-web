@@ -1,4 +1,4 @@
-import HologramOverlay from "../components/HologramOverlay";
+import HologramOverlay from "./common/HologramOverlay";
 
 export default function ResultRight({personalColorData, userSkinTone}) {
    return (

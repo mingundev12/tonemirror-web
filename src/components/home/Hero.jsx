@@ -1,12 +1,14 @@
-import head from "../assets/modelHead1.png";
-import head2 from "../assets/modelHead2.png";
-import rightArrowWhite from "../assets/img/arrow-right-white.svg";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
-import logoSymbol from "../assets/logo/Logo1White.svg"
-import logoText from "../assets/logo/Logo2White.svg"
 import { Link } from "react-router-dom";
-import BlobGradient from "./BlobGradient";
+
+import head from "../../assets/modelHead1.png";
+import head2 from "../../assets/modelHead2.png";
+import rightArrowWhite from "../../assets/img/arrow-right-white.svg";
+import logoSymbol from "../../assets/logo/Logo1White.svg"
+import logoText from "../../assets/logo/Logo2White.svg"
+
+import BlobGradient from "../common/BlobGradient";
 
 const vw = () => document.documentElement.clientWidth;
 const vh = () => document.documentElement.clientHeight;

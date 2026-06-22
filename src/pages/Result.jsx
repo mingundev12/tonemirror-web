@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import BlobGradient from "../components/BlobGradient";
+import BlobGradient from "../components/common/BlobGradient";
 import ResultRight from "../components/ResultRight";
 import ResultLeft from "../components/ResultLeft";
 import { motion } from "motion/react";
