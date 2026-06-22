@@ -92,10 +92,10 @@ export default function Result({userToneStatus, userSkinTone}) {
                             </motion.div>
 
                             <motion.div
-                                initial={{ y: 200 }}
-                                whileInView={{ y: 0}}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 100}}
+                                initial={{ opacity: 0, y: 300 }}
+                                whileInView={{ opacity: 1, y: 0}}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ duration: 0.5, ease: "easeInOut", type: "spring", damping: 20, stiffness: 100}}
                                 className="md:hidden block"
                             >
                                 <ResultRight personalColorData={personalColorData} userSkinTone={userSkinTone} />
