@@ -1,6 +1,6 @@
-import chartRadarFilled from "../assets/img/chart-radar-filled.svg"
-import lightbulbFilamentLight from "../assets/img/lightbulb-filament-light.svg";
-import warningLight from "../assets/img/warning-light.svg";
+import chartRadarFilled from "../../assets/img/chart-radar-filled.svg"
+import lightbulbFilamentLight from "../../assets/img/lightbulb-filament-light.svg";
+import warningLight from "../../assets/img/warning-light.svg";
 import ResultLeftBtn from "./ResultLeftBtn";
 
 export default function ResultLeft({personalColorData}) {

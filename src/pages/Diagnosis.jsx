@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { motion } from "motion/react";
 
-import ImageUpload from "../components/ImageUpload";
-import Analysis from "../components/Analysis";
+import ImageUpload from "../components/diagnosis/ImageUpload";
+import Analysis from "../components/diagnosis/Analysis";
 import BlobGradient from "../components/common/BlobGradient";
-import Ready from "../components/Ready";
+import Ready from "../components/diagnosis/Ready";
 import Indicator from "../components/diagnosis/Indicator";
 import DiagNavBtn from "../components/diagnosis/DiagNavBtn";
 import DiagTitle from "../components/diagnosis/DiagTitle";
@@ -47,7 +47,7 @@ export default function Diagnosis() {
                         <div className="order-1 md:order-2 flex flex-col items-center text-center">
                             {/* 타이틀 */}
                             <DiagTitle diagStatus={diagStatus}/>
-
+                            
                             {diagStatus === "ready" && (
                                 <div className="md:hidden flex justify-center mt-1 w-full min-h-10">
                                     <DiagNavBtn

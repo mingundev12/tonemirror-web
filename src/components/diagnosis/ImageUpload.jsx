@@ -2,10 +2,10 @@ import { useCallback, useState, useRef } from "react";
 import { motion } from "motion/react";
 import Webcam from "react-webcam";
 
-import imageSquareLight from "../assets/img/image-square-light.svg";
-import cameraLight from "../assets/img/camera-light.svg";
+import imageSquareLight from "../../assets/img/image-square-light.svg";
+import cameraLight from "../../assets/img/camera-light.svg";
 
-import HologramOverlay from "./common/HologramOverlay";
+import HologramOverlay from "../common/HologramOverlay";
 
 
 export default function ImageUpload() {

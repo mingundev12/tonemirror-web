@@ -1,10 +1,13 @@
-import HologramOverlay from "./common/HologramOverlay";
+import HologramOverlay from "../common/HologramOverlay";
 
 export default function ResultRight({personalColorData, userSkinTone}) {
+    const diagAccuracy = 94;
+    
    return (
        <>
            <div className="glass relative flex flex-col gap-4 items-center justify-center rounded-2xl border border-[#FDFAF7]/10 overflow-hidden p-10">
                 <HologramOverlay />
+
                 <div className="grid grid-cols-2 md:gap-20 gap-10 w-full h-full relative">
                     <div className="h-full flex flex-col gap-2  justify-center">
                         <p className="text-[#3D2E35]/75 tracking-widest text-left pt-1 text-xs font-light font-gmarket">나의 피부톤</p>
@@ -18,13 +21,12 @@ export default function ResultRight({personalColorData, userSkinTone}) {
                     <div className="h-full">
                         <p className="text-[#3D2E35]/75 tracking-widest text-left pt-1 text-xs font-light font-gmarket">진단 정확도</p>
                         <div className="h-full justify-center flex items-center flex-col gap-2">
-                            <p className="md:text-7xl text-4xl font-bold text-[#3D2E35] font-rebecca">94%</p>
+                            <p className="md:text-7xl text-4xl font-bold text-[#3D2E35] font-rebecca">{diagAccuracy}%</p>
                             <p className="text-[#3D2E35] font-light md:text-base text-sm text-center font-gmarket">AI 피부톤 <br className="md:hidden block" /> 분석 신뢰도 </p>
                         </div>
-                    </div>
-                    
-                    
+                    </div> 
                 </div>
+
                 <div className="flex flex-col gap-6 w-full">
                 <hr className="border-[#3D2E35]/20 h-[0.1px]" />
                     <div className="flex flex-col justify-center gap-2 items-start px-2">

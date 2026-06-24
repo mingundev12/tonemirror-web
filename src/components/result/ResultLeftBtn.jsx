@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
-import scanSmiley from "../assets/img/scan-smiley-white.svg";
-import downloadSimpleLight from "../assets/img/download-simple-light.svg";
-import arrowUDownLeftLight from "../assets/img/arrow-u-down-left-light.svg";
+import scanSmiley from "../../assets/img/scan-smiley-white.svg";
+import downloadSimpleLight from "../../assets/img/download-simple-light.svg";
+import arrowUDownLeftLight from "../../assets/img/arrow-u-down-left-light.svg";
 
 export default function ResultLeftBtn() {
    return (

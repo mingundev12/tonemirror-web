@@ -2,8 +2,8 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "motion/react";
 
-import logoSymbol from "../assets/logo/Logo1.svg"
-import logoText from "../assets/logo/Logo2.svg"
+import logoSymbol from "../../assets/logo/Logo1.svg"
+import logoText from "../../assets/logo/Logo2.svg"
 
 export default function NavBar() {
 
