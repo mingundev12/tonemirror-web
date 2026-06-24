@@ -9,6 +9,7 @@ import MakeUp from './pages/MakeUp';
 
 import NavBar from './components/common/NavBar';
 import LenisComponent from './components/common/LenisComponent';
+import ProductDashboard from './pages/ProductDashboard';
 
 export default function App() {
 
@@ -28,6 +29,7 @@ export default function App() {
             <Route path='/diagnosis' element={<Diagnosis />} />
             <Route path='/result' element={<Result userToneStatus={userToneStatus} userSkinTone={userSkinTone} />} />
             <Route path='/makeup' element={<MakeUp userToneStatus={userToneStatus} />} />
+               
           </Routes>
         </AnimatePresence>
       </div>
