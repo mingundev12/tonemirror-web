@@ -1,8 +1,0 @@
-[
-  { "brand": "HERA", "brandKor": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "13N1 (Porcelain)", "shade": "13", "swatch": "#FDF3EE" },
-  { "brand": "ESPOIR", "brandKor": "에스쁘아", "name": ["프로 테일러 비 벨벳", "플루이드 파운데이션"], "shadeName": "13호 포슬린 (Porcelain)", "shade": "13", "swatch": "#FCEEE7" },
-  { "brand": "NARS", "brandKor": "나스", "name": ["네츄럴 래디언트", "롱웨어 파운데이션"], "shadeName": "L1 (Oslo)", "shade": "13", "swatch": "#FCEBE2" },
-  { "brand": "NARS", "brandKor": "나스", "name": ["네츄럴 래디언트", "롱웨어 파운데이션"], "shadeName": "L2 (Mont Blanc)", "shade": "17", "swatch": "#FAE3D2" },
-  { "brand": "DIOR", "brandKor": "디올", "name": ["포에버 스킨", "글로우 파운데이션"], "shadeName": "0CR (Cool Rosy)", "shade": "13", "swatch": "#FDF0E6" },
-  { "brand": "DIOR", "brandKor": "디올", "name": ["포에버 스킨", "글로우 파운데이션"], "shadeName": "0N (Neutral)", "shade": "13", "swatch": "#FDF2EA" }
-]

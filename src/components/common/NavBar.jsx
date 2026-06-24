@@ -4,18 +4,22 @@ import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "mot
 
 import logoSymbol from "../../assets/logo/Logo1.svg"
 import logoText from "../../assets/logo/Logo2.svg"
+import { useT, useLangCode, setLangCode } from '../../locales'
 
 export default function NavBar() {
 
     const MotionNavLink = motion(NavLink);
 
-    const languages = [
-        { code: "KOR", label: "한국어", flag: "kr" },
-        { code: "ENG", label: "English", flag: "gb" },
-    ]
+    const t = useT()
+    const langCode = useLangCode()
     const [langOpen, setLangOpen] = useState(false)
-    const [currentLang, setCurrentLang] = useState(languages[0])
-    const otherLangs = languages.filter((l) => l.code !== currentLang.code)
+    
+    const languages = [
+        { code: "KOR", label: t.navBarConst.languages[0], flag: "kr" },
+        { code: "ENG", label: t.navBarConst.languages[1], flag: "gb" },
+    ]
+    const currentLang = languages.find((l) => l.code === langCode)
+    const otherLangs = languages.filter((l) => l.code !== langCode)
 
     const isDesktop = window.innerWidth >= 768
 
@@ -46,17 +50,17 @@ export default function NavBar() {
                         className="flex flex-row md:gap-10 md:py-4 z-50 items-center">
                         <MotionNavLink
                             transition={{ duration: 0.3, ease: "easeInOut" }}
-                            to="/" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>홈</MotionNavLink>
+                            to="/" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>{t.navBarConst.links[0]}</MotionNavLink>
                         <MotionNavLink
                             transition={{ duration: 0.3, ease: "easeInOut" }}
-                            to="/diagnosis" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1" }>진단</MotionNavLink>
+                            to="/diagnosis" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1" }>{t.navBarConst.links[1]}</MotionNavLink>
                         <MotionNavLink
                             transition={{ duration: 0.3, ease: "easeInOut" }}
-                            to="/result" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>퍼스널 컬러</MotionNavLink>
+                            to="/result" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>{t.navBarConst.links[2]}</MotionNavLink>
                         
                         <MotionNavLink
                             transition={{ duration: 0.3, ease: "easeInOut" }}
-                            to="/makeup" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>가상 메이크업</MotionNavLink>
+                            to="/makeup" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>{t.navBarConst.links[3]}</MotionNavLink>
                         
                         <div className="relative z-50 font-gmarket md:block hidden ">
                             <button
@@ -85,7 +89,7 @@ export default function NavBar() {
                                             <button
                                                 key={lang.code}
                                                 type="button"
-                                                onClick={() => { setCurrentLang(lang); setLangOpen(false) }}
+                                                onClick={() => { setLangCode(lang.code); setLangOpen(false) }}
                                                 className="flex flex-row items-center gap-2 w-full text-left text-[#3D2E35] px-3 py-2 rounded-xl hover:bg-[#3D2E35]/5 cursor-pointer">
                                                 <span className={`fi fi-${lang.flag} fis rounded-full w-4 h-4`}></span>
                                                 <span className="text-sm font-medium">{lang.label}</span>

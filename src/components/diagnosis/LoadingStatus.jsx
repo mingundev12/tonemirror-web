@@ -1,14 +1,15 @@
 import checkLight from "../../assets/img/check-light.svg";
 
-import analysisStatus from "../../data/diagnosis/analysisStatus.json";
+import { useT } from "../../locales";
 
 export default function LoadingStatus({ progress, mobile = false }) {
+    const t = useT();
     const THRESHOLDS = [23, 52, 76, 92];
 
-    const items = analysisStatus.map((item, i) => {
+    const items = t.analysisStatus.map((item, i) => {
         const done = progress >= THRESHOLDS[i];
         return (
-            <div key={item.label} className="flex flex-row gap-2 items-center">
+            <div key={item.label} className="flex flex-row gap-2 items-center shrink-0">
                 <div className={`w-6 h-6 rounded-full shrink-0 ${done ? "bg-[#3D2E35] relative" : "bg-[#3D2E35]/50"}`}>
                     {done && (
                         <img
@@ -18,7 +19,7 @@ export default function LoadingStatus({ progress, mobile = false }) {
                         />
                     )}
                 </div>
-                <p className={`whitespace-nowrap font-light text-[#3D2E35] font-gmarket ${mobile ? "pt-0.5 text-sm" : "pt-1 text-xs"}`}>
+                <p className={`font-light text-[#3D2E35] font-gmarket ${mobile ? "pt-0.5 text-sm" : "pt-1 text-xs whitespace-nowrap"}`}>
                     {item.label}
                 </p>
             </div>
@@ -27,14 +28,14 @@ export default function LoadingStatus({ progress, mobile = false }) {
 
     if (mobile) {
         return (
-            <div className="grid grid-cols-2 gap-3 w-full max-w-120 mx-auto px-2">
+            <div className="flex flex-col gap-3 w-fit mx-auto items-start">
                 {items}
             </div>
         );
     }
 
     return (
-        <div className="flex flex-row flex-wrap justify-center gap-x-3 gap-y-3 w-full max-w-120 mx-auto px-2">
+        <div className="flex flex-row flex-nowrap justify-center gap-x-2 lg:gap-x-3 w-full mx-auto px-2">
             {items}
         </div>
     );

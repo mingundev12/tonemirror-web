@@ -10,10 +10,13 @@ import logoText from "../../assets/logo/Logo2White.svg"
 
 import BlobGradient from "../common/BlobGradient";
 
+import { useT } from "../../locales";
+
 const vw = () => document.documentElement.clientWidth;
 const vh = () => document.documentElement.clientHeight;
 
 export default function Hero() {
+    const t = useT();
 
     const [swapped, setSwapped] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
@@ -295,6 +298,9 @@ export default function Hero() {
         borderRadius: GLASS_R,
     };
 
+
+    
+
     return (
         <>
             <div className="w-full h-screen relative overflow-hidden">
@@ -302,9 +308,9 @@ export default function Hero() {
                 <div className="absolute w-full h-full bg-gradient-to-t from-[#FDFAF7] from-40% to-transparent to-50% md:to-100% z-1 pointer-events-none" />
                 <div className="absolute mx-[10%] h-full flex flex-col mt-40 md:mt-0 md:justify-center gap-10 z-[100] pointer-events-none">
                     <div className="gap-2">
-                        <p className="md:text-6xl text-4xl tracking-wider leading-tight text-[#3D2E35] font-rebecca">당신의 컬러를 <br/> 정확하게.</p>
-                        <p className="hidden md:block text-lg text-[#3D2E35] font-light font-gmarket">사진 한 장으로 끝내는 퍼스널 컬러와 맞춤 뷰티</p>
-                        <p className="block md:hidden text-lg text-[#3D2E35] font-light font-gmarket">사진 한 장으로 끝내는 <br/> 퍼스널 컬러와 맞춤 뷰티</p>
+                        <p className="md:text-6xl text-4xl tracking-wider leading-tight text-[#3D2E35] font-rebecca">{t.heroConst[0][0]} <br /> {t.heroConst[0][1]}</p>
+                        <p className="hidden md:block text-lg text-[#3D2E35] font-light font-gmarket">{t.heroConst[1]}</p>
+                        <p className="block md:hidden text-lg text-[#3D2E35] font-light font-gmarket">{t.heroConst[2][0]} <br /> {t.heroConst[2][1]}</p>
                     </div>
 
             
@@ -334,7 +340,7 @@ export default function Hero() {
                                     style={{ opacity: swapped ? 1 : 0 }}
                                 />
                                 <span className="relative z-10 font-light font-gmarket">
-                                    진단 시작하기
+                                    {t.heroConst[3]}
                                 </span>
                             </motion.div>
 
@@ -358,7 +364,6 @@ export default function Hero() {
                 <div ref={wrapperRef} className="absolute inset-0 z-10" />
                 <canvas ref={canvasRef} className="absolute inset-0 z-10 pointer-events-none" />
 
-                {/* 방사형 마스크 blur - 항상 on */}
                 <div
                     className="absolute pointer-events-none"
                     style={{
@@ -371,7 +376,6 @@ export default function Hero() {
                     }}
                 />
 
-                {/* 유리 본체 */}
                 <div
                     className="absolute pointer-events-none border border-[#FDFAF7]/10"
                     style={{
@@ -382,7 +386,6 @@ export default function Hero() {
                     }}
                 />
 
-                {/* 유리 카드 내부 콘텐츠 영역 */}
                 <div
                     className="absolute pointer-events-none flex items-center justify-center"
                     style={{
@@ -393,11 +396,10 @@ export default function Hero() {
                     }}
                 >
                     <p className="text-[#FDFAF7]/50 text-center text-xl font-gmarket">
-                        박스를 얼굴로 <br /> 드래그 해주세요.
+                        {t.heroConst[4][0]} <br /> {t.heroConst[4][1]}
                     </p>
                 </div>
 
-                {/* 로고 - 항상 보임 */}
                 <div
                     className="absolute pointer-events-none flex items-end justify-center pb-8"
                     style={{
@@ -411,7 +413,6 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* 홀로그램 빗금 */}
                 <div
                     className="hologram absolute pointer-events-none mix-blend-screen"
                     style={{ ...glassBase, zIndex: 23 }}

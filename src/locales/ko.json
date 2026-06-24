@@ -1,0 +1,198 @@
+{
+  "heroConst": [
+    ["당신의 컬러를", "정확하게."],
+    "사진 한 장으로 끝내는 퍼스널 컬러와 맞춤 뷰티",
+    ["사진 한 장으로 끝내는", "퍼스널 컬러와 맞춤 뷰티"],
+    "진단 시작하기",
+    ["박스를 얼굴로", "드래그 해주세요."]
+  ],
+  "sectionOneConst": [
+    "01. 퍼스널 컬러 진단",
+    ["AI가 피부톤을 분석해", "사계절 톤으로 분류"],
+    "02. 파운데이션 추천",
+    ["진단 결과 기반", "파운데이션 제품 추천"],
+    "03. Half Makeup 비교",
+    ["메이크업 전후를", "한 화면에서 비교"],
+    ["Your Color", "세 가지 시선으로"]
+  ],
+  "diagTitleConst": [
+    "얼굴 사진을 업로드해주세요.",
+    ["본인 피부색과 가장 가까운", "사진을 골라주세요."],
+    "분석 중 입니다.",
+    ["피부톤과 컬러 데이터를", "정밀하게 분석하고 있어요."],
+    "촬영 전 확인해주세요.",
+    ["정확한 진단을 위해", "아래 사항을 확인해주세요."]
+  ],
+  "diagNavBtnConst": [
+    "이전 단계",
+    "다음 단계"
+  ],
+  "indicatorConst": [
+    "준비",
+    "이미지 업로드",
+    "분석"
+  ],
+  "imageUploadConst": [
+    "사진을 업로드해주세요.",
+    "촬영하기",
+    "사진을 촬영해주세요."
+  ],
+  "imageUploadAlertConst": "JPG,PNG 형식의 이미지 파일만 업로드 가능합니다",
+  "readyConst": [
+    "예제",
+    "촬영 전 유의사항"
+  ],
+  "resultLeftConst": [
+    "퍼스널 컬러 진단 결과",
+    "가상 메이크업",
+    "결과 저장하기",
+    "다시 진단하기"
+  ],
+  "resultRightConst": [
+    "나의 피부톤",
+    "진단 정확도",
+    ["AI 피부톤", "분석 신뢰도"],
+    "어울리는 컬러",
+    "어울리지 않는 컬러"
+  ],
+  "resultTipConst": [
+    "BEST TIP",
+    "WORST TIP"
+  ],
+  "productCardConst": [
+    "파운데이션 추천",
+    "톤에 맞춘 제품",
+    "호"
+  ],
+  "makeUpTitleConst": [
+    "가상 메이크업",
+    ["퍼스널 컬러 진단 결과를 바탕으로", "가상 메이크업을 비교해보세요."]
+  ],
+  "saveBtnConst": "가상 메이크업 저장",
+  "halfMakeupCardConst": [
+    "Half Makeup 비교",
+    "좌우로 드래그해 변화를 확인하세요",
+    "BEFORE",
+    "AFTER",
+    "↔ 드래그하여 비교"
+  ],
+  "navBarConst": {
+    "links": ["홈", "진단", "퍼스널 컬러", "가상 메이크업"],
+    "languages": ["한국어", "English"]
+  },
+  "percentageBarConst": "분석 중",
+  "pageNationConst": "슬라이드",
+  "analysisStatus": [
+    { "label": "얼굴 영역 인식" },
+    { "label": "피부톤 추출" },
+    { "label": "퍼스널 매칭" },
+    { "label": "추천 제품 생성" }
+  ],
+  "guideSections": [
+    {
+      "icon": "image-square",
+      "title": "사진",
+      "items": [
+        "핸드폰 카메라 기본 비율(9:16)로 촬영해주세요.",
+        "필터 없는 사진으로 준비해주세요.",
+        "화장은 최대한 지운 상태가 정확해요.",
+        "머리카락이 얼굴을 가리지 않게 해주세요.",
+        "안경, 액세서리는 빼주세요."
+      ]
+    },
+    {
+      "icon": "angle-light",
+      "title": "구도",
+      "items": [
+        "정면을 바라보고 촬영해주세요.",
+        "얼굴 전체가 프레임 안에 들어오게 해주세요.",
+        "배경은 흰색이나 단색이 좋습니다."
+      ]
+    },
+    {
+      "icon": "lightbulb-filament-light",
+      "title": "조명",
+      "items": [
+        "자연광이나 밝은 조명 아래서 촬영해주세요.",
+        "역광이나 그림자가 지는 환경은 피해주세요.",
+        "노란빛 조명은 분석 정확도를 떨어뜨릴 수 있어요."
+      ]
+    }
+  ],
+  "resultPersonalColor": [
+    {
+      "id": 0,
+      "eng": "Warm Spring",
+      "name": "웜 스프링",
+      "description": "부드럽고 차분한 색조가 당신의 섬세함을 드러냅니다. 라벤더와 로즈 뮤트 톤이 피부를 한층 맑고 우아하게 표현합니다.",
+      "bestColor": [["파스텔 피치", "#FFD1BA"], ["라이트 코랄", "#FF8E7A"], ["밀키 바나나", "#FFF4A3"], ["애플 그린", "#B2EBF2"], ["골든 허니", "#F5D061"]],
+      "worstColor": [["로얄 블루", "#4169E1"], ["다크 초콜릿", "#3D2314"], ["차콜 그레이", "#464646"], ["마젠타 핑크", "#FF007F"], ["퓨어 화이트", "#FFFFFF"]],
+      "bestTip": "밝고 노란 기가 있는 따뜻한 톤과 채도가 높은 맑은 색이 피부를 생기있게 만들어요.",
+      "worstTip": "차갑고 어둡거나 탁한 색은 피부색을 칙칙하고 그늘져 보이게 만들어요."
+    },
+    {
+      "id": 1,
+      "eng": "Cool Summer",
+      "name": "쿨 섬머",
+      "description": "깊고 풍성한 어스 톤이 당신의 매력을 완성합니다. 테라코타와 머스터드, 올리브 컬러가 피부에 원숙한 온기를 더합니다.",
+      "bestColor": [["라벤더", "#E6E6FA"], ["스카이 블루", "#87CEEB"], ["소프트 로즈", "#FFC0CB"], ["민트 코코아", "#BACBB6"], ["파우더 핑크", "#FFD1DC"]],
+      "worstColor": [["카키 브라운", "#4B5320"], ["머스터드 옐로우", "#E1AD01"], ["오렌지 레드", "#FF4500"], ["딥 버건디", "#800020"], ["카멜", "#C19A6B"]],
+      "bestTip": "붉은 기가 적고 밝은 부드러운 톤이 피부색을 투명하게 만들어요, 부드럽고 차분한 파스텔 톤을 고르세요.",
+      "worstTip": "노란 기가 강한 웜톤 컬러나 너무 탁하고 무거운 색은 피부를 누렇게 뜨게 만들어요."
+    },
+    {
+      "id": 2,
+      "eng": "Warm Autumn",
+      "name": "웜 어텀",
+      "description": "차고 선명한 색조가 피부를 가장 빛나게 합니다. 블루베이스 딥 컬러와 순수한 화이트가 당신의 존재감을 선명하게 각인시킵니다.",
+      "bestColor": [["올리브 그린", "#6B8E23"], ["테라코타", "#E2725B"], ["머스터드", "#E1AD01"], ["웜 베이지", "#E6D7C3"], ["딥 브릭 레드", "#7C0A1A"]],
+      "worstColor": [["네온 핑크", "#FF6EC7"], ["스카이 블루", "#87CEEB"], ["라벤더", "#E6E6FA"], ["퓨어 화이트", "#FFFFFF"], ["네이비 블루", "#000080"]],
+      "bestTip": "깊고 차분한 음영감과 강한 노란 기, 높은 풍부함이 어우러져 고급스럽고 세련된 분위기를 줍니다.",
+      "worstTip": "차갑고 푸른 기가 도는 쿨톤 파스텔 색상이나 네온 컬러는 피부를 질려 보이게 만듭니다."
+    },
+    {
+      "id": 3,
+      "eng": "Cool Winter",
+      "name": "쿨 윈터",
+      "description": "따뜻하고 생기 있는 색조가 당신을 빛나게 합니다. 복숭아빛 코랄과 황금빛 베이지가 피부에 자연스러운 광채를 더해줍니다.",
+      "bestColor": [["퓨어 블랙", "#000000"], ["로얄 블루", "#4169E1"], ["마젠타", "#FF00FF"], ["에메랄드 그린", "#50C878"], ["아이스 바이올렛", "#E0B0FF"]],
+      "worstColor": [["골드 베이지", "#F5F5DC"], ["오렌지", "#FFA500"], ["카멜 브라운", "#C19A6B"], ["파스텔 피치", "#FFD1BA"], ["모스 그린", "#8A9A86"]],
+      "bestTip": "선명하고 강렬한 대비가 잘 어울리는 톤입니다. 어둡거나 푸른 기가 도는 선명한 색을 고르세요.",
+      "worstTip": "따뜻하고 에너지가 빠진 미지근한 오렌지, 카멜 톤은 겨울 쿨톤 특유의 모던함을 해치고 답답해 보입니다."
+    }
+  ],
+  "foundationProducts": {
+    "Warm Spring": [
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "17N1 (Ivory)", "shade": "17", "swatch": "#FDDFC3" },
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "19N1 (Light Vanilla)", "shade": "19", "swatch": "#FDD2B9" },
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "21W1 (Warm Vanilla)", "shade": "21", "swatch": "#FBD5AE" },
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "23W1 (Sand Beige)", "shade": "23", "swatch": "#EEBD92" },
+      { "brand": "ESPOIR", "brandName": "에스쁘아", "name": ["프로 테일러 비 벨벳", "플루이드 파운데이션"], "shadeName": "21호 아이보리 (Ivory)", "shade": "21", "swatch": "#ECD1B6" },
+      { "brand": "LANCOME", "brandName": "랑콤", "name": ["프로 테일러 비 벨벳", "플루이드 파운데이션"], "shadeName": "21호 아이보리 (Ivory)", "shade": "21", "swatch": "#ECD1B6" }
+    ],
+    "Cool Summer": [
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "17C1 (Petal Ivory)", "shade": "17", "swatch": "#FED9BF" },
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "21C1 (Rose Vanilla)", "shade": "21", "swatch": "#F9CEAD" },
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "23C1 (Pink Beige)", "shade": "23", "swatch": "#EEBD9D" },
+      { "brand": "ESPOIR", "brandName": "에스쁘아", "name": ["프로 테일러 비 벨벳", "플루이드 파운데이션"], "shadeName": "21호 아이보리 (Ivory)", "shade": "21", "swatch": "#F9E4D5" },
+      { "brand": "LANCOME", "brandName": "랑콤", "name": ["뗑 이돌 울트라 웨어", "롱웨어 플루이드"], "shadeName": "PO-01 (Ecru)", "shade": "19", "swatch": "#FAE2D2" },
+      { "brand": "LANCOME", "brandName": "랑콤", "name": ["뗑 이돌 울트라 웨어", "롱웨어 플루이드"], "shadeName": "PO-02 (Rose Vanilla)", "shade": "21", "swatch": "#F5D1BC" }
+    ],
+    "Warm Autumn": [
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "21N1 (Vanilla)", "shade": "21", "swatch": "#F4CBA8" },
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "23N1 (Beige)", "shade": "23", "swatch": "#E5BA96" },
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "25N1 (Amber)", "shade": "25", "swatch": "#F4B987" },
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "27N1 (Honey)", "shade": "27", "swatch": "#D9A87B" },
+      { "brand": "ESPOIR", "brandName": "에스쁘아", "name": ["프로 테일러 비 벨벳", "플루이드 파운데이션"], "shadeName": "22호 페탈 (Petal)", "shade": "22", "swatch": "#EBC4A4" },
+      { "brand": "LANCOME", "brandName": "랑콤", "name": ["프로 테일러 비 벨벳", "플루이드 파운데이션"], "shadeName": "23호 베이지 (Beige)", "shade": "23", "swatch": "#E3BA9C" }
+    ],
+    "Cool Winter": [
+      { "brand": "HERA", "brandName": "헤라", "name": ["실키 스테이 24H", "롱웨어 파운데이션"], "shadeName": "13N1 (Porcelain)", "shade": "13", "swatch": "#FDF3EE" },
+      { "brand": "ESPOIR", "brandName": "에스쁘아", "name": ["프로 테일러 비 벨벳", "플루이드 파운데이션"], "shadeName": "13호 포슬린 (Porcelain)", "shade": "13", "swatch": "#FCEEE7" },
+      { "brand": "NARS", "brandName": "나스", "name": ["네츄럴 래디언트", "롱웨어 파운데이션"], "shadeName": "L1 (Oslo)", "shade": "13", "swatch": "#FCEBE2" },
+      { "brand": "NARS", "brandName": "나스", "name": ["네츄럴 래디언트", "롱웨어 파운데이션"], "shadeName": "L2 (Mont Blanc)", "shade": "17", "swatch": "#FAE3D2" },
+      { "brand": "DIOR", "brandName": "디올", "name": ["포에버 스킨", "글로우 파운데이션"], "shadeName": "0CR (Cool Rosy)", "shade": "13", "swatch": "#FDF0E6" },
+      { "brand": "DIOR", "brandName": "디올", "name": ["포에버 스킨", "글로우 파운데이션"], "shadeName": "0N (Neutral)", "shade": "13", "swatch": "#FDF2EA" }
+    ]
+  }
+}
