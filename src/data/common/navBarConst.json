@@ -1,0 +1,11 @@
+{"links": [
+  {"linkName": "홈", "linkPath": "/"},
+  {"linkName": "진단", "linkPath": "/diagnosis"},
+  {"linkName": "퍼스널 컬러", "linkPath": "/result"},
+  {"linkName": "가상 메이크업", "linkPath": "/makeup"}
+],
+"languages": [
+  {"code": "KOR", "label": "한국어", "flag": "kr"},
+  {"code": "ENG", "label": "English", "flag": "gb"}
+]
+}

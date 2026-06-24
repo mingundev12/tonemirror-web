@@ -1,12 +1,11 @@
 import checkLight from "../../assets/img/check-light.svg";
 
-import { useT } from "../../locales";
+import analysisStatus from "../../data/diagnosis/analysisStatus.json";
 
 export default function LoadingStatus({ progress, mobile = false }) {
-    const t = useT();
     const THRESHOLDS = [23, 52, 76, 92];
 
-    const items = t.analysisStatus.map((item, i) => {
+    const items = analysisStatus.map((item, i) => {
         const done = progress >= THRESHOLDS[i];
         return (
             <div key={item.label} className="flex flex-row gap-2 items-center shrink-0">

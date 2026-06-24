@@ -2,19 +2,18 @@ import chartRadarFilled from "../../assets/img/chart-radar-filled.svg"
 import lightbulbFilamentLight from "../../assets/img/lightbulb-filament-light.svg";
 import warningLight from "../../assets/img/warning-light.svg";
 
-import { useT } from "../../locales";
+import resultLeftConst from "../../data/result/resultLeftConst.json";
+import resultTipConst from "../../data/result/resultTipConst.json";
 
 import ResultLeftBtn from "./ResultLeftBtn";
 
 export default function ResultLeft({personalColorData}) {
-    const t = useT();
-
    return (
        <>
            <div className="flex flex-col gap-10 w-full md:p-10 p-0">
                 <div className="flex-row items-center gap-2 flex">
                     <img src={chartRadarFilled} className="w-6 h-6 opacity-50" />
-                    <p className="text-[#3D2E35]/50 pt-1 font-light font-gmarket">{t.resultLeftConst[0]}</p>
+                    <p className="text-[#3D2E35]/50 pt-1 font-light font-gmarket">{resultLeftConst[0]}</p>
                 </div>
                 
                 
@@ -37,7 +36,7 @@ export default function ResultLeft({personalColorData}) {
                         <div className="flex flex-col gap-2">
                             <div className="flex flex-row gap-1 items-center">
                                 <img src={lightbulbFilamentLight} className="w-5 h-5" />
-                                <p className="text-md text-[#3D2E35]/75 font-gmarket pt-1">{t.resultTipConst[0]}</p>
+                                <p className="text-md text-[#3D2E35]/75 font-gmarket pt-1">{resultTipConst[0]}</p>
                             </div>
                             
                             <p className="text-sm text-[#3D2E35]/75 font-light font-gmarket">{personalColorData.bestTip}</p>
@@ -45,7 +44,7 @@ export default function ResultLeft({personalColorData}) {
                         <div className="flex flex-col gap-2">
                             <div className="flex flex-row gap-1 items-center">
                                 <img src={warningLight} className="w-5 h-5" />
-                                <p className="text-md text-[#3D2E35]/75 font-gmarket pt-1">{t.resultTipConst[1]}</p>
+                                <p className="text-md text-[#3D2E35]/75 font-gmarket pt-1">{resultTipConst[1]}</p>
                             </div>
                             <p className="text-sm text-[#3D2E35]/75 font-light font-gmarket">{personalColorData.worstTip}</p>
                         </div>

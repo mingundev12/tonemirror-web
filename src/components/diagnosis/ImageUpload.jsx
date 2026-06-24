@@ -7,11 +7,10 @@ import cameraLight from "../../assets/img/camera-light.svg";
 
 import HologramOverlay from "../common/HologramOverlay";
 
-import { useT } from "../../locales";
+import imageUploadConst from "../../data/diagnosis/imageUploadConst.json";
+import imageUploadAlertConst from "../../data/diagnosis/imageUploadAlertConst.json";
 
 export default function ImageUpload() {
-  const t = useT();
-
   const [file, setFile] = useState(null);
   const [view, setView] = useState(null);
   const [selectMode, setSelectMode] = useState(null);
@@ -26,7 +25,7 @@ export default function ImageUpload() {
     if (!files) return;
     const alldwedTypes = ["image/jpeg","image/png","image/jpg"]
     if(!alldwedTypes.includes(files.type)) {
-      alert(t.imageUploadAlertConst);
+      alert(imageUploadAlertConst);
       return;
     }
       setFile(files);
@@ -83,7 +82,7 @@ export default function ImageUpload() {
                   <motion.span className="absolute inset-0 flex items-center justify-center text-4xl md:text-6xl leading-none pt-2 md:pt-4 text-[#FDFAF7]" variants={plusVar} transition={{ duration: 0.3 }}>+</motion.span>
                 </motion.div>
 
-                <motion.p className="text-center text-sm md:text-xl z-90" variants={textVar} transition={{ duration: 0.5 }}>{t.imageUploadConst[0]}</motion.p>
+                <motion.p className="text-center text-sm md:text-xl z-90" variants={textVar} transition={{ duration: 0.5 }}>{imageUploadConst[0]}</motion.p>
 
               </div>
 
@@ -107,7 +106,7 @@ export default function ImageUpload() {
 
               <div className="w-full h-full min-h-0 p-2 md:p-4 flex flex-col gap-2">
                 <Webcam audio={false} ref={webcamRef} className="w-full flex-1 min-h-0 object-cover rounded-[30px]" />
-                <button onClick={capture} className="w-full py-3 md:py-5 shrink-0 bg-[#FFD1C9] text-[#FDFAF7] rounded-full font-bold text-base md:text-lg">{t.imageUploadConst[1]}</button>
+                <button onClick={capture} className="w-full py-3 md:py-5 shrink-0 bg-[#FFD1C9] text-[#FDFAF7] rounded-full font-bold text-base md:text-lg">{imageUploadConst[1]}</button>
               </div>
 
             ) : (
@@ -118,7 +117,7 @@ export default function ImageUpload() {
                   <motion.span className="absolute inset-0 flex items-center justify-center text-4xl md:text-6xl leading-none pt-2 md:pt-4 text-[#FDFAF7]" variants={plusVar} transition={{ duration: 0.3 }}>+</motion.span>
                 </motion.div>
 
-                <motion.p className="text-center text-sm md:text-xl z-90" variants={textVar} transition={{ duration: 0.5 }}>{t.imageUploadConst[2]}</motion.p>
+                <motion.p className="text-center text-sm md:text-xl z-90" variants={textVar} transition={{ duration: 0.5 }}>{imageUploadConst[2]}</motion.p>
               </div>
 
             )}

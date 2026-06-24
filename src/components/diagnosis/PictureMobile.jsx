@@ -3,15 +3,14 @@ import { useCallback, useState } from "react";
 import PageNation from "./PageNation";
 import PictureMobileContent from "./PictureMobileContent";
 
-import { useT } from "../../locales";
+import readyConst from "../../data/diagnosis/readyConst.json";
 
 export default function PictureMobile({HologramOverlay, scanSmileyLight, beforeImage, GUIDE_SECTIONS}) {
-    const t = useT();
     const [page, setPage] = useState(0);
 
     const MOBILE_SLIDES = [
-        { key: "guide", label: t.readyConst[1] },
-        { key: "example", label: t.readyConst[0] },
+        { key: "guide", label: readyConst[1] },
+        { key: "example", label: readyConst[0] },
     ];
 
     const goTo = useCallback((idx) => {

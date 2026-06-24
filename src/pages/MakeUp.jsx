@@ -2,16 +2,14 @@ import { motion } from "motion/react";
 
 import BlobGradient from "../components/common/BlobGradient";
 
-import { useT } from "../locales";
+import foundationProducts from "../data/makeup/foundationProducts.json";
 
 import MakeUpTitle from "../components/makeUp/makeUpTitle";
 import MakeUpContent from "../components/makeUp/makeUpContent";
 import SaveBtn from "../components/makeUp/SaveBtn";
 
 export default function MakeUp({userToneStatus}) {
-    const t = useT();
-
-    const products = t.foundationProducts[userToneStatus] ?? [];
+    const products = foundationProducts[userToneStatus] ?? [];
     
    return (
        <>

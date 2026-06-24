@@ -4,20 +4,20 @@ import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "mot
 
 import logoSymbol from "../../assets/logo/Logo1.svg"
 import logoText from "../../assets/logo/Logo2.svg"
-import { useT, useLangCode, setLangCode } from '../../locales'
+import menuIco from "../../assets/img/list-light.svg"
+
+import navBarConst from "../../data/common/navBarConst.json"
+
 
 export default function NavBar() {
+    
+    const languages = navBarConst.languages
 
     const MotionNavLink = motion(NavLink);
 
-    const t = useT()
-    const langCode = useLangCode()
+    const [langCode, setLangCode] = useState("KOR")
     const [langOpen, setLangOpen] = useState(false)
-    
-    const languages = [
-        { code: "KOR", label: t.navBarConst.languages[0], flag: "kr" },
-        { code: "ENG", label: t.navBarConst.languages[1], flag: "gb" },
-    ]
+
     const currentLang = languages.find((l) => l.code === langCode)
     const otherLangs = languages.filter((l) => l.code !== langCode)
 
@@ -34,7 +34,8 @@ export default function NavBar() {
     return (
     <>      
             <div className="fixed md:w-[80%] px-[10%] md:px-0 w-full left-1/2 -translate-x-1/2 z-[200]">
-                <div className="flex flex-row py-6 md:py-8 justify-between font-light font-gmarket">
+                <div className="flex flex-row py-6 md:py-8 justify-between items-center font-light font-gmarket">
+                    {/* 네비바 로고 */}
                     <MotionNavLink
                         style={{marginLeft}}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -44,24 +45,41 @@ export default function NavBar() {
                         <img src={logoSymbol} className="w-6" />
                         <img src={logoText} className="md:h-5 h-4" />
                     </MotionNavLink>
+
+                    {/* 모바일 메뉴 */}
+                    {/* <div className="absolute top-0 left-0 w-screen h-screen bg-white/50 z-1">
+                        <div className="px-10 pt-18">
+                            <MotionNavLink className="flex flex-col my-10 gap-14 text-2xl font-medium text-[#3D2E35]">
+                                <p>asd</p>
+                                <p>asd</p>
+                                <p>asd</p>
+                                <p>asd</p>
+                            </MotionNavLink>
+                        </div>
+                    </div> */}
+                    
                     <motion.div
                         style={{marginRight}}
                         transition={{ duration: 0.3, delay: 0, ease: "easeInOut" }}
                         className="flex flex-row md:gap-10 md:py-4 z-50 items-center">
-                        <MotionNavLink
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            to="/" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>{t.navBarConst.links[0]}</MotionNavLink>
-                        <MotionNavLink
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            to="/diagnosis" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1" }>{t.navBarConst.links[1]}</MotionNavLink>
-                        <MotionNavLink
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            to="/result" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>{t.navBarConst.links[2]}</MotionNavLink>
                         
-                        <MotionNavLink
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            to="/makeup" className={({ isActive }) => isActive ? "font-medium text-[##3D2E35] md:block hidden pt-1" : "md:block text-[##3D2E35] hidden pt-1"}>{t.navBarConst.links[3]}</MotionNavLink>
+                        <div className="md:hidden block cursor-pointer">
+                            <img src={menuIco} className="w-6" />
+                        </div>
                         
+                        {/* 네비바 링크 */}
+                        {navBarConst.links.map((item) => (
+                            <MotionNavLink
+                                key={item.linkName}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                to={item.linkPath}
+                                end={item.linkPath === "/"}
+                                className={({ isActive }) => isActive ? "font-medium text-[#3D2E35] md:block hidden pt-1" : "md:block text-[#3D2E35] hidden pt-1"}>
+                                    {item.linkName}
+                            </MotionNavLink>
+                        ))}
+                        
+                        {/* 언어 전환 버튼 */}
                         <div className="relative z-50 font-gmarket md:block hidden ">
                             <button
                                 type="button"

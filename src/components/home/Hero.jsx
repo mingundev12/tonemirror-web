@@ -10,13 +10,12 @@ import logoText from "../../assets/logo/Logo2White.svg"
 
 import BlobGradient from "../common/BlobGradient";
 
-import { useT } from "../../locales";
+import heroConst from "../../data/home/heroConst.json";
 
 const vw = () => document.documentElement.clientWidth;
 const vh = () => document.documentElement.clientHeight;
 
 export default function Hero() {
-    const t = useT();
 
     const [swapped, setSwapped] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
@@ -308,9 +307,8 @@ export default function Hero() {
                 <div className="absolute w-full h-full bg-gradient-to-t from-[#FDFAF7] from-40% to-transparent to-50% md:to-100% z-1 pointer-events-none" />
                 <div className="absolute mx-[10%] h-full flex flex-col mt-40 md:mt-0 md:justify-center gap-10 z-[100] pointer-events-none">
                     <div className="gap-2">
-                        <p className="md:text-6xl text-4xl tracking-wider leading-tight text-[#3D2E35] font-rebecca">{t.heroConst[0][0]} <br /> {t.heroConst[0][1]}</p>
-                        <p className="hidden md:block text-lg text-[#3D2E35] font-light font-gmarket">{t.heroConst[1]}</p>
-                        <p className="block md:hidden text-lg text-[#3D2E35] font-light font-gmarket">{t.heroConst[2][0]} <br /> {t.heroConst[2][1]}</p>
+                        <p className="md:text-6xl text-4xl tracking-wider leading-tight text-[#3D2E35] font-rebecca whitespace-pre-wrap">{heroConst.title}</p>
+                        <p className="hidden md:block text-lg text-[#3D2E35] font-light font-gmarket md:whitespace-nowrap whitespace-pre-wrap">{heroConst.subTitle}</p>
                     </div>
 
             
@@ -340,7 +338,7 @@ export default function Hero() {
                                     style={{ opacity: swapped ? 1 : 0 }}
                                 />
                                 <span className="relative z-10 font-light font-gmarket">
-                                    {t.heroConst[3]}
+                                    {heroConst.titleBtn}
                                 </span>
                             </motion.div>
 
@@ -395,8 +393,8 @@ export default function Hero() {
                         transition: "opacity 0.3s ease",
                     }}
                 >
-                    <p className="text-[#FDFAF7]/50 text-center text-xl font-gmarket">
-                        {t.heroConst[4][0]} <br /> {t.heroConst[4][1]}
+                    <p className="text-[#FDFAF7]/50 text-center text-xl font-gmarket whitespace-pre-wrap">
+                        {heroConst.glassText}
                     </p>
                 </div>
 

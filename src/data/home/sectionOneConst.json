@@ -1,0 +1,16 @@
+{
+  "cardTitle":[
+    "01. 퍼스널 컬러 진단",
+    "02. 파운데이션 추천",
+    "03. Half Makeup 비교",
+    "Your Color"
+  ],
+
+  "cardDescription": [
+      "AI가 피부톤을 분석해 사계절 톤으로 분류",
+      "진단 결과 기반 파운데이션 제품 추천",
+      "메이크업 전후를 한 화면에서 비교"
+  ],
+
+  "mainTitle": "Your Color \n 세 가지 시선으로"
+}

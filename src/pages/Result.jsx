@@ -5,12 +5,11 @@ import ResultRight from "../components/result/ResultRight";
 import ResultLeft from "../components/result/ResultLeft";
 import ResultLeftBtn from "../components/result/ResultLeftBtn";
 
-import { useT } from "../locales";
+import resultPersonalColor from "../data/result/resultPersonalColor.json";
 
 export default function Result({userToneStatus, userSkinTone}) {
-    const t = useT();
 
-    const personalColorData = t.resultPersonalColor.find((p) => p.eng === userToneStatus) ?? null;
+    const personalColorData = resultPersonalColor.find((p) => p.eng === userToneStatus) ?? null;
 
    return (
        <>   

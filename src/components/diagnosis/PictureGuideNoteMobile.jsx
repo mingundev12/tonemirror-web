@@ -1,13 +1,12 @@
-import { useT } from "../../locales";
+import readyConst from "../../data/diagnosis/readyConst.json";
 
 export default function PictureGuideNoteMobile({HologramOverlay, GUIDE_SECTIONS}) {
-    const t = useT();
    return (
        <>
         <div className="glass flex flex-col h-full min-h-0 w-full min-w-0 rounded-2xl border border-[#FDFAF7]/10 font-gmarket relative p-3">
             <HologramOverlay />
             <div className="flex flex-row gap-1.5 items-center shrink-0">
-            <p className="text-base font-medium pt-1">{t.readyConst[1]}</p>
+            <p className="text-base font-medium pt-1">{readyConst[1]}</p>
             </div>
             <div className="flex flex-1 flex-col min-h-0 mt-4 justify-between">
             {GUIDE_SECTIONS.map((section) => (

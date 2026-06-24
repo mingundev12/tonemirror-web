@@ -4,21 +4,20 @@ import angleLight from "../../assets/img/angle-light.svg";
 import lightbulbFilamentLight from "../../assets/img/lightbulb-filament-light.svg";
 import imageSquare from "../../assets/img/image-square.svg";
 
-import { useT } from "../../locales";
+import guideSections from "../../data/diagnosis/guideSections.json";
 
 import HologramOverlay from "../common/HologramOverlay";
 import PictureDesktop from "./PictureDesktop";
 import PictureMobile from "./PictureMobile";
 
 export default function Ready() {
-  const t = useT();
   const ICONS = {
     "image-square": imageSquare,
     "angle-light": angleLight,
     "lightbulb-filament-light": lightbulbFilamentLight,
   };
   
-  const GUIDE_SECTIONS = t.guideSections.map((item) => ({
+  const GUIDE_SECTIONS = guideSections.map((item) => ({
     ...item,
     icon: ICONS[item.icon],
   }));
