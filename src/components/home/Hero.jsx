@@ -1,12 +1,14 @@
-import head from "../assets/modelHead1.png";
-import head2 from "../assets/modelHead2.png";
-import rightArrowWhite from "../assets/img/arrow-right-white.svg";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
-import logoSymbol from "../assets/logo/Logo1White.svg"
-import logoText from "../assets/logo/Logo2White.svg"
 import { Link } from "react-router-dom";
-import BlobGradient from "./BlobGradient";
+
+import head from "../../assets/modelHead1.png";
+import head2 from "../../assets/modelHead2.png";
+import rightArrowWhite from "../../assets/img/arrow-right-white.svg";
+import logoSymbol from "../../assets/logo/Logo1White.svg"
+import logoText from "../../assets/logo/Logo2White.svg"
+
+import BlobGradient from "../common/BlobGradient";
 
 const vw = () => document.documentElement.clientWidth;
 const vh = () => document.documentElement.clientHeight;
@@ -297,11 +299,12 @@ export default function Hero() {
         <>
             <div className="w-full h-screen relative overflow-hidden">
                 <div className="absolute w-full h-full bg-gradient-to-t from-[#FDFAF7] from-2% to-transparent to-10% md:to-20% z-20 pointer-events-none" />
-                <div className="absolute w-full h-full bg-gradient-to-t from-[#FDFAF7] from-40% to-transparent to-10% md:to-100% z-1 pointer-events-none" />
+                <div className="absolute w-full h-full bg-gradient-to-t from-[#FDFAF7] from-40% to-transparent to-50% md:to-100% z-1 pointer-events-none" />
                 <div className="absolute mx-[10%] h-full flex flex-col mt-40 md:mt-0 md:justify-center gap-10 z-[100] pointer-events-none">
                     <div className="gap-2">
                         <p className="md:text-6xl text-5xl tracking-wider leading-tight text-[#3D2E35] font-rebecca">당신의 컬러를 <br/> 정확하게.</p>
-                        <p className="text-lg text-[#3D2E35] font-light font-gmarket">사진 한 장으로 끝내는 퍼스널 컬러와 맞춤 뷰티</p>
+                        <p className="hidden md:block text-lg text-[#3D2E35] font-light font-gmarket">사진 한 장으로 끝내는 퍼스널 컬러와 맞춤 뷰티</p>
+                        <p className="block md:hidden text-lg text-[#3D2E35] font-light font-gmarket">사진 한 장으로 끝내는 <br/> 퍼스널 컬러와 맞춤 뷰티</p>
                     </div>
 
             
@@ -414,7 +417,7 @@ export default function Hero() {
                     style={{ ...glassBase, zIndex: 23 }}
                 />
 
-                <div className="absolute w-full h-[60%] opacity-30 -z-50">
+                <div className="absolute w-full h-screen md:h-[60%] opacity-30 -z-50">
                     <BlobGradient />
                 </div>
             </div>
