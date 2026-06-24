@@ -302,7 +302,7 @@ export default function Hero() {
                 <div className="absolute w-full h-full bg-gradient-to-t from-[#FDFAF7] from-40% to-transparent to-50% md:to-100% z-1 pointer-events-none" />
                 <div className="absolute mx-[10%] h-full flex flex-col mt-40 md:mt-0 md:justify-center gap-10 z-[100] pointer-events-none">
                     <div className="gap-2">
-                        <p className="md:text-6xl text-5xl tracking-wider leading-tight text-[#3D2E35] font-rebecca">당신의 컬러를 <br/> 정확하게.</p>
+                        <p className="md:text-6xl text-4xl tracking-wider leading-tight text-[#3D2E35] font-rebecca">당신의 컬러를 <br/> 정확하게.</p>
                         <p className="hidden md:block text-lg text-[#3D2E35] font-light font-gmarket">사진 한 장으로 끝내는 퍼스널 컬러와 맞춤 뷰티</p>
                         <p className="block md:hidden text-lg text-[#3D2E35] font-light font-gmarket">사진 한 장으로 끝내는 <br/> 퍼스널 컬러와 맞춤 뷰티</p>
                     </div>

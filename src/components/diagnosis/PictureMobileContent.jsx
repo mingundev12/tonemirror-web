@@ -6,7 +6,7 @@ export default function PictureMobileContent({HologramOverlay, scanSmileyLight, 
    return (
        <>
            <motion.div
-            className="flex-1 min-h-0 h-full w-full font-gmarket"
+            className="row-span-2 min-h-0 h-full w-full font-gmarket"
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.15}

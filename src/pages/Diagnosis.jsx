@@ -16,7 +16,7 @@ export default function Diagnosis() {
 
    return (
        <>
-           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full h-full">
+           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full h-full" style={{ transform: "none" }}>
                 {/* 배경 */}
                 <div className="absolute w-full h-full bg-gradient-to-b from-[#FDFAF7] from-40% to-transparent to-70% z-1 pointer-events-none" />
                 <div className="absolute w-full h-screen -z-50 opacity-30">

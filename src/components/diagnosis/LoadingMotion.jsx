@@ -8,7 +8,7 @@ export default function LoadingMotion({motion}) {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0, opacity: 0, transition: { duration: 0.2, ease: "easeInOut" } }}
                 transition={{ scale: { type: "spring", stiffness: 100, damping: 10 } }}
-                className="relative w-28 h-28 md:w-30 md:h-30 shrink-0"
+                className="relative w-20 h-20 md:w-30 md:h-30 shrink-0"
             >
                 <div className="relative w-full h-full animate-[spin_10s_linear_infinite]">
                     <div className="relative w-full h-full aspect-square rounded-full overflow-hidden">

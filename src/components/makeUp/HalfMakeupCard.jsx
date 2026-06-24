@@ -27,12 +27,14 @@ export default function HalfMakeupCard() {
     const left = useMotionTemplate`${pct}%`;
 
     return (
-        <div className="glass aspect-[9/16] h-full shrink-0 rounded-3xl p-8 border border-[#FDFAF7]/30 flex flex-col gap-5">
+        <div className="glass aspect-[9/16] w-full h-auto md:w-auto md:h-full shrink-0 rounded-3xl p-8 border border-[#FDFAF7]/30 flex flex-col gap-5">
+            {/* 타이틀 */}
             <div>
                 <p className="text-lg text-[#3D2E35] font-gmarket">Half Makeup 비교</p>
                 <p className="text-sm font-light text-[#3D2E35]/60 font-gmarket">좌우로 드래그해 변화를 확인하세요</p>
             </div>
 
+            {/* 메이크업 비교 */}
             <div className="flex-1 w-full rounded-2xl border border-[#FDFAF7]/30 bg-[#3D2E35]/15 flex items-center justify-center">
                 <div
                     ref={containerRef}
@@ -73,6 +75,7 @@ export default function HalfMakeupCard() {
                 </div>
             </div>
 
+            {/* 하단 텍스트 */}
             <div className="flex items-center justify-center text-xs font-light text-[#3D2E35]/50 font-gmarket">
                 <span>↔ 드래그하여 비교</span>
             </div>
