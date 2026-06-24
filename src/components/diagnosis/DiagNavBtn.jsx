@@ -3,7 +3,10 @@ import { motion, AnimatePresence } from "motion/react";
 
 import rightArrowWhite from "../../assets/img/arrow-right-white.svg";
 
+import { useT } from "../../locales";
+
 export default function DiagNavBtn({ direction = "next", variant = "full", onClick }) {
+    const t = useT();
 
     const [swapped, setSwapped] = useState(false);
 
@@ -11,7 +14,6 @@ export default function DiagNavBtn({ direction = "next", variant = "full", onCli
         setSwapped(false);
         onClick?.();
     };
-
     return (
         <AnimatePresence>
             <motion.div
@@ -37,7 +39,7 @@ export default function DiagNavBtn({ direction = "next", variant = "full", onCli
                             className="relative flex tracking-wider items-center justify-center md:h-14 h-10 w-fit text-[#FDFAF7] pt-[6px] text-left md:px-10 px-4 rounded-full overflow-hidden bg-[#3D2E35] mask-circle">
                             <span className="relative z-10 font-light font-gmarket flex flex-row gap-2 items-center justify-center">
                                 <img src={rightArrowWhite} className="w-5 z-10 mb-1 rotate-180 md:hidden block" />
-                                이전 단계
+                                {t.diagNavBtnConst[0]}
                             </span>
                         </motion.div>
 
@@ -56,7 +58,7 @@ export default function DiagNavBtn({ direction = "next", variant = "full", onCli
                         className="relative flex tracking-wider items-center justify-center h-10 w-fit text-[#FDFAF7] pt-[6px] px-4 rounded-full overflow-hidden bg-[#3D2E35] mask-circle">
                         <span className="relative z-10 font-light font-gmarket flex flex-row gap-2 items-center justify-center">
                             <img src={rightArrowWhite} className="w-5 z-10 mb-1 rotate-180" alt="" />
-                            이전 단계
+                            {t.diagNavBtnConst[0]}
                         </span>
                     </motion.div>
                 ) : direction === "next" && variant === "simple" ? (
@@ -66,7 +68,7 @@ export default function DiagNavBtn({ direction = "next", variant = "full", onCli
                         <div className="absolute inset-0 transition-opacity duration-300 bg-[#5C4650]" style={{ opacity: swapped ? 1 : 0 }} />
                         <span className="relative z-10 font-light font-gmarket flex flex-row gap-2 items-center justify-center">
                             <img src={rightArrowWhite} className="w-5 mb-1 z-10" alt="" />
-                            다음 단계
+                            {t.diagNavBtnConst[1]}
                         </span>
                     </motion.div>
                 ) : (
@@ -86,7 +88,7 @@ export default function DiagNavBtn({ direction = "next", variant = "full", onCli
                             <div className="absolute inset-0 transition-opacity duration-300 bg-[#5C4650]" style={{ opacity: swapped ? 1 : 0 }} />
                             <span className="relative z-10 font-light font-gmarket flex flex-row gap-2 items-center justify-center">
                                 <img src={rightArrowWhite} className="w-5 mb-1 z-10 md:hidden block" />
-                                다음 단계
+                                {t.diagNavBtnConst[1]}
                             </span>
                         </motion.div>
 

@@ -4,28 +4,28 @@ import angleLight from "../../assets/img/angle-light.svg";
 import lightbulbFilamentLight from "../../assets/img/lightbulb-filament-light.svg";
 import imageSquare from "../../assets/img/image-square.svg";
 
-import guideSections from "../../data/diagnosis/guideSections.json";
+import { useT } from "../../locales";
 
 import HologramOverlay from "../common/HologramOverlay";
 import PictureDesktop from "./PictureDesktop";
 import PictureMobile from "./PictureMobile";
 
 export default function Ready() {
-  
+  const t = useT();
   const ICONS = {
     "image-square": imageSquare,
     "angle-light": angleLight,
     "lightbulb-filament-light": lightbulbFilamentLight,
   };
   
-  const GUIDE_SECTIONS = guideSections.map((item) => ({
+  const GUIDE_SECTIONS = t.guideSections.map((item) => ({
     ...item,
     icon: ICONS[item.icon],
   }));
 
+
   return (
     <>
-      {/* 모바일 화면 */}
       <PictureMobile
         HologramOverlay={HologramOverlay} 
         scanSmileyLight={scanSmileyLight} 
@@ -33,12 +33,11 @@ export default function Ready() {
         GUIDE_SECTIONS={GUIDE_SECTIONS} 
       />
 
-      {/* 데스크탑 화면 */}
       <PictureDesktop
         HologramOverlay={HologramOverlay} 
         scanSmileyLight={scanSmileyLight} 
         beforeImage={beforeImage} 
-        GUIDE_SECTIONS={GUIDE_SECTIONS} 
+        GUIDE_SECTIONS={GUIDE_SECTIONS}
       />
     </>
   );

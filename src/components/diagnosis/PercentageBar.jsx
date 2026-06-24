@@ -1,7 +1,10 @@
 import { animate, useMotionTemplate, useMotionValue, useTransform } from "framer-motion";
 import { useEffect } from "react";
 
+import { useT } from "../../locales";
+
 export default function PercentageBar({motion, setProgress}) {
+    const t = useT();
     const loadingPercentage = useMotionValue(0);
 
     useEffect(() => {
@@ -14,7 +17,7 @@ export default function PercentageBar({motion, setProgress}) {
     }, [loadingPercentage]);
 
     const rounded = useTransform(loadingPercentage, (v) => Math.round(v));
-    const loadingText = useMotionTemplate`${rounded}% 분석 중`;
+    const loadingText = useMotionTemplate`${rounded}% ${t.percentageBarConst}`;
     const progressWidth = useTransform(loadingPercentage, (v) => `${v}%`);
 
    return (

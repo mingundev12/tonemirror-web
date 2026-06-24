@@ -1,0 +1,198 @@
+{
+  "heroConst": [
+    ["Your color,", "precisely."],
+    "Personal color and custom beauty from a single photo",
+    ["From a single photo", "personal color and custom beauty"],
+    "Start diagnosis",
+    ["Drag the box", "to your face."]
+  ],
+  "sectionOneConst": [
+    "01. Personal Color Diagnosis",
+    ["AI analyzes your skin tone", "and classifies your seasonal type"],
+    "02. Foundation Recommendations",
+    ["Product suggestions", "based on your diagnosis"],
+    "03. Half Makeup Comparison",
+    ["Compare before and after", "makeup on one screen"],
+    ["Your Color", "from three perspectives"]
+  ],
+  "diagTitleConst": [
+    "Please upload a face photo.",
+    ["Choose the photo closest", "to your natural skin tone."],
+    "Analysis in progress.",
+    ["Precisely analyzing", "your skin tone and color data."],
+    "Please check before shooting.",
+    ["For an accurate diagnosis,", "please review the following."]
+  ],
+  "diagNavBtnConst": [
+    "Previous step",
+    "Next step"
+  ],
+  "indicatorConst": [
+    "Ready",
+    "Upload",
+    "Analysis"
+  ],
+  "imageUploadConst": [
+    "Please upload a photo.",
+    "Take photo",
+    "Please take a photo."
+  ],
+  "imageUploadAlertConst": "Only JPG and PNG image files can be uploaded.",
+  "readyConst": [
+    "Example",
+    "Guidelines"
+  ],
+  "resultLeftConst": [
+    "Personal color diagnosis result",
+    "Makeup",
+    "Save result",
+    "Retry"
+  ],
+  "resultRightConst": [
+    "My skin tone",
+    "Diagnosis accuracy",
+    ["AI skin tone", "analysis reliability"],
+    "Flattering colors",
+    "Colors to avoid"
+  ],
+  "resultTipConst": [
+    "BEST TIP",
+    "WORST TIP"
+  ],
+  "productCardConst": [
+    "Foundation recommendations",
+    " products for your tone",
+    ""
+  ],
+  "makeUpTitleConst": [
+    "Virtual makeup",
+    ["Based on your personal color result,", "compare virtual makeup looks."]
+  ],
+  "saveBtnConst": "Save virtual makeup",
+  "halfMakeupCardConst": [
+    "Half Makeup Comparison",
+    "Drag left and right to see the change",
+    "BEFORE",
+    "AFTER",
+    "↔ Drag to compare"
+  ],
+  "navBarConst": {
+    "links": ["Home", "Diagnosis", "Personal color", "Virtual makeup"],
+    "languages": ["한국어", "English"]
+  },
+  "percentageBarConst": "analyzing",
+  "pageNationConst": "slide",
+  "analysisStatus": [
+    { "label": "Face area detection" },
+    { "label": "Skin tone extraction" },
+    { "label": "Personal color matching" },
+    { "label": "Product recommendations" }
+  ],
+  "guideSections": [
+    {
+      "icon": "image-square",
+      "title": "Photo",
+      "items": [
+        "Use your camera's default ratio (9:16).",
+        "Use a photo without filters.",
+        "Bare face gives the best results.",
+        "Keep hair away from your face.",
+        "Remove glasses and accessories."
+      ]
+    },
+    {
+      "icon": "angle-light",
+      "title": "Composition",
+      "items": [
+        "Face the camera directly.",
+        "Keep your full face in frame.",
+        "Plain or white backgrounds work best."
+      ]
+    },
+    {
+      "icon": "lightbulb-filament-light",
+      "title": "Lighting",
+      "items": [
+        "Use natural or bright light.",
+        "Avoid backlight and harsh shadows.",
+        "Avoid yellow-toned lighting."
+      ]
+    }
+  ],
+  "resultPersonalColor": [
+    {
+      "id": 0,
+      "eng": "Warm Spring",
+      "name": "Warm Spring",
+      "description": "Soft, muted tones reveal your delicate nature. Lavender and rose mute tones express your skin with clarity and elegance.",
+      "bestColor": [["Pastel Peach", "#FFD1BA"], ["Light Coral", "#FF8E7A"], ["Milky Banana", "#FFF4A3"], ["Apple Green", "#B2EBF2"], ["Golden Honey", "#F5D061"]],
+      "worstColor": [["Royal Blue", "#4169E1"], ["Dark Chocolate", "#3D2314"], ["Charcoal Gray", "#464646"], ["Magenta Pink", "#FF007F"], ["Pure White", "#FFFFFF"]],
+      "bestTip": "Warm tones with a bright yellow base and vivid, clear colors bring life to your skin.",
+      "worstTip": "Cool, dark, or muddy colors can make your skin look dull and shadowed."
+    },
+    {
+      "id": 1,
+      "eng": "Cool Summer",
+      "name": "Cool Summer",
+      "description": "Rich earth tones complete your charm. Terracotta, mustard, and olive colors add mature warmth to your skin.",
+      "bestColor": [["Lavender", "#E6E6FA"], ["Sky Blue", "#87CEEB"], ["Soft Rose", "#FFC0CB"], ["Mint Cocoa", "#BACBB6"], ["Powder Pink", "#FFD1DC"]],
+      "worstColor": [["Khaki Brown", "#4B5320"], ["Mustard Yellow", "#E1AD01"], ["Orange Red", "#FF4500"], ["Deep Burgundy", "#800020"], ["Camel", "#C19A6B"]],
+      "bestTip": "Soft, bright tones with less red make your skin look clear. Choose gentle pastel tones.",
+      "worstTip": "Strong warm yellow tones or heavy, muddy colors can make your skin look sallow."
+    },
+    {
+      "id": 2,
+      "eng": "Warm Autumn",
+      "name": "Warm Autumn",
+      "description": "Cool, vivid tones make your skin shine brightest. Blue-based deep colors and pure white sharpen your presence.",
+      "bestColor": [["Olive Green", "#6B8E23"], ["Terracotta", "#E2725B"], ["Mustard", "#E1AD01"], ["Warm Beige", "#E6D7C3"], ["Deep Brick Red", "#7C0A1A"]],
+      "worstColor": [["Neon Pink", "#FF6EC7"], ["Sky Blue", "#87CEEB"], ["Lavender", "#E6E6FA"], ["Pure White", "#FFFFFF"], ["Navy Blue", "#000080"]],
+      "bestTip": "Deep, calm shading with strong yellow undertones and richness creates a refined, elegant mood.",
+      "worstTip": "Cool pastel colors with a blue cast or neon colors can make your skin look tired."
+    },
+    {
+      "id": 3,
+      "eng": "Cool Winter",
+      "name": "Cool Winter",
+      "description": "Warm, lively tones make you glow. Peach coral and golden beige add natural radiance to your skin.",
+      "bestColor": [["Pure Black", "#000000"], ["Royal Blue", "#4169E1"], ["Magenta", "#FF00FF"], ["Emerald Green", "#50C878"], ["Ice Violet", "#E0B0FF"]],
+      "worstColor": [["Gold Beige", "#F5F5DC"], ["Orange", "#FFA500"], ["Camel Brown", "#C19A6B"], ["Pastel Peach", "#FFD1BA"], ["Moss Green", "#8A9A86"]],
+      "bestTip": "This tone suits vivid, high-contrast colors. Choose deep, clear colors with a cool base.",
+      "worstTip": "Lukewarm orange and camel tones can dull the modern edge of Cool Winter."
+    }
+  ],
+  "foundationProducts": {
+    "Warm Spring": [
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "17N1 (Ivory)", "shade": "17", "swatch": "#FDDFC3" },
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "19N1 (Light Vanilla)", "shade": "19", "swatch": "#FDD2B9" },
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "21W1 (Warm Vanilla)", "shade": "21", "swatch": "#FBD5AE" },
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "23W1 (Sand Beige)", "shade": "23", "swatch": "#EEBD92" },
+      { "brand": "ESPOIR", "brandName": "ESPOIR", "name": ["Pro Tailor Be Velvet", "Fluid Foundation"], "shadeName": "21 Ivory", "shade": "21", "swatch": "#ECD1B6" },
+      { "brand": "LANCOME", "brandName": "LANCÔME", "name": ["Pro Tailor Be Velvet", "Fluid Foundation"], "shadeName": "21 Ivory", "shade": "21", "swatch": "#ECD1B6" }
+    ],
+    "Cool Summer": [
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "17C1 (Petal Ivory)", "shade": "17", "swatch": "#FED9BF" },
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "21C1 (Rose Vanilla)", "shade": "21", "swatch": "#F9CEAD" },
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "23C1 (Pink Beige)", "shade": "23", "swatch": "#EEBD9D" },
+      { "brand": "ESPOIR", "brandName": "ESPOIR", "name": ["Pro Tailor Be Velvet", "Fluid Foundation"], "shadeName": "21 Ivory", "shade": "21", "swatch": "#F9E4D5" },
+      { "brand": "LANCOME", "brandName": "LANCÔME", "name": ["Teint Idole Ultra Wear", "Longwear Fluid"], "shadeName": "PO-01 (Ecru)", "shade": "19", "swatch": "#FAE2D2" },
+      { "brand": "LANCOME", "brandName": "LANCÔME", "name": ["Teint Idole Ultra Wear", "Longwear Fluid"], "shadeName": "PO-02 (Rose Vanilla)", "shade": "21", "swatch": "#F5D1BC" }
+    ],
+    "Warm Autumn": [
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "21N1 (Vanilla)", "shade": "21", "swatch": "#F4CBA8" },
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "23N1 (Beige)", "shade": "23", "swatch": "#E5BA96" },
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "25N1 (Amber)", "shade": "25", "swatch": "#F4B987" },
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "27N1 (Honey)", "shade": "27", "swatch": "#D9A87B" },
+      { "brand": "ESPOIR", "brandName": "ESPOIR", "name": ["Pro Tailor Be Velvet", "Fluid Foundation"], "shadeName": "22 Petal", "shade": "22", "swatch": "#EBC4A4" },
+      { "brand": "LANCOME", "brandName": "LANCÔME", "name": ["Pro Tailor Be Velvet", "Fluid Foundation"], "shadeName": "23 Beige", "shade": "23", "swatch": "#E3BA9C" }
+    ],
+    "Cool Winter": [
+      { "brand": "HERA", "brandName": "HERA", "name": ["Silky Stay 24H", "Longwear Foundation"], "shadeName": "13N1 (Porcelain)", "shade": "13", "swatch": "#FDF3EE" },
+      { "brand": "ESPOIR", "brandName": "ESPOIR", "name": ["Pro Tailor Be Velvet", "Fluid Foundation"], "shadeName": "13 Porcelain", "shade": "13", "swatch": "#FCEEE7" },
+      { "brand": "NARS", "brandName": "NARS", "name": ["Natural Radiant", "Longwear Foundation"], "shadeName": "L1 (Oslo)", "shade": "13", "swatch": "#FCEBE2" },
+      { "brand": "NARS", "brandName": "NARS", "name": ["Natural Radiant", "Longwear Foundation"], "shadeName": "L2 (Mont Blanc)", "shade": "17", "swatch": "#FAE3D2" },
+      { "brand": "DIOR", "brandName": "DIOR", "name": ["Forever Skin Glow", "Foundation"], "shadeName": "0CR (Cool Rosy)", "shade": "13", "swatch": "#FDF0E6" },
+      { "brand": "DIOR", "brandName": "DIOR", "name": ["Forever Skin Glow", "Foundation"], "shadeName": "0N (Neutral)", "shade": "13", "swatch": "#FDF2EA" }
+    ]
+  }
+}

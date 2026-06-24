@@ -7,9 +7,12 @@ import PersonalColor from "./PersonalColor";
 import BlobGradient from "../common/BlobGradient";
 import HologramOverlay from "../common/HologramOverlay";
 
+import { useT } from "../../locales";
+
 const defaultRotations = [-8, 0, 8]
 
 export default function SectionOne() {
+    const t = useT();
 
     const [hoveredIndex, setHoveredIndex] = useState(null)
     const [spread, setSpread] = useState(false)
@@ -59,9 +62,9 @@ export default function SectionOne() {
     }, [])
 
     const cards = [
-        { visual: <PersonalColor motion={motion} />, title: "01. 퍼스널 컬러 진단", desc: <>AI가 피부톤을 분석해 <br /> 사계절 톤으로 분류</> },
-        { visual: <Foundation motion={motion} />, title: "02. 파운데이션 추천", desc: <>진단 결과 기반 <br /> 파운데이션 제품 추천</> },
-        { visual: <HalfMakeup />, title: "03. Half Makeup 비교", desc: <>메이크업 전후를 <br /> 한 화면에서 비교</> },
+        { visual: <PersonalColor motion={motion} />, title: t.sectionOneConst[0], desc: <> {t.sectionOneConst[1][0]}<br /> {t.sectionOneConst[1][1]}</> },
+        { visual: <Foundation motion={motion} />, title: t.sectionOneConst[2], desc: <> {t.sectionOneConst[3][0]}<br /> {t.sectionOneConst[3][1]}</> },
+        { visual: <HalfMakeup />, title: t.sectionOneConst[4], desc: <> {t.sectionOneConst[5][0]}<br /> {t.sectionOneConst[5][1]}</> },
     ]
 
     const gap = 24
@@ -78,9 +81,10 @@ export default function SectionOne() {
             <div className="relative z-10 flex flex-col items-center gap-5 md:gap-12 justify-center w-full min-h-[100dvh] md:h-full px-[10%] md:px-0 py-10 md:py-20 font-gmarket">
 
                 <p className="text-[#3D2E35] md:text-5xl text-4xl text-center tracking-wider leading-tight font-rebecca">
-                    Your Color, <br /> 세 가지 시선으로
+                    {t.sectionOneConst[6][0]} <br /> {t.sectionOneConst[6][1]}
                 </p>
 
+                {/* 카드 */}
                 {isMd ? (
                     <div ref={containerRef} className="relative w-full h-[min(55vh,400px)]">
                         {cardW > 0 && cards.map((card, i) => (
