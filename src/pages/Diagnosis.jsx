@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { motion } from "motion/react";
 
-import ImageUpload from "../components/ImageUpload";
-import Analysis from "../components/Analysis";
+import ImageUpload from "../components/diagnosis/ImageUpload";
+import Analysis from "../components/diagnosis/Analysis";
 import BlobGradient from "../components/common/BlobGradient";
-import Ready from "../components/Ready";
+import Ready from "../components/diagnosis/Ready";
 import Indicator from "../components/diagnosis/Indicator";
 import DiagNavBtn from "../components/diagnosis/DiagNavBtn";
 import DiagTitle from "../components/diagnosis/DiagTitle";
@@ -16,7 +16,7 @@ export default function Diagnosis() {
 
    return (
        <>
-           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full h-full">
+           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full h-full" style={{ transform: "none" }}>
                 {/* 배경 */}
                 <div className="absolute w-full h-full bg-gradient-to-b from-[#FDFAF7] from-40% to-transparent to-70% z-1 pointer-events-none" />
                 <div className="absolute w-full h-screen -z-50 opacity-30">
@@ -47,7 +47,7 @@ export default function Diagnosis() {
                         <div className="order-1 md:order-2 flex flex-col items-center text-center">
                             {/* 타이틀 */}
                             <DiagTitle diagStatus={diagStatus}/>
-
+                            
                             {diagStatus === "ready" && (
                                 <div className="md:hidden flex justify-center mt-1 w-full min-h-10">
                                     <DiagNavBtn

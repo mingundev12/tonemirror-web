@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from "react"
 import { animate, useMotionValue } from "motion/react"
-import arrowfilled from "../assets/img/arrow-circle-down-filled.svg"
+
+import arrowfilled from "../../assets/img/arrow-circle-down-filled.svg"
+
+import colorWheelColor from "../../data/home/colorWheelColor.json"
 
 export default function ColorWheel({ onSelect, autoRotate = false }) {
 
@@ -9,43 +12,9 @@ export default function ColorWheel({ onSelect, autoRotate = false }) {
     const rotation = useMotionValue(0)
     const gRef = useRef(null)
 
-    const colors = [
-        { hex: "#7C0A1A", tone: "Warm" },
-        { hex: "#FF8E7A", tone: "Warm" },
-        { hex: "#E2725B", tone: "Warm" },
-        { hex: "#FF4500", tone: "Cool" },
-        { hex: "#FFD1BA", tone: "Warm" },
-        { hex: "#3D2314", tone: "Warm" },
-        { hex: "#C19A6B", tone: "Cool" },
-        { hex: "#E6D7C3", tone: "Warm" },
-        { hex: "#FFA500", tone: "Cool" },
-        { hex: "#F5D061", tone: "Warm" },
-        { hex: "#E1AD01", tone: "Cool" },
-        { hex: "#FFF4A3", tone: "Warm" },
-        { hex: "#F5F5DC", tone: "Cool" },
-        { hex: "#4B5320", tone: "Cool" },
-        { hex: "#6B8E23", tone: "Warm" },
-        { hex: "#8A9A86", tone: "Cool" },
-        { hex: "#BACBB6", tone: "Cool" },
-        { hex: "#50C878", tone: "Cool" },
-        { hex: "#B2EBF2", tone: "Warm" },
-        { hex: "#87CEEB", tone: "Cool" },
-        { hex: "#4169E1", tone: "Warm" },
-        { hex: "#E6E6FA", tone: "Cool" },
-        { hex: "#000080", tone: "Warm" },
-        { hex: "#E0B0FF", tone: "Cool" },
-        { hex: "#FF00FF", tone: "Cool" },
-        { hex: "#FF6EC7", tone: "Warm" },
-        { hex: "#FF007F", tone: "Warm" },
-        { hex: "#800020", tone: "Cool" },
-        { hex: "#FFD1DC", tone: "Cool" },
-        { hex: "#FFC0CB", tone: "Cool" },
-        { hex: "#000000", tone: "Cool" },
-        { hex: "#464646", tone: "Warm" },
-        { hex: "#FFFFFF", tone: "Warm" },
-    ]
+    
 
-    const total = colors.length
+    const total = colorWheelColor.length
     const cx = 150
     const cy = 150
     const outerR = 120
@@ -136,7 +105,7 @@ export default function ColorWheel({ onSelect, autoRotate = false }) {
         <div className="relative" style={{ width: 220, height: 220 }} onClick={(e) => e.stopPropagation()}>
             <svg width="220" height="220" viewBox="-20 -20 340 340" style={{ overflow: "visible" }}>
                 <g ref={gRef}>
-                    {colors.map((color, i) => (
+                    {colorWheelColor.map((color, i) => (
                         <path
                             key={i}
                             d={getPath(i, getExpand(i))}

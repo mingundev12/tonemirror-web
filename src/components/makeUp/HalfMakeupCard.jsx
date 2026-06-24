@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useMotionTemplate, useTransform } from "motion/react";
-import beforeSrc from "../assets/modelHead1.png";
-import afterSrc from "../assets/modelHead2.png";
+import { useT } from "../../locales";
+import beforeSrc from "../../assets/modelHead1.png";
+import afterSrc from "../../assets/modelHead2.png";
 
 const HANDLE = 40;
 const HALF = HANDLE / 2;
 
 export default function HalfMakeupCard() {
+    const t = useT();
     const containerRef = useRef(null);
     const [width, setWidth] = useState(0);
     const x = useMotionValue(0);
@@ -27,10 +29,10 @@ export default function HalfMakeupCard() {
     const left = useMotionTemplate`${pct}%`;
 
     return (
-        <div className="glass aspect-[9/16] h-full shrink-0 rounded-3xl p-8 border border-[#FDFAF7]/30 flex flex-col gap-5">
+        <div className="glass aspect-[9/16] w-full h-auto md:w-auto md:h-full shrink-0 rounded-3xl p-8 border border-[#FDFAF7]/30 flex flex-col gap-5">
             <div>
-                <p className="text-lg text-[#3D2E35] font-gmarket">Half Makeup 비교</p>
-                <p className="text-sm font-light text-[#3D2E35]/60 font-gmarket">좌우로 드래그해 변화를 확인하세요</p>
+                <p className="text-lg text-[#3D2E35] font-gmarket">{t.halfMakeupCardConst[0]}</p>
+                <p className="text-sm font-light text-[#3D2E35]/60 font-gmarket">{t.halfMakeupCardConst[1]}</p>
             </div>
 
             <div className="flex-1 w-full rounded-2xl border border-[#FDFAF7]/30 bg-[#3D2E35]/15 flex items-center justify-center">
@@ -50,8 +52,8 @@ export default function HalfMakeupCard() {
                         draggable={false}
                     />
 
-                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#FDFAF7]/80 text-[#3D2E35] text-[10px] pt-1 tracking-wide font-gmarket">BEFORE</span>
-                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#FDFAF7]/80 text-[#3D2E35] text-[10px] pt-1 tracking-wide font-gmarket">AFTER</span>
+                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#FDFAF7]/80 text-[#3D2E35] text-[10px] pt-1 tracking-wide font-gmarket">{t.halfMakeupCardConst[2]}</span>
+                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#FDFAF7]/80 text-[#3D2E35] text-[10px] pt-1 tracking-wide font-gmarket">{t.halfMakeupCardConst[3]}</span>
 
                     <motion.div className="absolute top-0 bottom-0 w-px bg-[#FDFAF7]/80 pointer-events-none" style={{ left }} />
                     <motion.div
@@ -68,13 +70,13 @@ export default function HalfMakeupCard() {
                         style={{ x }}
                         className="absolute top-1/2 -mt-5 w-10 h-10 rounded-full bg-[#FDFAF7] shadow-md flex items-center justify-center text-[#3D2E35] cursor-ew-resize"
                     >
-                        <motion.span variants={{ rest: { opacity: 0 }, active: { opacity: 1 } }} className="text-sm">↔</motion.span>
+                        <motion.span variants={{ rest: { opacity: 0 }, active: { opacity: 1 } }} className="text-sm">{"\u2194"}</motion.span>
                     </motion.div>
                 </div>
             </div>
 
             <div className="flex items-center justify-center text-xs font-light text-[#3D2E35]/50 font-gmarket">
-                <span>↔ 드래그하여 비교</span>
+                <span>{t.halfMakeupCardConst[4]}</span>
             </div>
         </div>
     );

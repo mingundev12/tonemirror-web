@@ -7,13 +7,14 @@ import Diagnosis from './pages/Diagnosis';
 import Result from './pages/Result';
 import MakeUp from './pages/MakeUp';
 
-import NavBar from './components/NavBar';
+import NavBar from './components/common/NavBar';
 import LenisComponent from './components/common/LenisComponent';
 import ProductDashboard from './pages/ProductDashboard';
 
 export default function App() {
 
   const location = useLocation();
+  
   const [userToneStatus, setUserToneStatus] = useState("Cool Summer") // 더미 유저 퍼스널컬러
   const [userSkinTone] = useState("#ECBA8F") // 더미 피부톤
   
