@@ -2,7 +2,6 @@ import { useRef, useCallback } from "react";
 import { motion } from "motion/react";
 import { toPng } from "html-to-image";
 
-import BlobGradient from "../components/common/BlobGradient";
 import ResultRight from "../components/result/ResultRight";
 import ResultLeft from "../components/result/ResultLeft";
 import ResultLeftBtn from "../components/result/ResultLeftBtn";
@@ -36,17 +35,10 @@ export default function Result({userToneStatus, userSkinTone}) {
 
    return (
        <>   
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full h-full">
-                
-                {/* 그라데이션 배경 */}
-                <div className="absolute w-full h-screen opacity-30 -z-50">
-                    <div className="absolute w-full h-[50%] bg-gradient-to-b from-[#FDFAF7]/75 from-40% to-transparent to-100% z-1 pointer-events-none" />
-                    <div className="absolute w-full h-[100%] bg-gradient-to-t from-[#FDFAF7] from-0% to-transparent to-50% z-1 pointer-events-none" />
-                    <BlobGradient />
-                </div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full">
 
-                <div className="w-full md:h-screen h-full relative z-50">
-                    <div className="absolute mx-[10%] h-full flex flex-col mt-30 md:mt-0 md:justify-center gap-10 z-[100]">
+                <div className="w-full min-h-dvh md:h-screen relative z-50">
+                    <div className="relative md:absolute mx-[10%] md:h-full flex flex-col pt-30 md:pt-0 md:mt-0 md:justify-center gap-10 pb-10 md:pb-0 z-[100]">
                         <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-10">
                             
                             {/* 왼쪽 컨텐츠 */}

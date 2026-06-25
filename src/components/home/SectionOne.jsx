@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 import Foundation from "./Foundation";
 import HalfMakeup from "./HalfMakeup";
 import PersonalColor from "./PersonalColor";
-import BlobGradient from "../common/BlobGradient";
 import HologramOverlay from "../common/HologramOverlay";
 
 import sectionOneConst from "../../data/home/sectionOneConst.json";
@@ -65,11 +64,8 @@ export default function SectionOne() {
     const startX = -totalW / 2 + cardW / 2;
 
     return (
-        <div ref={sectionRef} className="relative w-full min-h-[100dvh] h-auto md:h-screen overflow-hidden bg-[#FDFAF7]">
+        <div ref={sectionRef} className="relative w-full min-h-[100dvh] h-auto md:h-screen overflow-hidden">
             <div className="absolute w-full h-full bg-gradient-to-b from-[#FDFAF7] from-50% to-transparent to-90% z-1 pointer-events-none" />
-            <div className="absolute inset-0 opacity-30 z-0">
-                <BlobGradient />
-            </div>
 
             <div className="relative z-10 flex flex-col items-center gap-5 md:gap-12 justify-center w-full min-h-[100dvh] md:h-full px-[10%] md:px-0 py-10 md:py-20 font-gmarket">
 

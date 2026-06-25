@@ -11,6 +11,7 @@ export default function ProductCard({  userToneStatus, products }) {
         setSelectProduct({name: item.name, shadeName: item.shadeName})
     };
 
+    const selectProductText = "선택된 제품: "
     
     return (
         <div className="glass w-full h-full min-w-0 rounded-3xl p-8 border border-[#FDFAF7]/30 flex flex-col gap-4">
@@ -21,7 +22,7 @@ export default function ProductCard({  userToneStatus, products }) {
                     <p className="text-sm font-light text-[#3D2E35]/60 font-gmarket">{userToneStatus}{productCardConst.subtitle}</p>
                 </div>
                 <div className="flex md:flex-row flex-col gap-2">
-                    <p className="text-lg text-[#3D2E35] font-gmarket">선택된 제품: </p>
+                    <p className="text-lg text-[#3D2E35] font-gmarket">{selectProductText}</p>
                     <p className="md:text-lg text-sm text-[#3D2E35] font-light font-gmarket md:whitespace-nowrap">{selectProduct.name} <br className="md:hidden block" /> {selectProduct.shadeName}</p>
                 </div>
             </div>

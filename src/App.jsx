@@ -9,8 +9,7 @@ import MakeUp from './pages/MakeUp';
 
 import NavBar from './components/common/NavBar';
 import LenisComponent from './components/common/LenisComponent';
-import Footer from './components/common/Footer';
-
+import PageLayout from './components/common/PageLayout';
 export default function App() {
 
   const location = useLocation();
@@ -21,19 +20,19 @@ export default function App() {
   return (
     <>
       <LenisComponent />
-      <div className="mx-auto flex justify-center">
+      <div className="mx-auto flex flex-col w-full">
         <NavBar />
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
-            <Route path='/' element={<Home />} />
+            <Route element={<PageLayout />}>
+              <Route path='/' element={<Home />} />
+              <Route path='/result' element={<Result userToneStatus={userToneStatus} userSkinTone={userSkinTone} />} />
+              <Route path='/makeup' element={<MakeUp userToneStatus={userToneStatus} />} />
+            </Route>
             <Route path='/diagnosis' element={<Diagnosis />} />
-            <Route path='/result' element={<Result userToneStatus={userToneStatus} userSkinTone={userSkinTone} />} />
-            <Route path='/makeup' element={<MakeUp userToneStatus={userToneStatus} />} />
-               
           </Routes>
         </AnimatePresence>
       </div>
-      <Footer />
     </>
   );
 }

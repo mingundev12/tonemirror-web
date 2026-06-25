@@ -1,4 +1,4 @@
-import { animate, useMotionTemplate, useMotionValue, useTransform } from "framer-motion";
+import { animate, useMotionTemplate, useMotionValue, useTransform } from "motion/react";
 import { useEffect } from "react";
 
 import percentageBarConst from "../../data/diagnosis/percentageBarConst.json";
