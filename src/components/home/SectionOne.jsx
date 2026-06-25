@@ -80,7 +80,7 @@ export default function SectionOne() {
                 {/* 카드 */}
                 {isMd ? (
                     <div ref={containerRef} className="relative w-full h-[min(55vh,400px)]">
-                        {cardW > 0 && sectionOneConst.cardDescription.map((desc, i) => (
+                        {cardW > 0 && sectionOneConst.cardDescription.map((item, i) => (
                             <motion.div
                                 key={i}
                                 className="glass absolute flex flex-col rounded-2xl border border-[#FDFAF7]/20 overflow-hidden cursor-pointer"
@@ -122,14 +122,14 @@ export default function SectionOne() {
 
                                 <div className="flex flex-col items-center gap-1 pb-8">
                                     <p className="text-[#3D2E35] text-lg">{sectionOneConst.cardTitle[i]}</p>
-                                    <p className="text-[#3D2E35]/75 text-center font-light text-sm">{desc}</p>
+                                    <p className="text-[#3D2E35]/75 text-center font-light text-sm">{item}</p>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
                 ) : (
                     <div className="flex flex-col gap-4 w-full">
-                        {sectionOneConst.cardDescription.map((desc, i) => (
+                        {sectionOneConst.cardDescription.map((item, i) => (
                             <motion.div
                                 key={i}
                                 className="glass flex w-full aspect-square flex-col rounded-2xl border border-[#FDFAF7]/20 overflow-hidden shrink-0"
@@ -151,7 +151,7 @@ export default function SectionOne() {
 
                                 <div className="flex flex-col items-center gap-1 pb-5 shrink-0">
                                     <p className="text-[#3D2E35] text-base">{sectionOneConst.cardTitle[i]}</p>
-                                    <p className="text-[#3D2E35]/75 text-center font-light text-xs leading-snug">{desc}</p>
+                                    <p className="text-[#3D2E35]/75 text-center font-light text-xs leading-snug">{item}</p>
                                 </div>
                             </motion.div>
                         ))}

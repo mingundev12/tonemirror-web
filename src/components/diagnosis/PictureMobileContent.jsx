@@ -2,7 +2,7 @@ import ExamPictureMobile from "./ExamPictureMobile";
 import PictureGuideNoteMobile from "./PictureGuideNoteMobile";
 import { motion, AnimatePresence } from "motion/react";
 
-export default function PictureMobileContent({HologramOverlay, scanSmileyLight, beforeImage, GUIDE_SECTIONS, onDragEnd, slide}) {
+export default function PictureMobileContent({HologramOverlay, scanSmileyLight, beforeImage, onDragEnd, slide}) {
    return (
        <>
            <motion.div
@@ -28,7 +28,7 @@ export default function PictureMobileContent({HologramOverlay, scanSmileyLight, 
                         <ExamPictureMobile HologramOverlay={HologramOverlay} scanSmileyLight={scanSmileyLight} beforeImage={beforeImage} />
                     ) : (
                         // 촬영 전 주의사항 문구 컴포넌트
-                        <PictureGuideNoteMobile HologramOverlay={HologramOverlay} GUIDE_SECTIONS={GUIDE_SECTIONS} />
+                        <PictureGuideNoteMobile HologramOverlay={HologramOverlay} />
                     )}
                     </motion.div>
                 </AnimatePresence>

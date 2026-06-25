@@ -7,8 +7,8 @@ export default function ExamPictureMobile({HologramOverlay, scanSmileyLight, bef
             <HologramOverlay />
 
             <div className="flex flex-row gap-1.5 items-center shrink-0">
-                <img src={scanSmileyLight} className="w-6 h-6" alt="" />
-                <p className="text-base font-medium pt-1">{readyConst[0]}</p>
+                <img src={scanSmileyLight} className="w-6 h-6" />
+                <p className="text-base font-medium pt-1">{readyConst.example}</p>
             </div>
 
             <div className="flex flex-1 flex-col min-h-0 mt-2 overflow-hidden rounded-xl">

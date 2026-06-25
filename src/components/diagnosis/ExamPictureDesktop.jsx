@@ -7,7 +7,7 @@ export default function ExamPictureDesktop({HologramOverlay, scanSmileyLight, be
                 <HologramOverlay />
                 <div className="flex flex-row gap-1 items-center">
                     <img src={scanSmileyLight} className="w-7 h-7" alt="" />
-                    <p className="text-xl font-medium pt-1">{readyConst[0]}</p>
+                    <p className="text-xl font-medium pt-1">{readyConst.example}</p>
                 </div>
                 <div className="flex flex-1 items-center justify-center min-h-0">
                     <img src={beforeImage} className="h-full w-full object-cover rounded-2xl bg-[#FDFAF7]/50 z-10" />

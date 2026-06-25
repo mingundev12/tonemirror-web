@@ -5,12 +5,12 @@ import PictureMobileContent from "./PictureMobileContent";
 
 import readyConst from "../../data/diagnosis/readyConst.json";
 
-export default function PictureMobile({HologramOverlay, scanSmileyLight, beforeImage, GUIDE_SECTIONS}) {
+export default function PictureMobile({HologramOverlay, scanSmileyLight, beforeImage}) {
     const [page, setPage] = useState(0);
 
     const MOBILE_SLIDES = [
-        { key: "guide", label: readyConst[1] },
-        { key: "example", label: readyConst[0] },
+        { key: "guide", label: readyConst.guideNote },
+        { key: "example", label: readyConst.example },
     ];
 
     const goTo = useCallback((idx) => {
@@ -27,7 +27,7 @@ export default function PictureMobile({HologramOverlay, scanSmileyLight, beforeI
        <>
            <div className="relative md:hidden flex-1 w-full min-w-0 flex flex-col pb-10 min-h-0">
             <div className="grid grid-rows-[1fr_1fr] gap-2 flex-1 min-h-0 w-full min-w-0 font-gmarket items-stretch px-1">
-                <PictureMobileContent HologramOverlay={HologramOverlay} scanSmileyLight={scanSmileyLight} beforeImage={beforeImage} GUIDE_SECTIONS={GUIDE_SECTIONS} onDragEnd={onDragEnd} slide={slide} />
+                <PictureMobileContent HologramOverlay={HologramOverlay} scanSmileyLight={scanSmileyLight} beforeImage={beforeImage} onDragEnd={onDragEnd} slide={slide} />
             </div>
 
                 <PageNation MOBILE_SLIDES={MOBILE_SLIDES} goTo={goTo} page={page} />
