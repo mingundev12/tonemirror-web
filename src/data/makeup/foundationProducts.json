@@ -1,0 +1,274 @@
+{
+  "Warm Spring": [
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "17N1 (Ivory)",
+      "shade": "17",
+      "swatch": "#FDDFC3"
+    },
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "19N1 (Light Vanilla)",
+      "shade": "19",
+      "swatch": "#FDD2B9"
+    },
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "21W1 (Warm Vanilla)",
+      "shade": "21",
+      "swatch": "#FBD5AE"
+    },
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "23W1 (Sand Beige)",
+      "shade": "23",
+      "swatch": "#EEBD92"
+    },
+    {
+      "brand": "ESPOIR",
+      "brandName": "에스쁘아",
+      "name": [
+        "프로 테일러 비 벨벳",
+        "플루이드 파운데이션"
+      ],
+      "shadeName": "21호 아이보리 (Ivory)",
+      "shade": "21",
+      "swatch": "#ECD1B6"
+    },
+    {
+      "brand": "LANCOME",
+      "brandName": "랑콤",
+      "name": [
+        "프로 테일러 비 벨벳",
+        "플루이드 파운데이션"
+      ],
+      "shadeName": "21호 아이보리 (Ivory)",
+      "shade": "21",
+      "swatch": "#ECD1B6"
+    }
+  ],
+  "Cool Summer": [
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "17C1 (Petal Ivory)",
+      "shade": "17",
+      "swatch": "#FED9BF"
+    },
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "21C1 (Rose Vanilla)",
+      "shade": "21",
+      "swatch": "#F9CEAD"
+    },
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "23C1 (Pink Beige)",
+      "shade": "23",
+      "swatch": "#EEBD9D"
+    },
+    {
+      "brand": "ESPOIR",
+      "brandName": "에스쁘아",
+      "name": [
+        "프로 테일러 비 벨벳",
+        "플루이드 파운데이션"
+      ],
+      "shadeName": "21호 아이보리 (Ivory)",
+      "shade": "21",
+      "swatch": "#F9E4D5"
+    },
+    {
+      "brand": "LANCOME",
+      "brandName": "랑콤",
+      "name": [
+        "뗑 이돌 울트라 웨어",
+        "롱웨어 플루이드"
+      ],
+      "shadeName": "PO-01 (Ecru)",
+      "shade": "19",
+      "swatch": "#FAE2D2"
+    },
+    {
+      "brand": "LANCOME",
+      "brandName": "랑콤",
+      "name": [
+        "뗑 이돌 울트라 웨어",
+        "롱웨어 플루이드"
+      ],
+      "shadeName": "PO-02 (Rose Vanilla)",
+      "shade": "21",
+      "swatch": "#F5D1BC"
+    }
+  ],
+  "Warm Autumn": [
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "21N1 (Vanilla)",
+      "shade": "21",
+      "swatch": "#F4CBA8"
+    },
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "23N1 (Beige)",
+      "shade": "23",
+      "swatch": "#E5BA96"
+    },
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "25N1 (Amber)",
+      "shade": "25",
+      "swatch": "#F4B987"
+    },
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "27N1 (Honey)",
+      "shade": "27",
+      "swatch": "#D9A87B"
+    },
+    {
+      "brand": "ESPOIR",
+      "brandName": "에스쁘아",
+      "name": [
+        "프로 테일러 비 벨벳",
+        "플루이드 파운데이션"
+      ],
+      "shadeName": "22호 페탈 (Petal)",
+      "shade": "22",
+      "swatch": "#EBC4A4"
+    },
+    {
+      "brand": "LANCOME",
+      "brandName": "랑콤",
+      "name": [
+        "프로 테일러 비 벨벳",
+        "플루이드 파운데이션"
+      ],
+      "shadeName": "23호 베이지 (Beige)",
+      "shade": "23",
+      "swatch": "#E3BA9C"
+    }
+  ],
+  "Cool Winter": [
+    {
+      "brand": "HERA",
+      "brandName": "헤라",
+      "name": [
+        "실키 스테이 24H",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "13N1 (Porcelain)",
+      "shade": "13",
+      "swatch": "#FDF3EE"
+    },
+    {
+      "brand": "ESPOIR",
+      "brandName": "에스쁘아",
+      "name": [
+        "프로 테일러 비 벨벳",
+        "플루이드 파운데이션"
+      ],
+      "shadeName": "13호 포슬린 (Porcelain)",
+      "shade": "13",
+      "swatch": "#FCEEE7"
+    },
+    {
+      "brand": "NARS",
+      "brandName": "나스",
+      "name": [
+        "네츄럴 래디언트",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "L1 (Oslo)",
+      "shade": "13",
+      "swatch": "#FCEBE2"
+    },
+    {
+      "brand": "NARS",
+      "brandName": "나스",
+      "name": [
+        "네츄럴 래디언트",
+        "롱웨어 파운데이션"
+      ],
+      "shadeName": "L2 (Mont Blanc)",
+      "shade": "17",
+      "swatch": "#FAE3D2"
+    },
+    {
+      "brand": "DIOR",
+      "brandName": "디올",
+      "name": [
+        "포에버 스킨",
+        "글로우 파운데이션"
+      ],
+      "shadeName": "0CR (Cool Rosy)",
+      "shade": "13",
+      "swatch": "#FDF0E6"
+    },
+    {
+      "brand": "DIOR",
+      "brandName": "디올",
+      "name": [
+        "포에버 스킨",
+        "글로우 파운데이션"
+      ],
+      "shadeName": "0N (Neutral)",
+      "shade": "13",
+      "swatch": "#FDF2EA"
+    }
+  ]
+}

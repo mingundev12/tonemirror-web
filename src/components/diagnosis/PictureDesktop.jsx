@@ -1,7 +1,7 @@
 import ExamPictureDesktop from "./ExamPictureDesktop";
 import PictureGuideNoteDesktop from "./PictureGuideNoteDesktop";
 
-export default function PictureDesktop({HologramOverlay, scanSmileyLight, beforeImage, GUIDE_SECTIONS}) {
+export default function PictureDesktop({HologramOverlay, scanSmileyLight, beforeImage}) {
    return (
        <>
            <div className="hidden md:block w-full h-[50vh]">
@@ -11,7 +11,7 @@ export default function PictureDesktop({HologramOverlay, scanSmileyLight, before
                     <ExamPictureDesktop HologramOverlay={HologramOverlay} scanSmileyLight={scanSmileyLight} beforeImage={beforeImage} />
 
                     {/* 촬영 전 주의사항 문구 */}
-                    <PictureGuideNoteDesktop HologramOverlay={HologramOverlay} GUIDE_SECTIONS={GUIDE_SECTIONS} />
+                    <PictureGuideNoteDesktop HologramOverlay={HologramOverlay} />
                 </div>
             </div>
        </>
