@@ -11,7 +11,7 @@ export default function MakeUpContent({motion, products, userToneStatus}) {
                 </motion.div>
 
                 {/* 제품 추천 */}
-                <motion.div className="w-full h-auto md:h-full flex-1 min-w-0" initial={{ y: 200, opacity: 0}} whileInView={{ y: 0, opacity: 1}} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.1, delay: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 50}}>
+                <motion.div className="w-full h-auto md:h-full flex-1 min-w-0" initial={{ y: 200, opacity: 0}} whileInView={{ y: 0, opacity: 1}} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.1, delay: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 50}}>
                     <ProductCard products={products} userToneStatus={userToneStatus}/>
                 </motion.div>
             </div>

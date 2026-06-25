@@ -9,7 +9,7 @@ import MakeUp from './pages/MakeUp';
 
 import NavBar from './components/common/NavBar';
 import LenisComponent from './components/common/LenisComponent';
-import ProductDashboard from './pages/ProductDashboard';
+import Footer from './components/common/Footer';
 
 export default function App() {
 
@@ -33,6 +33,7 @@ export default function App() {
           </Routes>
         </AnimatePresence>
       </div>
+      <Footer />
     </>
   );
 }

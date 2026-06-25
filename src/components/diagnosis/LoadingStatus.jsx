@@ -6,7 +6,7 @@ export default function LoadingStatus({ progress, mobile = false }) {
     const THRESHOLDS = [23, 52, 76, 92];
 
     return (
-        <div className={mobile ? "flex flex-col gap-3 w-fit mx-auto items-start" : "flex flex-row flex-nowrap justify-center gap-x-2 lg:gap-x-3 w-full mx-auto px-2"}>
+        <div className={mobile ? "grid grid-cols-2 gap-x-4 gap-y-3 mt-6 w-full" : "flex flex-row flex-nowrap justify-center gap-x-2  lg:gap-x-3 w-full mx-auto px-2"}>
             {analysisStatusConst.labels.map((item, i) => (
                 <div key={item} className="flex flex-row gap-2 items-center shrink-0">
                     <div className={`w-6 h-6 rounded-full shrink-0 ${progress >= THRESHOLDS[i] ? "bg-[#3D2E35] relative" : "bg-[#3D2E35]/50"}`}>

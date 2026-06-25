@@ -67,7 +67,7 @@ const MakeUpShare = forwardRef(function MakeUpShare({ products, userToneStatus }
                                             {item.brandName}
                                         </p>
                                         <p className="text-[10px] text-[#3D2E35] font-gmarket leading-tight">
-                                            {item.name[0]} {item.name[1]}
+                                            {item.name.replace(/\n/g, " ")}
                                         </p>
                                         <span className="font-light text-[#3D2E35]/50 text-[8px] font-gmarket leading-tight">
                                             {item.shadeName} / {item.shade}{productCardConst.text}
