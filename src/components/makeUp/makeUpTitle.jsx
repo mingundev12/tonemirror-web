@@ -1,6 +1,6 @@
 import makeUpTitleConst from "../../data/makeup/makeUpTitleConst.json";
 
-export default function MakeUpTitle({motion, SaveBtn}) {
+export default function MakeUpTitle({motion, SaveBtn, onSave}) {
    return (
        <>
             <div className="w-full flex flex-col md:grid md:grid-cols-3 items-center gap-4 md:gap-0">
@@ -11,7 +11,7 @@ export default function MakeUpTitle({motion, SaveBtn}) {
                 </div>
                 {/* 버튼 */}
                 <div className="justify-end md:flex hidden">
-                    <SaveBtn motion={motion} />
+                    <SaveBtn motion={motion} onSave={onSave} />
                 </div>
             </div>
        </>
