@@ -1,16 +1,38 @@
+import { useRef, useCallback } from "react";
 import { motion } from "motion/react";
+import { toPng } from "html-to-image";
 
 import BlobGradient from "../components/common/BlobGradient";
 import ResultRight from "../components/result/ResultRight";
 import ResultLeft from "../components/result/ResultLeft";
 import ResultLeftBtn from "../components/result/ResultLeftBtn";
+import ResultShare from "../components/result/ResultShare";
 
 import resultPersonalColor from "../data/result/resultPersonalColor.json";
 import resultLeftConst from "../data/result/resultLeftConst.json";
 
 export default function Result({userToneStatus, userSkinTone}) {
 
+    const shareRef = useRef(null);
     const personalColorData = resultPersonalColor.find((p) => p.eng === userToneStatus) ?? null;
+
+    const handleSave = useCallback(async () => {
+        if (!shareRef.current || !personalColorData) return;
+
+        await document.fonts.ready;
+
+        const dataUrl = await toPng(shareRef.current, {
+            pixelRatio: 2,
+            backgroundColor: "#FDFAF7",
+            cacheBust: true,
+            width: 800,
+        });
+
+        const link = document.createElement("a");
+        link.download = `tonemirror-${personalColorData.eng.replace(/\s+/g, "-").toLowerCase()}.png`;
+        link.href = dataUrl;
+        link.click();
+    }, [personalColorData]);
 
    return (
        <>   
@@ -28,7 +50,7 @@ export default function Result({userToneStatus, userSkinTone}) {
                         <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-10">
                             
                             {/* 왼쪽 컨텐츠 */}
-                            <ResultLeft personalColorData={personalColorData} />
+                            <ResultLeft personalColorData={personalColorData} onSave={handleSave} />
 
                             {/* 데스크탑 오른쪽 컨텐츠 */}
                             <motion.div
@@ -53,7 +75,7 @@ export default function Result({userToneStatus, userSkinTone}) {
 
                             {/* 모바일 버튼 */}
                             <div className="md:hidden block">
-                                <ResultLeftBtn resultLeftConst={resultLeftConst} />
+                                <ResultLeftBtn resultLeftConst={resultLeftConst} onSave={handleSave} />
                             </div>
 
                         </div>
@@ -61,6 +83,15 @@ export default function Result({userToneStatus, userSkinTone}) {
                 </div>
                 
             </motion.div>
+            
+            {/* 결과 저장 컴포넌트 */}
+            <div className="fixed left-[-9999px] top-0 pointer-events-none" aria-hidden="true">
+                <ResultShare
+                    ref={shareRef}
+                    personalColorData={personalColorData}
+                    userSkinTone={userSkinTone}
+                />
+            </div>
        </>
    )
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "motion/react";
+import { AnimatePresence, motion, useScroll, useSpring, useTransform, useMotionValue, animate } from "motion/react";
 
 import logoSymbol from "../../assets/logo/Logo1.svg"
 import logoText from "../../assets/logo/Logo2.svg"
@@ -31,40 +31,48 @@ export default function NavBar() {
     const marginLeft = useSpring(rawMarginLeft, { stiffness: 100, damping: 20 })
     const marginRight = useSpring(rawMarginRight, { stiffness: 100, damping: 20 })
 
+    const menuGlass = useMotionValue(0)
+    const glassOpacity = useTransform(
+        [opacity, menuGlass],
+        ([scrollOp, menuOp]) => Math.max(scrollOp, menuOp)
+    )
+
+    const [menuOpen, setMenuOpen] = useState(false)
+
+    const openMenu = () => {
+        animate(menuGlass, 1, { duration: 0.5, ease: "easeInOut" })
+        setMenuOpen(true)
+    }
+
+    const closeMenu = () => {
+        animate(menuGlass, 0, { duration: 0.5, ease: "easeInOut" })
+        setMenuOpen(false)
+    }
+
+
     return (
     <>      
-            <div className="fixed md:w-[80%] px-[10%] md:px-0 w-full left-1/2 -translate-x-1/2 z-[200]">
-                <div className="flex flex-row py-6 md:py-8 justify-between items-center font-light font-gmarket">
+            <div className="fixed md:w-[80%] px-[10%] md:px-0 w-full left-1/2 -translate-x-1/2 z-200">
+                <div className="flex flex-row py-6 md:py-8 justify-between items-center font-light font-gmarket ">
+                    
                     {/* 네비바 로고 */}
                     <MotionNavLink
                         style={{marginLeft}}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="flex flex-row gap-4 items-center justify-center z-50 "
+                        className="flex flex-row gap-4 items-center justify-center z-50"
                         to="/"
                         >
                         <img src={logoSymbol} className="w-6" />
                         <img src={logoText} className="md:h-5 h-4" />
                     </MotionNavLink>
 
-                    {/* 모바일 메뉴 */}
-                    {/* <div className="absolute top-0 left-0 w-screen h-screen bg-white/50 z-1">
-                        <div className="px-10 pt-18">
-                            <MotionNavLink className="flex flex-col my-10 gap-14 text-2xl font-medium text-[#3D2E35]">
-                                <p>asd</p>
-                                <p>asd</p>
-                                <p>asd</p>
-                                <p>asd</p>
-                            </MotionNavLink>
-                        </div>
-                    </div> */}
-                    
                     <motion.div
                         style={{marginRight}}
                         transition={{ duration: 0.3, delay: 0, ease: "easeInOut" }}
                         className="flex flex-row md:gap-10 md:py-4 z-50 items-center">
                         
                         <div className="md:hidden block cursor-pointer">
-                            <img src={menuIco} className="w-6" />
+                            <img src={menuIco} className="w-6" onClick={() => menuOpen ? closeMenu() : openMenu()} />
                         </div>
                         
                         {/* 네비바 링크 */}
@@ -117,10 +125,36 @@ export default function NavBar() {
                                 )}
                             </AnimatePresence>
                         </div>
-                    
                     </motion.div>
+
+                    {/* 모바일 메뉴 */}
+                    <AnimatePresence>
+                    {menuOpen && (
+                        <motion.div
+                            initial={{ y: "-100%", opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: "-100%", opacity: 0 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                            className={`${menuOpen ? "block" : "hidden"} absolute top-0 left-0 w-screen h-screen bg-[#FDFAF7] -z-100`}>
+                            <div className="px-10 pt-18">
+                                {navBarConst.links.map((item) => (
+                                    <MotionNavLink
+                                        key={item.linkName}
+                                        className={({isActive }) => isActive ? "flex flex-col my-10 gap-14 text-2xl font-medium text-[#3D2E35]" :"flex flex-col my-10 gap-14 text-2xl text-[#3D2E35]"}
+                                        to={item.linkPath}
+                                        end={item.linkPath === "/"}
+                                        onClick={closeMenu}
+                                        >
+                                        {item.linkName}
+                                    </MotionNavLink>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
+                    </AnimatePresence>
+
                     <motion.div 
-                        style={{ opacity }}
+                        style={{ opacity: glassOpacity }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                         className="glass absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-full md:h-14 h-full md:rounded-full border border-[#FDFAF7]/10"></motion.div>
                 </div>

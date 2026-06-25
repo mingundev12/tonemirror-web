@@ -7,7 +7,7 @@ import resultTipConst from "../../data/result/resultTipConst.json";
 
 import ResultLeftBtn from "./ResultLeftBtn";
 
-export default function ResultLeft({personalColorData}) {
+export default function ResultLeft({personalColorData, onSave}) {
    return (
        <>
            <div className="flex flex-col gap-10 w-full md:p-10 p-0">
@@ -54,7 +54,7 @@ export default function ResultLeft({personalColorData}) {
                 
                 {/* 데스크탑 버튼 */}
                 <div className="md:block hidden">
-                    <ResultLeftBtn resultLeftConst={resultLeftConst} />
+                    <ResultLeftBtn resultLeftConst={resultLeftConst} onSave={onSave} />
                 </div>
                 
             </div>
