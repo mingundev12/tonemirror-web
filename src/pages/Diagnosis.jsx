@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "motion/react";
 
 import ImageUpload from "../components/diagnosis/ImageUpload";
@@ -8,11 +8,31 @@ import Ready from "../components/diagnosis/Ready";
 import Indicator from "../components/diagnosis/Indicator";
 import DiagNavBtn from "../components/diagnosis/DiagNavBtn";
 import DiagTitle from "../components/diagnosis/DiagTitle";
+import { useNavigate } from "react-router-dom";
 
-export default function Diagnosis() {
+export default function Diagnosis({setUserToneStatus, setUserSkinTone}) {
+    const navigate = useNavigate();
 
     const [diagStatus, setDiagStatus] = useState("ready")
     const isDiagStep = ["ready", "upload", "analysis"].includes(diagStatus);
+
+    // 분석 완료 시 유저 퍼스널컬러 설정
+    const handleAnalysisComplete = () => {
+        setUserToneStatus("Cool Summer");  // 더미 퍼스널컬러
+        setUserSkinTone("#ECBA8F");  // 더미 피부톤 데이터
+        navigate("/result");
+    }
+
+    // 분석 완료 시 페이지 전환
+    const [readyToFinish, setReadyToFinish] = useState(false);
+
+    useEffect(() => {
+       if (diagStatus !== "analysis") return;
+       setReadyToFinish(false);
+
+       const timer = setTimeout(() => setReadyToFinish(true), 5000);
+       return () => clearTimeout(timer);
+    }, [diagStatus])
 
    return (
        <>
@@ -103,7 +123,7 @@ export default function Diagnosis() {
 
                     : diagStatus === "analysis" ? 
                         <div className="flex-1 flex flex-col md:contents">
-                            <Analysis />
+                            <Analysis handleAnalysisComplete={handleAnalysisComplete} readyToFinish={readyToFinish}/>
                         </div>
 
                     : diagStatus === "ready" ? 

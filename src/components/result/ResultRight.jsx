@@ -1,11 +1,27 @@
+import { Fragment, useEffect, useState } from "react";
+import { animate } from "motion";
+import { useMotionValue } from "motion/react";
+import { motion } from "motion/react";
+
 import resultRightConst from "../../data/result/resultRightConst.json";
 import diagAccuracyConst from "../../data/diagnosis/diagAccuracyConst.json";
 
 import HologramOverlay from "../common/HologramOverlay";
-import { Fragment } from "react";
 
 export default function ResultRight({personalColorData, userSkinTone}) {
-    
+    const [numCount, setNumCount] = useState(0);
+
+    const motionValue = useMotionValue(0);
+    useEffect(() => {
+       const controls = animate(motionValue, diagAccuracyConst, {
+        duration: 1,
+        ease: "easeOut",
+        onUpdate: (item) => setNumCount(Math.round(item)),
+       });
+       return () => controls.stop();
+    }, [motionValue])
+
+
    return (
        <>
            <div className="glass relative flex flex-col gap-4 items-center justify-center rounded-2xl border border-[#FDFAF7]/10 overflow-hidden p-10">
@@ -30,7 +46,11 @@ export default function ResultRight({personalColorData, userSkinTone}) {
                     <div className="h-full">
                         <p className="text-[#3D2E35]/75 tracking-widest text-left pt-1 text-xs font-light font-gmarket">{resultRightConst.diagnosisAccuracy}</p>
                         <div className="h-full justify-center flex items-center flex-col gap-2">
-                            <p className="md:text-7xl text-4xl font-bold text-[#3D2E35] font-rebecca">{diagAccuracyConst}%</p>
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1, ease: "easeInOut" }}
+                                className="md:text-7xl text-4xl font-bold text-[#3D2E35] font-rebecca">{numCount}%</motion.p>
                             <p className="text-[#3D2E35] font-light md:text-base text-sm text-center font-gmarket md:whitespace-normal whitespace-pre-wrap">{resultRightConst.subtitle}</p>
                         </div>
                     </div> 
@@ -40,7 +60,7 @@ export default function ResultRight({personalColorData, userSkinTone}) {
                 <div className="flex flex-col gap-6 w-full">
 
                     <hr className="border-[#3D2E35]/20 h-[0.1px]" />
-
+                
                     <div className="flex flex-col justify-center gap-2 items-start px-2">
 
                         {/* 어울리는 컬러 */}

@@ -7,7 +7,7 @@ export default function MakeUpTitle({motion, SaveBtn, onSave}) {
                 <div className="hidden md:block"></div>
                 <div className="flex flex-col items-center text-center">
                     <p className="md:text-4xl text-3xl text-[#3D2E35] font-gmarket">{makeUpTitleConst.title}</p>
-                    <p className="text-lg font-light text-[#3D2E35] font-gmarket md:text-nowrap md:whitespace-normal whitespace-pre-wrap">{makeUpTitleConst.description}</p>
+                    <p className="text-lg font-light text-[#3D2E35] font-gmarket md:text-nowrap md:whitespace-nowrap whitespace-pre-wrap">{makeUpTitleConst.description}</p>
                 </div>
                 {/* 버튼 */}
                 <div className="justify-end md:flex hidden">
