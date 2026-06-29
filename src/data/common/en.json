@@ -473,5 +473,73 @@
       "bestTip": "BEST TIP",
       "worstTip": "WORST TIP"
     }
+  },
+  "admin": {
+    "adminLoginConst": {
+      "fields": [
+        { "id": "id", "label": "Username", "type": "text", "placeholder": "Admin username" },
+        { "id": "password", "label": "Password", "type": "password", "placeholder": "Password" }
+      ],
+      "title": "Admin Login",
+      "subtitle": "Please sign in with your admin account",
+      "errors": {
+        "emptyFields": "Please enter both username and password",
+        "loginFailed": "Login failed",
+        "serverError": "Server connection failed. Username or password does not match."
+      },
+      "toast": {
+        "success": "Login successful"
+      },
+      "button": {
+        "loading": "Signing in",
+        "submit": "Sign In"
+      }
+    },
+    "adminConst": {
+      "formFields": [
+        { "name": "brand", "label": "Brand (English)", "type": "input", "placeholder": "e.g. HERA" },
+        { "name": "brandName", "label": "Brand (Korean)", "type": "input", "placeholder": "e.g. 헤라" },
+        { "name": "name", "label": "Product Name", "type": "input", "placeholder": "e.g. Silky Stay 24H Longwear Foundation" },
+        { "name": "shadeName", "label": "Shade Name", "type": "input", "placeholder": "e.g. 21W1 (Warm Vanilla)" },
+        { "name": "shade", "label": "Shade Number", "type": "input", "placeholder": "e.g. 21" },
+        { "name": "swatch", "label": "Swatch HEX", "type": "input", "placeholder": "#FBD5AE" },
+        { "name": "personalColor", "label": "Recommended Personal Color", "type": "select" }
+      ],
+      "personalColors": ["Warm Spring", "Cool Summer", "Warm Autumn", "Cool Winter"],
+      "pageTitle": "Product Registration \n/ Edit",
+      "logout": "Log Out",
+      "productListTitle": "Registered Products",
+      "tableHeaders": {
+        "brand": "Brand",
+        "name": "Product Name",
+        "shadeName": "Shade Name",
+        "personalColor": "Personal Color",
+        "manage": "Manage"
+      },
+      "editButton": "Edit",
+      "formTitle": {
+        "edit": "Edit Product",
+        "create": "Register New Product"
+      },
+      "buttons": {
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "saving": "Saving",
+        "save": "Save",
+        "registering": "Registering",
+        "register": "Register Product"
+      },
+      "confirmDelete": "Are you sure you want to delete?",
+      "toast": {
+        "validationError": "Please fill in brand, brand name (Korean), and product name",
+        "createSuccess": "Product registered successfully",
+        "createError": "Registration failed. Please try again.",
+        "updateSuccess": "Product updated successfully",
+        "updateError": "Update failed",
+        "deleteSuccess": "Product deleted successfully",
+        "deleteError": "Delete failed",
+        "serverError": "Server error. Please try again later."
+      }
+    }
   }
 }

@@ -1,0 +1,46 @@
+{
+  "formFields": [
+    { "name": "brand", "label": "브랜드 (영문)", "type": "input", "placeholder": "예) HERA" },
+    { "name": "brandName", "label": "브랜드 (한글)", "type": "input", "placeholder": "예) 헤라" },
+    { "name": "name", "label": "상품명", "type": "input", "placeholder": "예) 실키 스테이 24H 롱웨어 파운데이션" },
+    { "name": "shadeName", "label": "색상명", "type": "input", "placeholder": "예) 21W1 (Warm Vanilla)" },
+    { "name": "shade", "label": "호수", "type": "input", "placeholder": "예) 21" },
+    { "name": "swatch", "label": "스와치 HEX", "type": "input", "placeholder": "#FBD5AE" },
+    { "name": "personalColor", "label": "추천 퍼스널 컬러", "type": "select" }
+  ],
+  "personalColors": ["Warm Spring", "Cool Summer", "Warm Autumn", "Cool Winter"],
+  "pageTitle": "상품 등록 \n/ 수정",
+  "logout": "로그아웃",
+  "productListTitle": "등록된 상품 목록",
+  "tableHeaders": {
+    "brand": "브랜드",
+    "name": "상품명",
+    "shadeName": "색상명",
+    "personalColor": "퍼스널 컬러",
+    "manage": "관리"
+  },
+  "editButton": "수정",
+  "formTitle": {
+    "edit": "상품 정보 수정",
+    "create": "신규 상품 등록"
+  },
+  "buttons": {
+    "delete": "삭제",
+    "cancel": "취소",
+    "saving": "저장중",
+    "save": "저장",
+    "registering": "등록중",
+    "register": "상품 등록"
+  },
+  "confirmDelete": "삭제 하시겠습니까?",
+  "toast": {
+    "validationError": "브랜드, 브랜드명(한글), 상품명을 모두 입력해주세요",
+    "createSuccess": "등록되었습니다",
+    "createError": "등록에 실패했습니다 다시 시도해 주세요",
+    "updateSuccess": "수정되었습니다",
+    "updateError": "수정 실패했습니다",
+    "deleteSuccess": "삭제되었습니다",
+    "deleteError": "삭제 실패했습니다",
+    "serverError": "서버 오류: 잠시 후 다시 시도해주세요"
+  }
+}
