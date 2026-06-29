@@ -1,6 +1,7 @@
 import { useCallback, useState, useRef } from "react";
 import { motion } from "motion/react";
 import Webcam from "react-webcam";
+import toast from "react-hot-toast";
 
 import imageSquareLight from "../../assets/img/image-square-light.svg";
 import cameraLight from "../../assets/img/camera-light.svg";
@@ -9,8 +10,9 @@ import HologramOverlay from "../common/HologramOverlay";
 
 import imageUploadConst from "../../data/diagnosis/imageUploadConst.json";
 import imageUploadAlertConst from "../../data/diagnosis/imageUploadAlertConst.json";
+import { dataUrlToFile } from "../../api/analysis";
 
-export default function ImageUpload() {
+export default function ImageUpload({ onImageChange }) {
   // 업로드 파일 / 미리보기 URL / 선택 모드 / 카메라 활성화 상태
   const [file, setFile] = useState(null);
   const [view, setView] = useState(null);
@@ -27,12 +29,13 @@ export default function ImageUpload() {
     if (!files) return;
     const alldwedTypes = ["image/jpeg","image/png","image/jpg"]
     if(!alldwedTypes.includes(files.type)) {
-      alert(imageUploadAlertConst);
+      toast.error(imageUploadAlertConst);
       return;
     }
       setFile(files);
       setSelectMode("upload");
       setView(URL.createObjectURL(files));
+      onImageChange?.(files);
   };
 
   // 웹캠 스크린샷 촬영
@@ -42,17 +45,20 @@ export default function ImageUpload() {
       setView(imageSrc);
       setSelectMode("camera");
       setIsCamActive(false);
+      onImageChange?.(dataUrlToFile(imageSrc));
     }
-  }, [webcamRef]);
+  }, [webcamRef, onImageChange]);
 
   // 선택 이미지·모드 초기화 (업로드 URL revoke 포함)
  const resetImage = () => {
   if (view && selectMode === "upload") {
     URL.revokeObjectURL(view);
   }
+  setFile(null);
   setView(null);
   setSelectMode(null);
   setIsCamActive(false);
+  onImageChange?.(null);
  };
 
   return (
