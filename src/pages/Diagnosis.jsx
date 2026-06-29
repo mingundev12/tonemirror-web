@@ -9,17 +9,18 @@ import Indicator from "../components/diagnosis/Indicator";
 import DiagNavBtn from "../components/diagnosis/DiagNavBtn";
 import DiagTitle from "../components/diagnosis/DiagTitle";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { postAnalysis } from "../api/analysis";
 
 export default function Diagnosis({setUserToneStatus, setUserSkinTone}) {
     const navigate = useNavigate();
 
     const [diagStatus, setDiagStatus] = useState("ready")
+    const [imageFile, setImageFile] = useState(null);
     const isDiagStep = ["ready", "upload", "analysis"].includes(diagStatus);
 
     // 분석 완료 시 유저 퍼스널컬러 설정
     const handleAnalysisComplete = () => {
-        setUserToneStatus("Cool Summer");  // 더미 퍼스널컬러
-        setUserSkinTone("#ECBA8F");  // 더미 피부톤 데이터
         navigate("/result");
     }
 
@@ -27,12 +28,35 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone}) {
     const [readyToFinish, setReadyToFinish] = useState(false);
 
     useEffect(() => {
-       if (diagStatus !== "analysis") return;
-       setReadyToFinish(false);
+        if (diagStatus !== "analysis") return;
+        setReadyToFinish(false);
 
-       const timer = setTimeout(() => setReadyToFinish(true), 5000);
-       return () => clearTimeout(timer);
-    }, [diagStatus])
+        if (!imageFile) {
+            setDiagStatus("upload");
+            return;
+        }
+
+        let cancelled = false;
+
+        const runAnalysis = async () => {
+            try {
+                const data = await postAnalysis(imageFile);
+                if (cancelled) return;
+
+                setUserToneStatus(data.personalColor ?? data.toneStatus);
+                setUserSkinTone(data.skinTone ?? data.hexCode);
+                setReadyToFinish(true);
+            } catch (error) {
+                if (cancelled) return;
+                console.error("분석 실패:", error);
+                toast.error("분석에 실패했습니다. 다시 시도해주세요.");
+                setDiagStatus("upload");
+            }
+        };
+
+        runAnalysis();
+        return () => { cancelled = true; };
+    }, [diagStatus, imageFile, setUserToneStatus, setUserSkinTone]);
 
    return (
        <>
@@ -85,11 +109,13 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone}) {
                                         variant="full"
                                         onClick={() => setDiagStatus("ready")}
                                     />
-                                    <DiagNavBtn
-                                        direction="next"
-                                        variant="full"
-                                        onClick={() => setDiagStatus("analysis")}
-                                    />
+                                    {imageFile && (
+                                        <DiagNavBtn
+                                            direction="next"
+                                            variant="full"
+                                            onClick={() => setDiagStatus("analysis")}
+                                        />
+                                    )}
                                 </div>
                             )}
 
@@ -106,7 +132,7 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone}) {
                         </div>
 
                         <div className={`order-3 md:order-3 flex justify-end ${diagStatus === "upload" || diagStatus === "ready" ? "hidden md:flex" : ""}`}>
-                            {(diagStatus === "ready" || diagStatus === "upload") && (
+                            {(diagStatus === "ready" || (diagStatus === "upload" && imageFile)) && (
                                 <DiagNavBtn
                                     direction="next"
                                     variant="full"
@@ -118,7 +144,7 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone}) {
                     {/* 준비, 이미지 업로드, 분석 화면 */}
                     {diagStatus === "upload" ? 
                         <div className="flex-1 flex flex-col md:contents">
-                            <ImageUpload />
+                            <ImageUpload onImageChange={setImageFile} />
                         </div>
 
                     : diagStatus === "analysis" ? 

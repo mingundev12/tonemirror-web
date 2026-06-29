@@ -31,10 +31,10 @@ export default function Footer() {
                             <img src={serviceIcon} className="w-5 h-5" />
                             <p className="font-gmarket text-sm font-light text-[#3D2E35] tracking-wider">SERVICE</p>
                         </div>
-                        <div className="flex flex-col md:gap-4 gap-2">
-                            <p className="font-gmarket md:text-sm text-xs font-light text-[#3D2E35] tracking-wider">DIAGNOSIS</p>
-                            <p className="font-gmarket md:text-sm text-xs font-light text-[#3D2E35] tracking-wider">PERSONAL COLOR</p>
-                            <p className="font-gmarket md:text-sm text-xs font-light text-[#3D2E35] tracking-wider">VIRTUAL MAKEUP</p>
+                        <div className="grid grid-cols-2 md:grid-cols-1 md:gap-4 gap-2">
+                            <p className="font-gmarket md:text-sm text-xs font-light text-[#3D2E35] tracking-wider">진단</p>
+                            <p className="font-gmarket md:text-sm text-xs font-light text-[#3D2E35] tracking-wider">퍼스널 컬러</p>
+                            <p className="font-gmarket md:text-sm text-xs font-light text-[#3D2E35] tracking-wider">가상 메이크업</p>
                         </div>
                     </div>
                     <MotionLink
@@ -52,6 +52,11 @@ export default function Footer() {
 
             <div className="flex md:flex-row flex-col md:items-baseline items-center justify-between mt-10 gap-2 text-xs text-[#3D2E35]">
                 <p className="font-gmarket">© 2025 ToneMirror. All rights reserved.</p>
+                <MotionLink
+                    to="/admin"
+                    whileHover={{ fontWeight: "normal" }}
+                    transition={{ duration: 0.2, ease: "easeInOut"}}
+                    className="font-gmarket font-light">관리자 페이지</MotionLink>
                 <p className="font-gmarket">Designed & Developed by ToneMirror</p>
             </div>
 

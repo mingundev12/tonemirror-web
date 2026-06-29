@@ -63,6 +63,7 @@ export default function SectionOne() {
     const totalW = cardW * 3 + gap * 2;
     const startX = -totalW / 2 + cardW / 2;
 
+    
     return (
         <div ref={sectionRef} className="relative w-full min-h-[100dvh] h-auto md:h-screen overflow-hidden">
             <div className="absolute w-full h-full bg-gradient-to-b from-[#FDFAF7] from-50% to-transparent to-90% z-1 pointer-events-none" />
