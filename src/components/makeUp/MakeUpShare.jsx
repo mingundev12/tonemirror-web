@@ -2,13 +2,12 @@ import { forwardRef } from "react";
 
 import logoSymbol from "../../assets/logo/Logo1.svg";
 import logoText from "../../assets/logo/Logo2.svg";
-import afterSrc from "../../assets/modelHead2.png";
 import scanSmileyLight from "../../assets/img/scan-smiley-light.svg";
 
 import makeUpTitleConst from "../../data/makeup/makeUpTitleConst.json";
 import productCardConst from "../../data/makeup/productCardConst.json";
 
-const MakeUpShare = forwardRef(function MakeUpShare({ products, userToneStatus }, ref) {
+const MakeUpShare = forwardRef(function MakeUpShare({ products, userToneStatus, afterSrc }, ref) {
     return (
         <>
             <div

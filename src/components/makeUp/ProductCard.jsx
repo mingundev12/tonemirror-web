@@ -3,12 +3,14 @@ import { motion } from "motion/react";
 
 import productCardConst from "../../data/makeup/productCardConst.json";
 
-export default function ProductCard({  userToneStatus, products }) {
+export default function ProductCard({  userToneStatus, products, onSelect, isRecoloring }) {
 
-    const [selectProduct, setSelectProduct] = useState({name: products[0].name, shadeName: products[0].shadeName})
+    const [selectProduct, setSelectProduct] = useState(products[0] ? {name: products[0].name, shadeName: products[0].shadeName} : {name: "", shadeName: ""})
 
     const arrAdd = (item) => {
+        if (isRecoloring) return;
         setSelectProduct({name: item.name, shadeName: item.shadeName})
+        onSelect?.(item)
     };
 
     const selectProductText = "선택된 제품: "

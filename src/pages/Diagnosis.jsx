@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { postAnalysis } from "../api/analysis";
 
-export default function Diagnosis({setUserToneStatus, setUserSkinTone}) {
+export default function Diagnosis({setUserToneStatus, setUserSkinTone, setMakeupData, setSourceImageUrl}) {
     const navigate = useNavigate();
 
     const [diagStatus, setDiagStatus] = useState("ready")
@@ -43,8 +43,14 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone}) {
                 const data = await postAnalysis(imageFile);
                 if (cancelled) return;
 
-                setUserToneStatus(data.personalColor ?? data.toneStatus);
-                setUserSkinTone(data.skinTone ?? data.hexCode);
+                setUserToneStatus(data.personalColor);
+                setUserSkinTone(data.skinTone);
+                setMakeupData({
+                    originalImageId: data.originalImageId,
+                    makeupInputs: data.makeupInputs,
+                    makeupImageUrl: data.makeupImageUrl,
+                });
+                setSourceImageUrl(URL.createObjectURL(imageFile)); // before 이미지(업로드 원본)
                 setReadyToFinish(true);
             } catch (error) {
                 if (cancelled) return;
@@ -56,7 +62,7 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone}) {
 
         runAnalysis();
         return () => { cancelled = true; };
-    }, [diagStatus, imageFile, setUserToneStatus, setUserSkinTone]);
+    }, [diagStatus, imageFile, setUserToneStatus, setUserSkinTone, setMakeupData, setSourceImageUrl]);
 
    return (
        <>
