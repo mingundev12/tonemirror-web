@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useMotionTemplate, useTransform } from "motion/react";
 import halfMakeupCardConst from "../../data/makeup/halfMakeupCardConst.json";
-import beforeSrc from "../../assets/modelHead1.png";
-import afterSrc from "../../assets/modelHead2.png";
 
 const HANDLE = 40;
 const HALF = HANDLE / 2;
 
-export default function HalfMakeupCard() {
+export default function HalfMakeupCard({ beforeSrc, afterSrc, isRecoloring }) {
     const containerRef = useRef(null);
     const [width, setWidth] = useState(0);
     const x = useMotionValue(0);
@@ -71,6 +69,13 @@ export default function HalfMakeupCard() {
                     >
                         <motion.span variants={{ rest: { opacity: 0 }, active: { opacity: 1 } }} className="text-sm">{"\u2194"}</motion.span>
                     </motion.div>
+
+                    {/* 재합성 중 로딩 오버레이 */}
+                    {isRecoloring && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-[#3D2E35]/30 backdrop-blur-sm">
+                            <span className="w-8 h-8 rounded-full border-2 border-[#FDFAF7] border-t-transparent animate-spin" />
+                        </div>
+                    )}
                 </div>
             </div>
 

@@ -51,13 +51,13 @@ export default function Footer() {
             </div>
 
             <div className="flex md:flex-row flex-col md:items-baseline items-center justify-between mt-10 gap-2 text-xs text-[#3D2E35]">
-                <p className="font-gmarket">© 2025 ToneMirror. All rights reserved.</p>
+                <p className="font-gmarket order-2 md:order-1">© 2025 ToneMirror. All rights reserved.</p>
                 <MotionLink
                     to="/admin"
                     whileHover={{ fontWeight: "normal" }}
                     transition={{ duration: 0.2, ease: "easeInOut"}}
-                    className="font-gmarket font-light">관리자 페이지</MotionLink>
-                <p className="font-gmarket">Designed & Developed by ToneMirror</p>
+                    className="font-gmarket font-light md:order-2 order-1">관리자 페이지</MotionLink>
+                <p className="font-gmarket order-3">Designed & Developed by ToneMirror</p>
             </div>
 
         </div>

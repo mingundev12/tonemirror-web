@@ -21,6 +21,9 @@ export default function App() {
   const [userToneStatus, setUserToneStatus] = useState(() => sessionStorage.getItem("userToneStatus")) // 퍼스널컬러 결과
   const [userSkinTone, setUserSkinTone] = useState(() => sessionStorage.getItem("userSkinTone")) // 유저 피부톤 데이터
 
+  const [makeupData, setMakeupData] = useState(null)   // { originalImageId, makeupInputs, makeupImageUrl } - 가상 메이크업용
+  const [sourceImageUrl, setSourceImageUrl] = useState(null) // 업로드 원본 미리보기(before 이미지)
+
   // 새로고침 시 결과 유지 (sessionStorage 동기화)
   useEffect(() => {
     if (userToneStatus) sessionStorage.setItem("userToneStatus", userToneStatus)
@@ -36,9 +39,9 @@ export default function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
-            <Route path='/diagnosis' element={<Diagnosis setUserToneStatus={setUserToneStatus} setUserSkinTone={setUserSkinTone} />} />
+            <Route path='/diagnosis' element={<Diagnosis setUserToneStatus={setUserToneStatus} setUserSkinTone={setUserSkinTone} setMakeupData={setMakeupData} setSourceImageUrl={setSourceImageUrl} />} />
             <Route path='/result' element={<Result userToneStatus={userToneStatus} userSkinTone={userSkinTone} />} />
-            <Route path='/makeup' element={<MakeUp userToneStatus={userToneStatus} />} />
+            <Route path='/makeup' element={<MakeUp userToneStatus={userToneStatus} makeupData={makeupData} setMakeupData={setMakeupData} sourceImageUrl={sourceImageUrl} />} />
             <Route path='/admin' element={<ProtectedRoute><Admin /></ProtectedRoute>} />
             <Route path='/adminLogin' element={<AdminLogin />} />
           </Routes>
