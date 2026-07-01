@@ -28,7 +28,7 @@ export async function postAnalysis(imageFile) {
     const formData = new FormData();
     formData.append("file", imageFile);
 
-    const res = await fetch("/ai/virtual-makeup", {
+    const res = await fetch("/api/analysis", {
         method: "POST",
         body: formData,
     });
