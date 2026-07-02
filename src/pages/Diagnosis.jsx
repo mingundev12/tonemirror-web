@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { postAnalysis } from "../api/analysis";
 
-export default function Diagnosis({setUserToneStatus, setUserSkinTone, setMakeupData, setSourceImageUrl}) {
+export default function Diagnosis({setUserToneStatus, setUserSkinTone, setDiagnosisConfidence, setMakeupData, setSourceImageUrl}) {
     const navigate = useNavigate();
 
     const [diagStatus, setDiagStatus] = useState("ready")
@@ -45,6 +45,7 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone, setMakeup
 
                 setUserToneStatus(data.personalColor);
                 setUserSkinTone(data.skinTone);
+                setDiagnosisConfidence(data.diagnosisConfidence);
                 setMakeupData({
                     originalImageId: data.originalImageId,
                     makeupInputs: data.makeupInputs,
@@ -62,7 +63,7 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone, setMakeup
 
         runAnalysis();
         return () => { cancelled = true; };
-    }, [diagStatus, imageFile, setUserToneStatus, setUserSkinTone, setMakeupData, setSourceImageUrl]);
+    }, [diagStatus, imageFile, setDiagnosisConfidence, setUserToneStatus, setUserSkinTone, setMakeupData, setSourceImageUrl]);
 
    return (
        <>

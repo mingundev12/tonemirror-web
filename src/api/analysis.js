@@ -43,6 +43,7 @@ export async function postAnalysis(imageFile) {
     return {
         personalColor: toToneEng(data.personal_color),
         skinTone: data.detected_skin_hex,
+        diagnosisConfidence: data.diagnosis_confidence,
         makeupImageUrl: data.makeup_image_url,
         makeupInputs: data.makeup_inputs,
         originalImageId: data.original_image_id,

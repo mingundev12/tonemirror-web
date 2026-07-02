@@ -20,6 +20,10 @@ export default function App() {
   
   const [userToneStatus, setUserToneStatus] = useState(() => sessionStorage.getItem("userToneStatus")) // 퍼스널컬러 결과
   const [userSkinTone, setUserSkinTone] = useState(() => sessionStorage.getItem("userSkinTone")) // 유저 피부톤 데이터
+  const [diagnosisConfidence, setDiagnosisConfidence] = useState(() => {
+    const stored = sessionStorage.getItem("diagnosisConfidence");
+    return stored ? Number(stored) : null;
+  });
 
   const [makeupData, setMakeupData] = useState(null)   // { originalImageId, makeupInputs, makeupImageUrl } - 가상 메이크업용
   const [sourceImageUrl, setSourceImageUrl] = useState(null) // 업로드 원본 미리보기(before 이미지)
@@ -28,7 +32,10 @@ export default function App() {
   useEffect(() => {
     if (userToneStatus) sessionStorage.setItem("userToneStatus", userToneStatus)
     if (userSkinTone) sessionStorage.setItem("userSkinTone", userSkinTone)
-  }, [userToneStatus, userSkinTone])
+    if (typeof diagnosisConfidence === "number") {
+      sessionStorage.setItem("diagnosisConfidence", String(diagnosisConfidence));
+    }
+  }, [userToneStatus, userSkinTone, diagnosisConfidence])
   
   return (
     <>
@@ -39,8 +46,8 @@ export default function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
-            <Route path='/diagnosis' element={<Diagnosis setUserToneStatus={setUserToneStatus} setUserSkinTone={setUserSkinTone} setMakeupData={setMakeupData} setSourceImageUrl={setSourceImageUrl} />} />
-            <Route path='/result' element={<Result userToneStatus={userToneStatus} userSkinTone={userSkinTone} />} />
+            <Route path='/diagnosis' element={<Diagnosis setUserToneStatus={setUserToneStatus} setUserSkinTone={setUserSkinTone} setDiagnosisConfidence={setDiagnosisConfidence} setMakeupData={setMakeupData} setSourceImageUrl={setSourceImageUrl} />} />
+            <Route path='/result' element={<Result userToneStatus={userToneStatus} userSkinTone={userSkinTone} diagnosisConfidence={diagnosisConfidence} />} />
             <Route path='/makeup' element={<MakeUp userToneStatus={userToneStatus} makeupData={makeupData} setMakeupData={setMakeupData} sourceImageUrl={sourceImageUrl} />} />
             <Route path='/admin' element={<ProtectedRoute><Admin /></ProtectedRoute>} />
             <Route path='/adminLogin' element={<AdminLogin />} />
