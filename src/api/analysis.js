@@ -37,7 +37,9 @@ export async function postAnalysis(imageFile) {
         throw new Error(`분석 요청 실패 (${res.status})`);
     }
 
-    const data = await res.json();
+    const body = await res.json();
+    // 스프링 응답 구조: { message, results: { data: {...실제 분석 데이터...} } }
+    const data = body?.results?.data ?? {};
     return {
         personalColor: toToneEng(data.personal_color),
         skinTone: data.detected_skin_hex,
