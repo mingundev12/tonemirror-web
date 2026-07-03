@@ -33,7 +33,7 @@ export default function ProductCard({  userToneStatus, products, onSelect, isRec
                 {products.map((item) => {
                     const isSelected = selectProduct.shadeName === item.shadeName;
                     return (
-                    <div key={item.brand} className="flex items-center justify-center rounded-2xl border border-[#FDFAF7]/30 p-4 flex-1 glass" onClick={()=> arrAdd(item)}>
+                    <div key={`${item.brand}-${item.shade}-${item.shadeName}`} className="flex items-center justify-center rounded-2xl border border-[#FDFAF7]/30 p-4 flex-1 glass" onClick={()=> arrAdd(item)}>
                         <div className="w-full aspect-square rounded-xl z-10" style={{ background: item.swatch }} />    
                         <motion.div
                         whileHover={{opacity: 0}}
@@ -48,7 +48,7 @@ export default function ProductCard({  userToneStatus, products, onSelect, isRec
                     
                     return (
                     
-                    <div key={item.brand} className="relative flex items-center gap-4 rounded-2xl border border-[#FDFAF7]/30 p-4 flex-1 glass cursor-pointer" onClick={() => arrAdd(item)}>
+                    <div key={`${item.brand}-${item.shade}-${item.shadeName}`} className="relative flex items-center gap-4 rounded-2xl border border-[#FDFAF7]/30 p-4 flex-1 glass cursor-pointer" onClick={() => arrAdd(item)}>
                         <div className="w-20 h-full rounded-xl shrink-0 z-10" style={{ background: item.swatch }} />
                         
                         <motion.div

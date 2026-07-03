@@ -37,7 +37,7 @@ export default function Result({userToneStatus, userSkinTone, diagnosisConfidenc
     }, [personalColorData]);
 
     // 데이터 없으면 진단 페이지로 이동
-    if (!userToneStatus || !userSkinTone) {
+    if (!userToneStatus || !userSkinTone || !personalColorData) {
         return <Navigate to="/diagnosis" />;
     }
 
