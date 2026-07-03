@@ -38,19 +38,26 @@ export async function postAnalysis(imageFile) {
     }
 
     const body = await res.json();
-    // 스프링 응답 구조: { message, results: { data: {...1차 진단 데이터...} } }
-    const data = body?.results?.data ?? {};
+    // 스프링 응답 구조: { message, results: { data: {...DiagnoseResponse...} } }
+    const data = body?.results?.data ?? body?.data ?? body;
+    const makeupInputs = data.files ?? data.makeup_inputs ?? [];
+
     return {
         personalColor: toToneEng(data.personal_color),
         skinTone: data.detected_skin_hex,
-        originalImageId: data.original_image_id,
+        originalImageId: data.original_image_id != null ? String(data.original_image_id) : null,
         originalImageUrl: data.original_image_url ?? null,
-        makeupInputs: data.makeup_inputs ?? [],
+        makeupImageUrl: data.makeup_image_url ?? null,
+        makeupInputs: Array.isArray(makeupInputs) ? makeupInputs : [],
     };
 }
 
 // 2차 메이크업(FastAPI): React에서 독립적으로 격발 — Spring 파이프라인과 분리
 export async function postVirtualMakeup({ originalImageId, targetFoundationHex, files }) {
+    if (!originalImageId || !files?.length) {
+        throw new Error("메이크업 요청에 originalImageId 또는 files가 없습니다.");
+    }
+
     const res = await fetch("/ai/virtual-makeup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
