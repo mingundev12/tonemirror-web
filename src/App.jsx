@@ -20,6 +20,10 @@ export default function App() {
   
   const [userToneStatus, setUserToneStatus] = useState(() => sessionStorage.getItem("userToneStatus")) // 퍼스널컬러 결과
   const [userSkinTone, setUserSkinTone] = useState(() => sessionStorage.getItem("userSkinTone")) // 유저 피부톤 데이터
+  const [diagnosisConfidence, setDiagnosisConfidence] = useState(() => {
+    const stored = sessionStorage.getItem("diagnosisConfidence");
+    return stored ? Number(stored) : null;
+  });
 
   // 1차 진단 세션: Spring 응답 기반 (메이크업 API 격발에 필요한 ROI + 원본 ID)
   const [diagnosisSession, setDiagnosisSession] = useState(() => {

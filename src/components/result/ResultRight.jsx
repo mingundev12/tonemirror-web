@@ -4,22 +4,21 @@ import { useMotionValue } from "motion/react";
 import { motion } from "motion/react";
 
 import resultRightConst from "../../data/result/resultRightConst.json";
-import diagAccuracyConst from "../../data/diagnosis/diagAccuracyConst.json";
 
 import HologramOverlay from "../common/HologramOverlay";
 
-export default function ResultRight({personalColorData, userSkinTone}) {
+export default function ResultRight({personalColorData, userSkinTone, diagnosisConfidence}) {
     const [numCount, setNumCount] = useState(0);
 
     const motionValue = useMotionValue(0);
     useEffect(() => {
-       const controls = animate(motionValue, diagAccuracyConst, {
+       const controls = animate(motionValue, diagnosisConfidence ?? 0, {
         duration: 1,
         ease: "easeOut",
         onUpdate: (item) => setNumCount(Math.round(item)),
        });
        return () => controls.stop();
-    }, [motionValue])
+    }, [diagnosisConfidence, motionValue])
 
 
    return (
