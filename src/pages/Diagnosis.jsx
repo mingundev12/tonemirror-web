@@ -57,8 +57,10 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone, setDiagno
                     originalImageId: data.originalImageId,
                     originalImageUrl: data.originalImageUrl,
                     makeupInputs: data.makeupInputs,
+                    makeupImageUrl: data.makeupImageUrl,
+                    personalColor: data.personalColor,
                 });
-                setMakeupResult(null);
+                setMakeupResult(data.makeupImageUrl ? { makeupImageUrl: data.makeupImageUrl } : null);
                 setSourceImageUrl(URL.createObjectURL(imageFile)); // before 이미지(업로드 원본)
                 setReadyToFinish(true);
             } catch (error) {
