@@ -13,7 +13,7 @@ import ResultShare from "../components/result/ResultShare";
 import resultPersonalColor from "../data/result/resultPersonalColor.json";
 import resultLeftConst from "../data/result/resultLeftConst.json";
 
-export default function Result({userToneStatus, userSkinTone}) {
+export default function Result({userToneStatus, userSkinTone, diagnosisConfidence}) {
 
     const shareRef = useRef(null);
     const personalColorData = resultPersonalColor.find((p) => p.eng === userToneStatus) ?? null;
@@ -65,7 +65,7 @@ export default function Result({userToneStatus, userSkinTone}) {
                                     transition={{ duration: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 100}}
                                     className="md:block hidden"
                                 >
-                                    <ResultRight personalColorData={personalColorData} userSkinTone={userSkinTone} />
+                                    <ResultRight personalColorData={personalColorData} userSkinTone={userSkinTone} diagnosisConfidence={diagnosisConfidence} />
                                 </motion.div>
 
                                 <motion.div
@@ -75,7 +75,7 @@ export default function Result({userToneStatus, userSkinTone}) {
                                     transition={{ duration: 0.5, ease: "easeInOut", type: "spring", damping: 20, stiffness: 100}}
                                     className="md:hidden block"
                                 >
-                                    <ResultRight personalColorData={personalColorData} userSkinTone={userSkinTone} />
+                                    <ResultRight personalColorData={personalColorData} userSkinTone={userSkinTone} diagnosisConfidence={diagnosisConfidence} />
                                 </motion.div>
 
                                 <div className="md:hidden block">
@@ -95,6 +95,7 @@ export default function Result({userToneStatus, userSkinTone}) {
                     ref={shareRef}
                     personalColorData={personalColorData}
                     userSkinTone={userSkinTone}
+                    diagnosisConfidence={diagnosisConfidence}
                 />
             </div>
        </>

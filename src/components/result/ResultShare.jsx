@@ -3,7 +3,6 @@ import { forwardRef } from "react";
 import resultLeftConst from "../../data/result/resultLeftConst.json";
 import resultRightConst from "../../data/result/resultRightConst.json";
 import resultTipConst from "../../data/result/resultTipConst.json";
-import diagAccuracyConst from "../../data/diagnosis/diagAccuracyConst.json";
 
 import logoSymbol from "../../assets/logo/Logo1.svg";
 import logoText from "../../assets/logo/Logo2.svg";
@@ -11,7 +10,7 @@ import chartRadarFilled from "../../assets/img/chart-radar-filled.svg";
 import lightbulbFilamentLight from "../../assets/img/lightbulb-filament-light.svg";
 import warningLight from "../../assets/img/warning-light.svg";
 
-const ResultShare = forwardRef(function ResultShare({ personalColorData, userSkinTone }, ref) {
+const ResultShare = forwardRef(function ResultShare({ personalColorData, userSkinTone, diagnosisConfidence }, ref) {
     return (
         <>
             <div
@@ -72,7 +71,7 @@ const ResultShare = forwardRef(function ResultShare({ personalColorData, userSki
                             <div className="flex flex-col gap-2 flex-1">
                                 <p className="text-[#3D2E35]/75 text-xs font-light font-gmarket">{resultRightConst.diagnosisAccuracy}</p>
                                 <div className="flex flex-col items-center justify-center gap-1 flex-1">
-                                    <p className="text-5xl font-bold text-[#3D2E35] font-rebecca">{diagAccuracyConst}%</p>
+                                    <p className="text-5xl font-bold text-[#3D2E35] font-rebecca">{diagnosisConfidence ?? 0}%</p>
                                     <p className="text-xs text-[#3D2E35] font-light text-center font-gmarket leading-snug">{resultRightConst.subtitle}</p>
                                 </div>
                             </div>

@@ -23,7 +23,7 @@ export function dataUrlToFile(dataUrl, filename = "capture.jpg") {
     return new File([arr], filename, { type: mime });
 }
 
-// 최초 진단: 원본 사진 업로드 → 퍼스널컬러 + 피부톤 + 초기 메이크업 결과 수신
+// 1차 진단(Spring): 퍼스널컬러 + 피부톤 + ROI 파일 목록만 수신 (메이크업 결과는 포함하지 않음)
 export async function postAnalysis(imageFile) {
     const formData = new FormData();
     formData.append("file", imageFile);
@@ -38,18 +38,18 @@ export async function postAnalysis(imageFile) {
     }
 
     const body = await res.json();
-    // 스프링 응답 구조: { message, results: { data: {...실제 분석 데이터...} } }
+    // 스프링 응답 구조: { message, results: { data: {...1차 진단 데이터...} } }
     const data = body?.results?.data ?? {};
     return {
         personalColor: toToneEng(data.personal_color),
         skinTone: data.detected_skin_hex,
-        makeupImageUrl: data.makeup_image_url,
-        makeupInputs: data.makeup_inputs,
         originalImageId: data.original_image_id,
+        originalImageUrl: data.original_image_url ?? null,
+        makeupInputs: data.makeup_inputs ?? [],
     };
 }
 
-// 컬러칩 재합성: 저장해 둔 ROI(files)와 원본 ID로 새 메이크업 이미지만 재요청
+// 2차 메이크업(FastAPI): React에서 독립적으로 격발 — Spring 파이프라인과 분리
 export async function postVirtualMakeup({ originalImageId, targetFoundationHex, files }) {
     const res = await fetch("/ai/virtual-makeup", {
         method: "POST",
