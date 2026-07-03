@@ -42,12 +42,14 @@ export default function HalfMakeupCard({ beforeSrc, afterSrc, isRecoloring }) {
                         className="absolute inset-0 w-full h-full object-cover object-[center_40%] pointer-events-none"
                         draggable={false}
                     />
-                    <motion.img
-                        src={afterSrc}
-                        style={{ clipPath }}
-                        className="absolute inset-0 w-full h-full object-cover object-[center_40%] pointer-events-none"
-                        draggable={false}
-                    />
+                    {afterSrc && (
+                        <motion.img
+                            src={afterSrc}
+                            style={{ clipPath }}
+                            className="absolute inset-0 w-full h-full object-cover object-[center_40%] pointer-events-none"
+                            draggable={false}
+                        />
+                    )}
 
                     <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#FDFAF7]/80 text-[#3D2E35] text-[10px] pt-1 tracking-wide font-gmarket">{halfMakeupCardConst.beforeText}</span>
                     <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#FDFAF7]/80 text-[#3D2E35] text-[10px] pt-1 tracking-wide font-gmarket">{halfMakeupCardConst.afterText}</span>
