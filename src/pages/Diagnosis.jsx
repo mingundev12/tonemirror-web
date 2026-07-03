@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { postAnalysis } from "../api/analysis";
 
-export default function Diagnosis({setUserToneStatus, setUserSkinTone, setDiagnosisConfidence, setMakeupData, setSourceImageUrl}) {
+export default function Diagnosis({setUserToneStatus, setUserSkinTone, setDiagnosisSession, setMakeupResult, setSourceImageUrl}) {
     const navigate = useNavigate();
 
     const [diagStatus, setDiagStatus] = useState("ready")
@@ -43,14 +43,22 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone, setDiagno
                 const data = await postAnalysis(imageFile);
                 if (cancelled) return;
 
+                if (!data.personalColor || !data.skinTone) {
+                    throw new Error("1차 진단 결과가 불완전합니다.");
+                }
+                if (!data.originalImageId || !data.makeupInputs?.length) {
+                    throw new Error("메이크업 준비 데이터(ROI)가 없습니다.");
+                }
+
+                // 1차 진단 결과만 저장 — 2차 메이크업은 /makeup 페이지에서 독립 격발
                 setUserToneStatus(data.personalColor);
                 setUserSkinTone(data.skinTone);
-                setDiagnosisConfidence(data.diagnosisConfidence);
-                setMakeupData({
+                setDiagnosisSession({
                     originalImageId: data.originalImageId,
+                    originalImageUrl: data.originalImageUrl,
                     makeupInputs: data.makeupInputs,
-                    makeupImageUrl: data.makeupImageUrl,
                 });
+                setMakeupResult(null);
                 setSourceImageUrl(URL.createObjectURL(imageFile)); // before 이미지(업로드 원본)
                 setReadyToFinish(true);
             } catch (error) {
@@ -63,7 +71,7 @@ export default function Diagnosis({setUserToneStatus, setUserSkinTone, setDiagno
 
         runAnalysis();
         return () => { cancelled = true; };
-    }, [diagStatus, imageFile, setDiagnosisConfidence, setUserToneStatus, setUserSkinTone, setMakeupData, setSourceImageUrl]);
+    }, [diagStatus, imageFile, setUserToneStatus, setUserSkinTone, setDiagnosisSession, setMakeupResult, setSourceImageUrl]);
 
    return (
        <>

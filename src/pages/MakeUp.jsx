@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState } from "react";
+import { useRef, useCallback, useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { toPng } from "html-to-image";
 import toast from "react-hot-toast";
@@ -15,34 +15,88 @@ import MakeUpShare from "../components/makeUp/MakeUpShare";
 import SaveBtn from "../components/makeUp/SaveBtn";
 import { Navigate } from "react-router-dom";
 
-export default function MakeUp({userToneStatus, makeupData, setMakeupData, sourceImageUrl}) {
+export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult, setMakeupResult, sourceImageUrl }) {
     const shareRef = useRef(null);
     const products = foundationProducts[userToneStatus] ?? [];
 
     const [isRecoloring, setIsRecoloring] = useState(false);
+    const [isInitialLoading, setIsInitialLoading] = useState(false);
+    const initialMakeupRequested = useRef(false);
 
-    // 컬러칩(파운데이션) 선택 → 해당 색으로 메이크업 재합성 요청
+    const isMakeupLoading = isInitialLoading || isRecoloring;
+    const makeupImageUrl = makeupResult?.makeupImageUrl ?? null;
+
+    const requestVirtualMakeup = useCallback(async (targetFoundationHex = null) => {
+        if (!diagnosisSession?.originalImageId || !diagnosisSession?.makeupInputs?.length) {
+            throw new Error("메이크업에 필요한 1차 진단 데이터가 없습니다.");
+        }
+
+        const { makeupImageUrl: url } = await postVirtualMakeup({
+            originalImageId: diagnosisSession.originalImageId,
+            targetFoundationHex,
+            files: diagnosisSession.makeupInputs,
+        });
+
+        setMakeupResult({ makeupImageUrl: url });
+        return url;
+    }, [diagnosisSession, setMakeupResult]);
+
+    // 페이지 진입 시 2차 메이크업을 React에서 FastAPI로 독립 격발
+    useEffect(() => {
+        if (makeupImageUrl || initialMakeupRequested.current) return;
+        if (!diagnosisSession?.originalImageId || !diagnosisSession?.makeupInputs?.length) return;
+
+        initialMakeupRequested.current = true;
+        let cancelled = false;
+
+        const applyInitialMakeup = async () => {
+            setIsInitialLoading(true);
+            try {
+                await requestVirtualMakeup();
+            } catch (error) {
+                if (cancelled) return;
+                initialMakeupRequested.current = false;
+                console.error("초기 메이크업 적용 실패:", error);
+                toast.error("메이크업 적용에 실패했습니다. 다시 시도해주세요.");
+            } finally {
+                if (!cancelled) setIsInitialLoading(false);
+            }
+        };
+
+        applyInitialMakeup();
+        return () => { cancelled = true; };
+    }, [diagnosisSession, makeupImageUrl, requestVirtualMakeup]);
+
+    const handleApplyMakeup = useCallback(async () => {
+        if (isMakeupLoading) return;
+
+        setIsInitialLoading(true);
+        try {
+            await requestVirtualMakeup();
+        } catch (error) {
+            console.error("메이크업 적용 실패:", error);
+            toast.error("메이크업 적용에 실패했습니다. 다시 시도해주세요.");
+        } finally {
+            setIsInitialLoading(false);
+        }
+    }, [isMakeupLoading, requestVirtualMakeup]);
+
     const handleSelectFoundation = useCallback(async (item) => {
-        if (isRecoloring || !makeupData) return;
+        if (isMakeupLoading) return;
 
         setIsRecoloring(true);
         try {
-            const { makeupImageUrl } = await postVirtualMakeup({
-                originalImageId: makeupData.originalImageId,
-                targetFoundationHex: item.swatch,
-                files: makeupData.makeupInputs,
-            });
-            setMakeupData((prev) => ({ ...prev, makeupImageUrl }));
+            await requestVirtualMakeup(item.swatch);
         } catch (error) {
             console.error("메이크업 재합성 실패:", error);
             toast.error("메이크업 적용에 실패했습니다. 다시 시도해주세요.");
         } finally {
             setIsRecoloring(false);
         }
-    }, [isRecoloring, makeupData, setMakeupData]);
+    }, [isMakeupLoading, requestVirtualMakeup]);
 
     const handleSave = useCallback(async () => {
-        if (!shareRef.current) return;
+        if (!shareRef.current || !makeupImageUrl) return;
 
         await document.fonts.ready;
 
@@ -57,13 +111,13 @@ export default function MakeUp({userToneStatus, makeupData, setMakeupData, sourc
         link.download = `tonemirror-makeup-${userToneStatus.replace(/\s+/g, "-").toLowerCase()}.png`;
         link.href = dataUrl;
         link.click();
-    }, [userToneStatus]);
+    }, [userToneStatus, makeupImageUrl]);
 
-    // 데이터 없으면 진단 페이지로 이동 (메이크업 결과는 진단을 거쳐야 생김)
-    if (!userToneStatus || !makeupData) {
+    // 1차 진단 데이터만 있으면 진입 허용 (2차 메이크업 결과는 필수 아님)
+    if (!userToneStatus || !diagnosisSession?.originalImageId || !diagnosisSession?.makeupInputs?.length) {
         return <Navigate to="/diagnosis" />;
     }
-    
+
    return (
        <>
             <div className="relative w-full bg-[#FDFAF7]">
@@ -80,13 +134,25 @@ export default function MakeUp({userToneStatus, makeupData, setMakeupData, sourc
                         <div className="mx-[10%] pt-30 md:pt-0 flex flex-col h-auto md:h-full justify-start md:justify-center items-center gap-10 pb-10 md:pb-0">
                             <MakeUpTitle motion={motion} SaveBtn={SaveBtn} onSave={handleSave} />
 
+                            {!makeupImageUrl && !isMakeupLoading && (
+                                <motion.button
+                                    type="button"
+                                    whileHover={{ scale: 1.05, backgroundColor: "#5C4650" }}
+                                    transition={{ duration: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 100 }}
+                                    className="font-medium text-sm text-[#FDFAF7] bg-[#3D2E35] rounded-full px-8 py-3 cursor-pointer font-gmarket"
+                                    onClick={handleApplyMakeup}
+                                >
+                                    모의 메이크업 적용
+                                </motion.button>
+                            )}
+
                             <MakeUpContent
                                 motion={motion}
                                 products={products}
                                 userToneStatus={userToneStatus}
-                                beforeSrc={sourceImageUrl}
-                                afterSrc={makeupData.makeupImageUrl}
-                                isRecoloring={isRecoloring}
+                                beforeSrc={sourceImageUrl ?? diagnosisSession.originalImageUrl}
+                                afterSrc={makeupImageUrl}
+                                isRecoloring={isMakeupLoading}
                                 onSelectFoundation={handleSelectFoundation}
                             />
 
@@ -100,14 +166,16 @@ export default function MakeUp({userToneStatus, makeupData, setMakeupData, sourc
                 </motion.div>
             </div>
 
-            <div className="fixed left-[-9999px] top-0 pointer-events-none" aria-hidden="true">
-                <MakeUpShare
-                    ref={shareRef}
-                    products={products}
-                    userToneStatus={userToneStatus}
-                    afterSrc={makeupData.makeupImageUrl}
-                />
-            </div>
+            {makeupImageUrl && (
+                <div className="fixed left-[-9999px] top-0 pointer-events-none" aria-hidden="true">
+                    <MakeUpShare
+                        ref={shareRef}
+                        products={products}
+                        userToneStatus={userToneStatus}
+                        afterSrc={makeupImageUrl}
+                    />
+                </div>
+            )}
        </>
    )
 }
