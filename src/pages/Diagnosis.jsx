@@ -47,24 +47,24 @@ export default function Diagnosis({
                 const data = await postAnalysis(imageFile);
                 if (cancelled) return;
 
-                if (!data.personalColor || !data.skinTone) {
+                if (!data.personal_color || !data.detected_skin_hex) {
                     throw new Error("1차 진단 결과가 불완전합니다.");
                 }
-                if (!data.originalImageId || !data.makeupInputs?.length) {
+                if (!data.original_image_id || !data.makeup_inputs?.length) {
                     throw new Error("메이크업 준비 데이터(ROI)가 없습니다.");
                 }
 
-                setUserToneStatus(data.personalColor);
-                setUserSkinTone(data.skinTone);
-                setDiagnosisConfidence(data.diagnosisConfidence);
+                setUserToneStatus(data.personal_color);
+                setUserSkinTone(data.detected_skin_hex);
+                setDiagnosisConfidence(data.diagnosis_confidence);
                 setDiagnosisSession({
-                    originalImageId: data.originalImageId,
-                    originalImageUrl: data.originalImageUrl,
-                    makeupInputs: data.makeupInputs,
-                    makeupImageUrl: data.makeupImageUrl,
-                    personalColor: data.personalColor,
+                    original_image_id: data.original_image_id,
+                    original_image_url: data.original_image_url,
+                    makeup_inputs: data.makeup_inputs,
+                    makeup_image_url: data.makeup_image_url,
+                    personal_color: data.personal_color,
                 });
-                setMakeupResult(data.makeupImageUrl ? { makeupImageUrl: data.makeupImageUrl } : null);
+                setMakeupResult(data.makeup_image_url ? { makeupImageUrl: data.makeup_image_url } : null);
                 setSourceImageUrl(URL.createObjectURL(imageFile));
                 setReadyToFinish(true);
             } catch (error) {
