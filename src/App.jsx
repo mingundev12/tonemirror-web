@@ -14,15 +14,25 @@ import NavBar from './components/common/NavBar';
 import LenisComponent from './components/common/LenisComponent';
 import ProtectedRoute from './components/admin/ProtectedRoute';
 
+// sessionStorage에 값이 없을 때(브라우저 완전 종료 후 재방문 등) 대비한 localStorage 백업 데이터
+function readStoredUserData() {
+  try {
+    return JSON.parse(localStorage.getItem("User Data"));
+  } catch {
+    return null;
+  }
+}
+
 export default function App() {
 
   const location = useLocation();
-  
-  const [userToneStatus, setUserToneStatus] = useState(() => sessionStorage.getItem("userToneStatus")) // 퍼스널컬러 결과
-  const [userSkinTone, setUserSkinTone] = useState(() => sessionStorage.getItem("userSkinTone")) // 유저 피부톤 데이터
+
+  const [userToneStatus, setUserToneStatus] = useState(() => sessionStorage.getItem("userToneStatus") || readStoredUserData()?.personalColorData?.eng || null) // 퍼스널컬러 결과
+  const [userSkinTone, setUserSkinTone] = useState(() => sessionStorage.getItem("userSkinTone") || readStoredUserData()?.userSkinTone || null) // 유저 피부톤 데이터
   const [diagnosisConfidence, setDiagnosisConfidence] = useState(() => {
     const stored = sessionStorage.getItem("diagnosisConfidence");
-    return stored ? Number(stored) : null;
+    if (stored) return Number(stored);
+    return readStoredUserData()?.diagnosisConfidence ?? null;
   });
 
   // 1차 진단 세션: Spring 응답 기반 (메이크업 API 격발에 필요한 ROI + 원본 ID)
