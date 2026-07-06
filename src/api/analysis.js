@@ -13,6 +13,20 @@ function toToneEng(personalColor) {
     return season ? SEASON_TO_ENG[season] : personalColor;
 }
 
+async function parseErrorMessage(res) {
+    try {
+        const body = await res.json();
+        if (typeof body?.message === "string" && body.message) return body.message;
+        if (typeof body?.detail === "string" && body.detail) return body.detail;
+        if (Array.isArray(body?.detail)) {
+            return body.detail.map((item) => item?.msg ?? item).join(", ");
+        }
+    } catch {
+        // JSON 파싱 실패 시 status만 사용
+    }
+    return `요청 실패 (${res.status})`;
+}
+
 // dataURL(웹캠 캡처) → File 변환
 export function dataUrlToFile(dataUrl, filename = "capture.jpg") {
     const [meta, data] = dataUrl.split(",");
@@ -34,7 +48,7 @@ export async function postAnalysis(imageFile) {
     });
 
     if (!res.ok) {
-        throw new Error(`분석 요청 실패 (${res.status})`);
+        throw new Error(await parseErrorMessage(res));
     }
 
     const body = await res.json();
@@ -45,6 +59,7 @@ export async function postAnalysis(imageFile) {
     return {
         personalColor: toToneEng(data.personal_color),
         skinTone: data.detected_skin_hex,
+        diagnosisConfidence: data.diagnosis_confidence ?? null,
         originalImageId: data.original_image_id != null ? String(data.original_image_id) : null,
         originalImageUrl: data.original_image_url ?? null,
         makeupImageUrl: data.makeup_image_url ?? null,
@@ -63,13 +78,13 @@ export async function postVirtualMakeup({ originalImageId, targetFoundationHex, 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             original_image_id: originalImageId,
-            target_foundation_hex: targetFoundationHex,
+            ...(targetFoundationHex ? { target_foundation_hex: targetFoundationHex } : {}),
             files,
         }),
     });
 
     if (!res.ok) {
-        throw new Error(`메이크업 요청 실패 (${res.status})`);
+        throw new Error(await parseErrorMessage(res));
     }
 
     const data = await res.json();

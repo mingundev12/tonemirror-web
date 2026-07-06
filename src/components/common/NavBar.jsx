@@ -8,12 +8,11 @@ import menuIco from "../../assets/img/list-light.svg"
 
 import navBarConst from "../../data/common/navBarConst.json"
 
+const MotionNavLink = motion(NavLink);
 
 export default function NavBar() {
-    
-    const languages = navBarConst.languages
 
-    const MotionNavLink = motion(NavLink);
+    const languages = navBarConst.languages
 
     const [langCode, setLangCode] = useState("KOR")
     const [langOpen, setLangOpen] = useState(false)

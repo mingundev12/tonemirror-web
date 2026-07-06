@@ -42,13 +42,17 @@ export default function App() {
   // 새로고침 시 1차 진단 결과 유지 (sessionStorage 동기화)
   useEffect(() => {
     if (userToneStatus) sessionStorage.setItem("userToneStatus", userToneStatus)
+    else sessionStorage.removeItem("userToneStatus")
     if (userSkinTone) sessionStorage.setItem("userSkinTone", userSkinTone)
+    else sessionStorage.removeItem("userSkinTone")
+    if (diagnosisConfidence != null) sessionStorage.setItem("diagnosisConfidence", String(diagnosisConfidence))
+    else sessionStorage.removeItem("diagnosisConfidence")
     if (diagnosisSession) {
       sessionStorage.setItem("diagnosisSession", JSON.stringify(diagnosisSession))
     } else {
       sessionStorage.removeItem("diagnosisSession")
     }
-  }, [userToneStatus, userSkinTone, diagnosisSession])
+  }, [userToneStatus, userSkinTone, diagnosisConfidence, diagnosisSession])
   
   return (
     <>
@@ -59,8 +63,8 @@ export default function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
-            <Route path='/diagnosis' element={<Diagnosis setUserToneStatus={setUserToneStatus} setUserSkinTone={setUserSkinTone} setDiagnosisSession={setDiagnosisSession} setMakeupResult={setMakeupResult} setSourceImageUrl={setSourceImageUrl} />} />
-            <Route path='/result' element={<Result userToneStatus={userToneStatus} userSkinTone={userSkinTone} />} />
+            <Route path='/diagnosis' element={<Diagnosis setUserToneStatus={setUserToneStatus} setUserSkinTone={setUserSkinTone} setDiagnosisConfidence={setDiagnosisConfidence} setDiagnosisSession={setDiagnosisSession} setMakeupResult={setMakeupResult} setSourceImageUrl={setSourceImageUrl} />} />
+            <Route path='/result' element={<Result userToneStatus={userToneStatus} userSkinTone={userSkinTone} diagnosisConfidence={diagnosisConfidence} />} />
             <Route path='/makeup' element={<MakeUp userToneStatus={userToneStatus} diagnosisSession={diagnosisSession} makeupResult={makeupResult} setMakeupResult={setMakeupResult} sourceImageUrl={sourceImageUrl} />} />
             <Route path='/admin' element={<ProtectedRoute><Admin /></ProtectedRoute>} />
             <Route path='/adminLogin' element={<AdminLogin />} />

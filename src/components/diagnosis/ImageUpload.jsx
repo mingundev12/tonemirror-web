@@ -13,15 +13,12 @@ import imageUploadAlertConst from "../../data/diagnosis/imageUploadAlertConst.js
 import { dataUrlToFile } from "../../api/analysis";
 
 export default function ImageUpload({ onImageChange }) {
-  // 업로드 파일 / 미리보기 URL / 선택 모드 / 카메라 활성화 상태
-  const [file, setFile] = useState(null);
+  // 미리보기 URL / 선택 모드 / 카메라 활성화 상태
   const [view, setView] = useState(null);
   const [selectMode, setSelectMode] = useState(null);
   const [isCamActive, setIsCamActive] = useState(false);
   const fileInputRef = useRef(null);
   const webcamRef = useRef(null);
-
-  const handleButtonClick = () => fileInputRef.current?.click();
 
   // 파일 선택 시 확장자 검증 후 미리보기
   const handleChange = (e) => {
@@ -32,8 +29,11 @@ export default function ImageUpload({ onImageChange }) {
       toast.error(imageUploadAlertConst);
       return;
     }
-      setFile(files);
+      if (view && selectMode === "upload") {
+        URL.revokeObjectURL(view);
+      }
       setSelectMode("upload");
+      setIsCamActive(false); // 업로드로 전환 시 켜져 있던 웹캠 스트림 종료
       setView(URL.createObjectURL(files));
       onImageChange?.(files);
   };
@@ -54,7 +54,6 @@ export default function ImageUpload({ onImageChange }) {
   if (view && selectMode === "upload") {
     URL.revokeObjectURL(view);
   }
-  setFile(null);
   setView(null);
   setSelectMode(null);
   setIsCamActive(false);

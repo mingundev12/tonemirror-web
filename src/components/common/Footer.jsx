@@ -5,9 +5,9 @@ import longArrow from "../../assets/img/right-long-arrow.svg";
 import contactIcon from "../../assets/img/paper-plane-tilt-light.svg";
 import serviceIcon from "../../assets/img/toolbox-light.svg";
 
+const MotionLink = motion(Link);
+
 export default function Footer() {
-    
-    const MotionLink = motion(Link);
 
    return (
         <div className="box-border px-[10%] md:px-0 md:mx-[10%] flex flex-col h-auto md:h-screen md:justify-end min-w-0 pb-10">

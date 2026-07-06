@@ -7,7 +7,6 @@ import colorWheelColor from "../../data/home/colorWheelColor.json"
 
 export default function ColorWheel({ onSelect, autoRotate = false }) {
 
-    const [selectedId, setSelectedId] = useState(0)
     const [hoveredPathId, setHoveredPathId] = useState(null)
     const rotation = useMotionValue(0)
     const gRef = useRef(null)
@@ -59,7 +58,6 @@ export default function ColorWheel({ onSelect, autoRotate = false }) {
             duration: 0.8,
             ease: "easeInOut",
             onComplete: () => {
-                setSelectedId(i)
                 if (autoRotate) {
                     let cancelled = false
                     const continueRotation = async () => {

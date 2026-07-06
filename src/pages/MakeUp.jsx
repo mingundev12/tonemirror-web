@@ -30,11 +30,17 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
         if (!diagnosisSession?.originalImageId || !diagnosisSession?.makeupInputs?.length) {
             throw new Error("메이크업에 필요한 1차 진단 데이터가 없습니다.");
         }
+        if (!diagnosisSession?.originalImageUrl) {
+            throw new Error("원본 이미지 URL이 없어 메이크업을 합성할 수 없습니다.");
+        }
 
         const { makeupImageUrl: url } = await postVirtualMakeup({
             originalImageId: diagnosisSession.originalImageId,
             targetFoundationHex,
-            files: diagnosisSession.makeupInputs,
+            files: [
+                ...diagnosisSession.makeupInputs,
+                { file_type: "original_image", file_url: diagnosisSession.originalImageUrl },
+            ],
         });
 
         setMakeupResult({ makeupImageUrl: url });
@@ -57,7 +63,7 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
                 if (cancelled) return;
                 initialMakeupRequested.current = false;
                 console.error("초기 메이크업 적용 실패:", error);
-                toast.error("메이크업 적용에 실패했습니다. 다시 시도해주세요.");
+                toast.error(error.message || "메이크업 적용에 실패했습니다. 다시 시도해주세요.");
             } finally {
                 if (!cancelled) setIsInitialLoading(false);
             }
@@ -75,7 +81,7 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
             await requestVirtualMakeup();
         } catch (error) {
             console.error("메이크업 적용 실패:", error);
-            toast.error("메이크업 적용에 실패했습니다. 다시 시도해주세요.");
+            toast.error(error.message || "메이크업 적용에 실패했습니다. 다시 시도해주세요.");
         } finally {
             setIsInitialLoading(false);
         }
@@ -89,7 +95,7 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
             await requestVirtualMakeup(item.swatch);
         } catch (error) {
             console.error("메이크업 재합성 실패:", error);
-            toast.error("메이크업 적용에 실패했습니다. 다시 시도해주세요.");
+            toast.error(error.message || "메이크업 적용에 실패했습니다. 다시 시도해주세요.");
         } finally {
             setIsRecoloring(false);
         }
