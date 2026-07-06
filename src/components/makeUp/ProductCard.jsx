@@ -21,11 +21,11 @@ export default function ProductCard({  userToneStatus, products, onSelect, isRec
             <div className="flex md:flex-row flex-col md:items-center justify-between">
                 <div className="md:block hidden">
                     <p className="text-lg text-[#3D2E35] font-gmarket">{productCardConst.title}</p>
-                    <p className="text-sm font-light text-[#3D2E35]/60 font-gmarket">{userToneStatus}{productCardConst.subtitle}</p>
+                    <p className="text-sm font-light text-[#3D2E35]/60 font-gmarket">{userToneStatus}{productCardConst.subtitle}을 선택하여 가상 메이크업을 확인하세요.</p>
                 </div>
-                <div className="flex md:flex-row flex-col gap-2">
+                <div className="flex md:flex-row flex-col items-center gap-2">
                     <p className="text-lg text-[#3D2E35] font-gmarket">{selectProductText}</p>
-                    <p className="md:text-lg text-sm text-[#3D2E35] font-light font-gmarket md:whitespace-nowrap">{selectProduct.name} <br className="md:hidden block" /> {selectProduct.shadeName}</p>
+                    <p className="text-sm text-[#3D2E35] font-light font-gmarket md:whitespace-nowrap">{selectProduct.name} <br className="md:hidden block" /> {selectProduct.shadeName}</p>
                 </div>
             </div>
             
