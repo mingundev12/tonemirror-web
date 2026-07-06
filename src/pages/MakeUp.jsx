@@ -73,20 +73,6 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
         return () => { cancelled = true; };
     }, [diagnosisSession, makeupImageUrl, requestVirtualMakeup]);
 
-    const handleApplyMakeup = useCallback(async () => {
-        if (isMakeupLoading) return;
-
-        setIsInitialLoading(true);
-        try {
-            await requestVirtualMakeup();
-        } catch (error) {
-            console.error("메이크업 적용 실패:", error);
-            toast.error(error.message || "메이크업 적용에 실패했습니다. 다시 시도해주세요.");
-        } finally {
-            setIsInitialLoading(false);
-        }
-    }, [isMakeupLoading, requestVirtualMakeup]);
-
     const handleSelectFoundation = useCallback(async (item) => {
         if (isMakeupLoading) return;
 
@@ -136,21 +122,8 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
                 </div>
 
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="relative z-10 w-full">
-                    <div className="w-full min-h-dvh md:h-screen md:overflow-hidden overflow-auto">
-                        <div className="mx-[10%] pt-30 md:pt-0 flex flex-col h-auto md:h-full justify-start md:justify-center items-center gap-10 pb-10 md:pb-0">
-                            <MakeUpTitle motion={motion} SaveBtn={SaveBtn} onSave={handleSave} />
-
-                            {!makeupImageUrl && !isMakeupLoading && (
-                                <motion.button
-                                    type="button"
-                                    whileHover={{ scale: 1.05, backgroundColor: "#5C4650" }}
-                                    transition={{ duration: 0.2, ease: "easeInOut", type: "spring", damping: 10, stiffness: 100 }}
-                                    className="font-medium text-sm text-[#FDFAF7] bg-[#3D2E35] rounded-full px-8 py-3 cursor-pointer font-gmarket"
-                                    onClick={handleApplyMakeup}
-                                >
-                                    모의 메이크업 적용
-                                </motion.button>
-                            )}
+                    <div className="w-full min-h-dvh">
+                        <div className="mx-[10%] pt-30 flex flex-col h-auto justify-start items-center gap-10 pb-10">
 
                             <MakeUpContent
                                 motion={motion}
@@ -162,7 +135,7 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
                                 onSelectFoundation={handleSelectFoundation}
                             />
 
-                            <div className="md:hidden block">
+                            <div className="">
                                 <SaveBtn motion={motion} onSave={handleSave} />
                             </div>
                         </div>

@@ -26,7 +26,7 @@ export default function HalfMakeupCard({ beforeSrc, afterSrc, isRecoloring }) {
     const left = useMotionTemplate`${pct}%`;
 
     return (
-        <div className="glass aspect-[9/16] w-full h-auto md:w-auto md:h-full shrink-0 rounded-3xl p-8 border border-[#FDFAF7]/30 flex flex-col gap-5">
+        <div className="glass aspect-[9/16] w-full h-auto shrink-0 rounded-3xl p-8 border border-[#FDFAF7]/30 flex flex-col gap-5">
             <div>
                 <p className="text-lg text-[#3D2E35] font-gmarket">{halfMakeupCardConst.title}</p>
                 <p className="text-sm font-light text-[#3D2E35]/60 font-gmarket">{halfMakeupCardConst.description}</p>
@@ -35,7 +35,7 @@ export default function HalfMakeupCard({ beforeSrc, afterSrc, isRecoloring }) {
             <div className="flex-1 w-full rounded-2xl border border-[#FDFAF7]/30 bg-[#3D2E35]/15 flex items-center justify-center">
                 <div
                     ref={containerRef}
-                    className="relative w-full h-full max-w-[360px] mx-auto rounded-xl overflow-hidden select-none"
+                    className="relative w-full h-full rounded-xl overflow-hidden select-none"
                 >
                     <img
                         src={beforeSrc}
