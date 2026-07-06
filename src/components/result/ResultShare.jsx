@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 
 import resultLeftConst from "../../data/result/resultLeftConst.json";
 import resultRightConst from "../../data/result/resultRightConst.json";
@@ -11,6 +11,11 @@ import lightbulbFilamentLight from "../../assets/img/lightbulb-filament-light.sv
 import warningLight from "../../assets/img/warning-light.svg";
 
 const ResultShare = forwardRef(function ResultShare({ personalColorData, userSkinTone, diagnosisConfidence }, ref) {
+
+    useEffect(() => {
+        localStorage.setItem("User Data", JSON.stringify({ personalColorData, userSkinTone, diagnosisConfidence }))
+    }, [personalColorData, userSkinTone, diagnosisConfidence])
+
     return (
         <>
             <div
