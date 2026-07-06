@@ -27,19 +27,19 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
     const makeupImageUrl = makeupResult?.makeupImageUrl ?? null;
 
     const requestVirtualMakeup = useCallback(async (targetFoundationHex = null) => {
-        if (!diagnosisSession?.originalImageId || !diagnosisSession?.makeupInputs?.length) {
+        if (!diagnosisSession?.original_image_id || !diagnosisSession?.makeup_inputs?.length) {
             throw new Error("메이크업에 필요한 1차 진단 데이터가 없습니다.");
         }
-        if (!diagnosisSession?.originalImageUrl) {
+        if (!diagnosisSession?.original_image_url) {
             throw new Error("원본 이미지 URL이 없어 메이크업을 합성할 수 없습니다.");
         }
 
         const { makeupImageUrl: url } = await postVirtualMakeup({
-            originalImageId: diagnosisSession.originalImageId,
+            originalImageId: diagnosisSession.original_image_id,
             targetFoundationHex,
             files: [
-                ...diagnosisSession.makeupInputs,
-                { file_type: "original_image", file_url: diagnosisSession.originalImageUrl },
+                ...diagnosisSession.makeup_inputs,
+                { file_type: "original_image", file_url: diagnosisSession.original_image_url },
             ],
         });
 
@@ -50,7 +50,7 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
     // 페이지 진입 시 2차 메이크업을 React에서 FastAPI로 독립 격발
     useEffect(() => {
         if (makeupImageUrl || initialMakeupRequested.current) return;
-        if (!diagnosisSession?.originalImageId || !diagnosisSession?.makeupInputs?.length) return;
+        if (!diagnosisSession?.original_image_id || !diagnosisSession?.makeup_inputs?.length) return;
 
         initialMakeupRequested.current = true;
         let cancelled = false;
@@ -120,7 +120,7 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
     }, [userToneStatus, makeupImageUrl]);
 
     // 1차 진단 데이터만 있으면 진입 허용 (2차 메이크업 결과는 필수 아님)
-    if (!userToneStatus || !diagnosisSession?.originalImageId || !diagnosisSession?.makeupInputs?.length) {
+    if (!userToneStatus || !diagnosisSession?.original_image_id || !diagnosisSession?.makeup_inputs?.length) {
         return <Navigate to="/diagnosis" />;
     }
 
@@ -156,7 +156,7 @@ export default function MakeUp({ userToneStatus, diagnosisSession, makeupResult,
                                 motion={motion}
                                 products={products}
                                 userToneStatus={userToneStatus}
-                                beforeSrc={sourceImageUrl ?? diagnosisSession.originalImageUrl}
+                                beforeSrc={sourceImageUrl ?? diagnosisSession.original_image_url}
                                 afterSrc={makeupImageUrl}
                                 isRecoloring={isMakeupLoading}
                                 onSelectFoundation={handleSelectFoundation}

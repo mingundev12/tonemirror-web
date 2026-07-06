@@ -56,14 +56,16 @@ export async function postAnalysis(imageFile) {
     const data = body?.results?.data ?? body?.data ?? body;
     const makeupInputs = data.files ?? data.makeup_inputs ?? [];
 
+    // 백엔드 응답 포맷(camelCase/snake_case) 혼재 대비 방어 코드
     return {
-        personalColor: toToneEng(data.personal_color),
-        skinTone: data.detected_skin_hex,
-        diagnosisConfidence: data.diagnosis_confidence ?? null,
-        originalImageId: data.original_image_id != null ? String(data.original_image_id) : null,
-        originalImageUrl: data.original_image_url ?? null,
-        makeupImageUrl: data.makeup_image_url ?? null,
-        makeupInputs: Array.isArray(makeupInputs) ? makeupInputs : [],
+        personal_color: toToneEng(data.personal_color || data.personalColor),
+        detected_skin_hex: data.detected_skin_hex || data.skinTone || data.detectedSkinHex,
+        diagnosis_confidence: data.diagnosis_confidence || data.diagnosisConfidence || null,
+        original_image_id: (data.original_image_id ?? data.originalImageId) != null
+            ? String(data.original_image_id ?? data.originalImageId) : null,
+        original_image_url: data.original_image_url || data.originalImageUrl || null,
+        makeup_image_url: data.makeup_image_url || data.makeupImageUrl || null,
+        makeup_inputs: Array.isArray(makeupInputs) ? makeupInputs : [],
     };
 }
 
@@ -77,7 +79,7 @@ export async function postVirtualMakeup({ originalImageId, targetFoundationHex, 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            original_image_id: originalImageId,
+            original_image_id: String(originalImageId),
             ...(targetFoundationHex ? { target_foundation_hex: targetFoundationHex } : {}),
             files,
         }),
