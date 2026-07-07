@@ -41,11 +41,9 @@ export default function ImageUpload({ onImageChange }) {
 
   return (
     <div className="flex-1 w-full min-w-0 flex flex-col pb-10 md:pb-0 md:flex-none md:h-[50vh] min-h-0">
-      <div className="grid md:grid-cols-4 grid-rows-1 md:gap-8 gap-2 w-full min-w-0 flex-1 min-h-0 font-gmarket items-stretch md:items-center px-1 md:px-0">
-        <div className="col-span-1 md:block hidden" />
-
+      <div className="flex flex-1 min-h-0 w-full font-gmarket items-stretch md:items-center justify-center px-1 md:px-0">
         <motion.div
-          className="col-span-1 md:col-span-2 glass w-full h-full min-h-0 rounded-2xl flex flex-col items-center justify-center relative border border-[#FDFAF7]/10 overflow-hidden cursor-pointer"
+          className="w-full md:w-1/4 h-full min-h-0 glass rounded-2xl flex flex-col items-center justify-center relative border border-[#FDFAF7]/10 overflow-hidden cursor-pointer"
           onClick={() => fileInputRef.current?.click()}
           initial="rest"
           animate="rest"
@@ -113,8 +111,6 @@ export default function ImageUpload({ onImageChange }) {
             </div>
           )}
         </motion.div>
-
-        <div className="col-span-1 md:block hidden" />
 
         <input
           type="file"
